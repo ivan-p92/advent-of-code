@@ -1,6 +1,8 @@
 package net.iplantevin.aoc.aoc2023
 
 import io.kotest.matchers.shouldBe
+import net.iplantevin.aoc.aoc2023.AoC23_01.problem1a
+import net.iplantevin.aoc.aoc2023.AoC23_01.problem1b
 import net.iplantevin.aoc.util.readFile
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
