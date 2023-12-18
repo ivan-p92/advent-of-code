@@ -1,6 +1,6 @@
 package net.iplantevin.aoc.aoc2023
 
-object AoC23_01 {
+object Day1 {
 
     fun problem1a(input: String): Int {
         return input.lines().sumOf { line ->

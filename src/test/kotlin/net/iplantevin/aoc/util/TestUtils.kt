@@ -8,5 +8,5 @@ fun timing(f: () -> Unit) {
     println("Took ${(end - start) / 1.0e6} ms")
 }
 
-fun <R: Any> R.readFile(fileName: String) =
-    this::class.java.classLoader.getResource(fileName).readText()
+fun <R: Any> R.input(year: Int, day: Int) =
+    this::class.java.classLoader.getResource("aoc${year}_$day.txt").readText()

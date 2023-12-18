@@ -1,9 +1,11 @@
 package net.iplantevin.aoc.aoc2023
 
 import io.kotest.matchers.shouldBe
-import net.iplantevin.aoc.aoc2023.AoC23_01.problem1a
-import net.iplantevin.aoc.aoc2023.AoC23_01.problem1b
-import net.iplantevin.aoc.util.readFile
+import net.iplantevin.aoc.aoc2023.Day1.problem1a
+import net.iplantevin.aoc.aoc2023.Day1.problem1b
+import net.iplantevin.aoc.aoc2023.Day2.problem2a
+import net.iplantevin.aoc.aoc2023.Day2.problem2b
+import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
 
@@ -18,7 +20,7 @@ a1b2c3d4e5f
 treb7uchet"""
         ) shouldBe 142
 
-        timing { problem1a(readFile("aoc23_1.txt")) shouldBe 54877 }
+        timing { problem1a(input(23, 1)) shouldBe 54877 }
     }
 
     @Test
@@ -31,6 +33,33 @@ xtwone3four
 zoneight234
 7pqrstsixteen""") shouldBe 281
 
-        timing { problem1b(readFile("aoc23_1.txt")) shouldBe 54100 }
+        timing { problem1b(input(23, 1)) shouldBe 54100 }
+    }
+
+    @Test
+    fun part2a() {
+        problem2a(
+            """Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green""",
+            12, 13, 14
+        ) shouldBe 8
+
+        timing { problem2a(input(23, 2), 12, 13, 14) shouldBe 2795 }
+    }
+
+    @Test
+    fun part2b() {
+        problem2b(
+            """Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
+        ) shouldBe 2286
+
+        timing { problem2b(input(23, 2)) shouldBe 75561 }
     }
 }
