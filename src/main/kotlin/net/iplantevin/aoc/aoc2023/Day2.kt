@@ -39,16 +39,10 @@ object Day2 {
         }
 
         fun power(): Int {
-            var maxRed = 0
-            var maxGreen = 0
-            var maxBlue = 0
-
-            draws.forEach { (red, green, blue) ->
-                maxRed = max(red, maxRed)
-                maxGreen = max(green, maxGreen)
-                maxBlue = max(blue, maxBlue)
+            val highestCounts = draws.fold(RGB(0, 0, 0)) { acc, draw ->
+                RGB(max(acc.red, draw.red), max(acc.green, draw.green), max(acc.blue, draw.blue))
             }
-            return maxRed * maxBlue * maxGreen
+            return with(highestCounts) { red * green * blue }
         }
     }
 
