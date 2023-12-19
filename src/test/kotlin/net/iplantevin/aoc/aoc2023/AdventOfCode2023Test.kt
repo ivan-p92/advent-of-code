@@ -5,6 +5,9 @@ import net.iplantevin.aoc.aoc2023.Day1.problem1a
 import net.iplantevin.aoc.aoc2023.Day1.problem1b
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
+import net.iplantevin.aoc.aoc2023.Day3.problem3a
+import net.iplantevin.aoc.aoc2023.Day3.problem3b
+import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
@@ -61,5 +64,51 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
         ) shouldBe 2286
 
         timing { problem2b(input(23, 2)) shouldBe 75561 }
+    }
+
+    @Test
+    fun part3a() {
+        Point(0, 1).adjacentPoints() shouldBe listOf(
+            Point(x = -1, y = 0),
+            Point(x = 0, y = 0),
+            Point(x = 1, y = 0),
+            Point(x = -1, y = 1),
+            Point(x = 1, y = 1),
+            Point(x = -1, y = 2),
+            Point(x = 0, y = 2),
+            Point(x = 1, y = 2)
+        )
+        problem3a(
+            """467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...${'$'}.*....
+.664.598.."""
+        ) shouldBe 4361
+
+        timing { problem3a(input(23, 3)) shouldBe 535351 }
+    }
+
+    @Test
+    fun part3b() {
+        problem3b(
+            """467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...${'$'}.*....
+.664.598.."""
+        ) shouldBe 467835
+
+        timing { problem3b(input(23, 3)) shouldBe 87287096 }
     }
 }
