@@ -9,6 +9,7 @@ import net.iplantevin.aoc.aoc2023.Day3.problem3a
 import net.iplantevin.aoc.aoc2023.Day3.problem3b
 import net.iplantevin.aoc.aoc2023.Day4.problem4a
 import net.iplantevin.aoc.aoc2023.Day4.problem4b
+import net.iplantevin.aoc.aoc2023.Day5.problem5a
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -140,5 +141,46 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
         ) shouldBe 30
 
         timing { problem4b(input(23, 4)) shouldBe 5667240 }
+    }
+
+    @Test
+    fun part5a() {
+        problem5a(
+            """seeds: 79 14 55 13
+
+seed-to-soil map:
+50 98 2
+52 50 48
+
+soil-to-fertilizer map:
+0 15 37
+37 52 2
+39 0 15
+
+fertilizer-to-water map:
+49 53 8
+0 11 42
+42 0 7
+57 7 4
+
+water-to-light map:
+88 18 7
+18 25 70
+
+light-to-temperature map:
+45 77 23
+81 45 19
+68 64 13
+
+temperature-to-humidity map:
+0 69 1
+1 0 69
+
+humidity-to-location map:
+60 56 37
+56 93 4"""
+        ) shouldBe 35
+
+        timing { problem5a(input(23, 5)) shouldBe 107430936L }
     }
 }
