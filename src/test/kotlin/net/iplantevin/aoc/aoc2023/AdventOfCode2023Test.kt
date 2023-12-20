@@ -13,6 +13,8 @@ import net.iplantevin.aoc.aoc2023.Day5.problem5a
 import net.iplantevin.aoc.aoc2023.Day5.problem5b
 import net.iplantevin.aoc.aoc2023.Day6.problem6a
 import net.iplantevin.aoc.aoc2023.Day6.problem6b
+import net.iplantevin.aoc.aoc2023.Day7.problem7a
+import net.iplantevin.aoc.aoc2023.Day7.problem7b
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -256,5 +258,35 @@ Distance:  940200"""
         ) shouldBe 71503
 
         timing { problem6b(finalInput) shouldBe 27363861 }
+    }
+
+    @Test
+    fun part7a() {
+        problem7a(
+            """
+                32T3K 765
+                T55J5 684
+                KK677 28
+                KTJJT 220
+                QQQJA 483
+            """.trimIndent()
+        ) shouldBe 6440
+
+        timing { problem7a(input(23, 7)) shouldBe 248569531L }
+    }
+
+    @Test
+    fun part7b() {
+        problem7b(
+            """
+                32T3K 765
+                T55J5 684
+                KK677 28
+                KTJJT 220
+                QQQJA 483
+            """.trimIndent()
+        ) shouldBe 5905
+
+        timing { problem7b(input(23, 7)) shouldBe 250382098L }
     }
 }
