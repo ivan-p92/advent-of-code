@@ -1,5 +1,7 @@
 package net.iplantevin.aoc.common
 
+typealias Grid<T> = List<List<T>>
+
 data class Point(val x: Int, val y: Int) {
 
     fun adjacentPoints(): List<Point> {
@@ -23,7 +25,11 @@ data class Point(val x: Int, val y: Int) {
 
 enum class Direction(val delta: Point) {
     EAST(Point(1, 0)),
-    WEST(Point(-1, 0)),
     NORTH(Point(0, -1)),
+    WEST(Point(-1, 0)),
     SOUTH(Point(0, 1));
+
+    fun turnLeft(): Direction {
+        return entries[(this.ordinal + 1) % entries.size]
+    }
 }

@@ -4,6 +4,7 @@ import io.kotest.matchers.shouldBe
 import net.iplantevin.aoc.aoc2023.Day1.problem1a
 import net.iplantevin.aoc.aoc2023.Day1.problem1b
 import net.iplantevin.aoc.aoc2023.Day10.problem10a
+import net.iplantevin.aoc.aoc2023.Day10.problem10b
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
 import net.iplantevin.aoc.aoc2023.Day3.problem3a
@@ -20,7 +21,10 @@ import net.iplantevin.aoc.aoc2023.Day8.problem8a
 import net.iplantevin.aoc.aoc2023.Day8.problem8b
 import net.iplantevin.aoc.aoc2023.Day9.problem9a
 import net.iplantevin.aoc.aoc2023.Day9.problem9b
+import net.iplantevin.aoc.common.Direction.EAST
+import net.iplantevin.aoc.common.Direction.NORTH
 import net.iplantevin.aoc.common.Direction.SOUTH
+import net.iplantevin.aoc.common.Direction.WEST
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -396,5 +400,57 @@ Distance:  940200"""
         ) shouldBe 8
 
         timing { problem10a(input(23, 10), SOUTH) shouldBe 7086 }
+    }
+
+    @Test
+    fun part10b() {
+        problem10b(
+            """
+                ...........
+                .S-------7.
+                .|F-----7|.
+                .||.....||.
+                .||.....||.
+                .|L-7.F-J|.
+                .|..|.|..|.
+                .L--J.L--J.
+                ...........
+            """.trimIndent(),
+            SOUTH
+        ) shouldBe 4
+
+        problem10b(
+            """
+                .F----7F7F7F7F-7....
+                .|F--7||||||||FJ....
+                .||.FJ||||||||L7....
+                FJL7L7LJLJ||LJ.L-7..
+                L--J.L7...LJS7F-7L7.
+                ....F-J..F7FJ|L7L7L7
+                ....L7.F7||L7|.L7L7|
+                .....|FJLJ|FJ|F7|.LJ
+                ....FJL-7.||.||||...
+                ....L---J.LJ.LJLJ...
+            """.trimIndent(),
+            EAST
+        ) shouldBe 8
+
+        problem10b(
+            """
+                FF7FSF7F7F7F7F7F---7
+                L|LJ||||||||||||F--J
+                FL-7LJLJ||||||LJL-77
+                F--JF--7||LJLJ7F7FJ-
+                L---JF-JLJ.||-FJLJJ7
+                |F|F-JF---7F7-L7L|7|
+                |FFJF7L7F-JF7|JL---7
+                7-L-JL7||F7|L7F-7F7|
+                L.L7LFJ|||||FJL7||LJ
+                L7JLJL-JLJLJL--JLJ.L
+            """.trimIndent(),
+            WEST
+        ) shouldBe 10
+
+        timing { problem10b(input(23, 10), NORTH) shouldBe 317 }
     }
 }
