@@ -11,6 +11,8 @@ import net.iplantevin.aoc.aoc2023.Day4.problem4a
 import net.iplantevin.aoc.aoc2023.Day4.problem4b
 import net.iplantevin.aoc.aoc2023.Day5.problem5a
 import net.iplantevin.aoc.aoc2023.Day5.problem5b
+import net.iplantevin.aoc.aoc2023.Day6.problem6a
+import net.iplantevin.aoc.aoc2023.Day6.problem6b
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -224,5 +226,35 @@ humidity-to-location map:
         ) shouldBe 46
 
         timing { problem5b(input(23, 5)) shouldBe 23738616L }
+    }
+
+    @Test
+    fun part6a() {
+        val finalInput = """
+            Time:        41     77     70     96
+            Distance:   249   1362   1127   1011
+        """.trimIndent()
+
+        problem6a(
+            """Time:      7  15   30
+Distance:  9  40  200"""
+        ) shouldBe 288
+
+        timing { problem6a(finalInput) shouldBe 771628 }
+    }
+
+    @Test
+    fun part6b() {
+        val finalInput = """
+            Time:        41777096
+            Distance:   249136211271011
+        """.trimIndent()
+
+        problem6b(
+            """Time:      71530
+Distance:  940200"""
+        ) shouldBe 71503
+
+        timing { problem6b(finalInput) shouldBe 27363861 }
     }
 }
