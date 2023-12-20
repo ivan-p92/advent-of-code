@@ -10,6 +10,7 @@ import net.iplantevin.aoc.aoc2023.Day3.problem3b
 import net.iplantevin.aoc.aoc2023.Day4.problem4a
 import net.iplantevin.aoc.aoc2023.Day4.problem4b
 import net.iplantevin.aoc.aoc2023.Day5.problem5a
+import net.iplantevin.aoc.aoc2023.Day5.problem5b
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -182,5 +183,46 @@ humidity-to-location map:
         ) shouldBe 35
 
         timing { problem5a(input(23, 5)) shouldBe 107430936L }
+    }
+
+    @Test
+    fun part5b() {
+        problem5b(
+            """seeds: 79 14 55 13
+
+seed-to-soil map:
+50 98 2
+52 50 48
+
+soil-to-fertilizer map:
+0 15 37
+37 52 2
+39 0 15
+
+fertilizer-to-water map:
+49 53 8
+0 11 42
+42 0 7
+57 7 4
+
+water-to-light map:
+88 18 7
+18 25 70
+
+light-to-temperature map:
+45 77 23
+81 45 19
+68 64 13
+
+temperature-to-humidity map:
+0 69 1
+1 0 69
+
+humidity-to-location map:
+60 56 37
+56 93 4"""
+        ) shouldBe 46
+
+        timing { problem5b(input(23, 5)) shouldBe 23738616L }
     }
 }
