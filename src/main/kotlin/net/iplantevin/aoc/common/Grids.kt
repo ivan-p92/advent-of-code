@@ -15,4 +15,15 @@ data class Point(val x: Int, val y: Int) {
         }
         return result
     }
+
+    fun move(direction: Direction): Point = this + direction.delta
+
+    operator fun plus(other: Point): Point = Point(x + other.x, y + other.y)
+}
+
+enum class Direction(val delta: Point) {
+    EAST(Point(1, 0)),
+    WEST(Point(-1, 0)),
+    NORTH(Point(0, -1)),
+    SOUTH(Point(0, 1));
 }

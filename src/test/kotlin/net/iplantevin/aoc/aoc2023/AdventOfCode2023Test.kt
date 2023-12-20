@@ -3,6 +3,7 @@ package net.iplantevin.aoc.aoc2023
 import io.kotest.matchers.shouldBe
 import net.iplantevin.aoc.aoc2023.Day1.problem1a
 import net.iplantevin.aoc.aoc2023.Day1.problem1b
+import net.iplantevin.aoc.aoc2023.Day10.problem10a
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
 import net.iplantevin.aoc.aoc2023.Day3.problem3a
@@ -19,6 +20,7 @@ import net.iplantevin.aoc.aoc2023.Day8.problem8a
 import net.iplantevin.aoc.aoc2023.Day8.problem8b
 import net.iplantevin.aoc.aoc2023.Day9.problem9a
 import net.iplantevin.aoc.aoc2023.Day9.problem9b
+import net.iplantevin.aoc.common.Direction.SOUTH
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -367,5 +369,32 @@ Distance:  940200"""
         ) shouldBe 2
 
         timing { problem9b(input(23, 9)) shouldBe 900L }
+    }
+
+    @Test
+    fun part10a() {
+        problem10a(
+            """
+                -L|F7
+                7S-7|
+                L|7||
+                -L-J|
+                L|-JF
+            """.trimIndent(),
+            SOUTH
+        ) shouldBe 4
+
+        problem10a(
+            """
+                7-F7-
+                .FJ|7
+                SJLL7
+                |F--J
+                LJ.LJ
+            """.trimIndent(),
+            SOUTH
+        ) shouldBe 8
+
+        timing { problem10a(input(23, 10), SOUTH) shouldBe 7086 }
     }
 }
