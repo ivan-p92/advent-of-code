@@ -15,6 +15,8 @@ import net.iplantevin.aoc.aoc2023.Day6.problem6a
 import net.iplantevin.aoc.aoc2023.Day6.problem6b
 import net.iplantevin.aoc.aoc2023.Day7.problem7a
 import net.iplantevin.aoc.aoc2023.Day7.problem7b
+import net.iplantevin.aoc.aoc2023.Day8.problem8a
+import net.iplantevin.aoc.aoc2023.Day8.problem8b
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -288,5 +290,54 @@ Distance:  940200"""
         ) shouldBe 5905
 
         timing { problem7b(input(23, 7)) shouldBe 250382098L }
+    }
+
+    @Test
+    fun part8a() {
+        problem8a(
+            """
+                RL
+
+                AAA = (BBB, CCC)
+                BBB = (DDD, EEE)
+                CCC = (ZZZ, GGG)
+                DDD = (DDD, DDD)
+                EEE = (EEE, EEE)
+                GGG = (GGG, GGG)
+                ZZZ = (ZZZ, ZZZ)
+            """.trimIndent()
+        ) shouldBe 2
+
+        problem8a(
+            """
+                LLR
+
+                AAA = (BBB, BBB)
+                BBB = (AAA, ZZZ)
+                ZZZ = (ZZZ, ZZZ)
+            """.trimIndent()
+        ) shouldBe 6
+
+        timing { problem8a(input(23, 8)) shouldBe 20221L }
+    }
+
+    @Test
+    fun part8b() {
+        problem8b(
+            """
+                LR
+
+                11A = (11B, XXX)
+                11B = (XXX, 11Z)
+                11Z = (11B, XXX)
+                22A = (22B, XXX)
+                22B = (22C, 22C)
+                22C = (22Z, 22Z)
+                22Z = (22B, 22B)
+                XXX = (XXX, XXX)
+            """.trimIndent()
+        ) shouldBe 6
+
+        timing { problem8b(input(23, 8)) shouldBe 14616363770447L }
     }
 }
