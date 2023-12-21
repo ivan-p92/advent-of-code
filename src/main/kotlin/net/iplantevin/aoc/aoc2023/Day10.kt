@@ -10,6 +10,7 @@ import net.iplantevin.aoc.common.Point
 
 object Day10 {
 
+    // The startDirection should result in a counter-clockwise walk along the pipeline
     fun problem10a(input: String, startDirection: Direction): Int {
         val startPoint = findStartPoint(input)
         val grid = input.lines().map { it.toList() }
@@ -31,13 +32,14 @@ object Day10 {
         var nextDirection = startDirection
         var currentPoint = startPoint
         var nextPipe: Pipe
-        do {
+        while (true) {
             currentPoint = currentPoint.move(nextDirection)
             pipelinePoints += currentPoint
             nextPipe = Pipe[grid[currentPoint.y][currentPoint.x]]
             nextDirection = nextPipe.transition(nextDirection)
-        } while (grid[currentPoint.y][currentPoint.x] != 'S')
-        return pipelinePoints
+
+            if (nextPipe == Pipe.START) return pipelinePoints
+        }
     }
 
     private fun findEnclosedPoints(
@@ -50,7 +52,7 @@ object Day10 {
         var nextDirection = startDirection
         var currentPoint = startPoint
         var nextPipe: Pipe
-        do {
+        while (true) {
             currentPoint = currentPoint.move(nextDirection)
             nextPipe = Pipe[grid[currentPoint.y][currentPoint.x]]
             // A bending pipe will change directions, so we first check based on original direction
@@ -58,8 +60,9 @@ object Day10 {
             nextDirection = nextPipe.transition(nextDirection)
             // And then in the new direction
             enclosedPoints += currentPoint.adjacentPointsInDirection(grid, nextDirection, pipelinePoints)
-        } while (grid[currentPoint.y][currentPoint.x] != 'S')
-        return enclosedPoints
+
+            if (nextPipe == Pipe.START) return enclosedPoints
+        }
     }
 
     private fun Point.adjacentPointsInDirection(
@@ -67,20 +70,17 @@ object Day10 {
         direction: Direction,
         pipelinePoints: Set<Point>
     ): List<Point> {
-        // We assume a counter-clockwise walk
+        // We assume a counter-clockwise walk, so the "inside" of the loop is always on our left
+        // hand side of the given direction.
         val inspectDirection = direction.turnLeft()
-        val groundPoints = mutableListOf<Point>()
+        val enclosedPoints = mutableListOf<Point>()
         var currentPipe: Char
         var currentPoint = this
         while (true) {
-            try {
-                currentPoint = currentPoint.move(inspectDirection)
-                currentPipe = grid[currentPoint.y][currentPoint.x]
-                if (currentPipe == '.' || currentPoint !in pipelinePoints) groundPoints += currentPoint
-                else return groundPoints
-            } catch (e: IndexOutOfBoundsException) {
-                return groundPoints
-            }
+            currentPoint = currentPoint.move(inspectDirection)
+            currentPipe = grid[currentPoint.y][currentPoint.x]
+            if (currentPipe == '.' || currentPoint !in pipelinePoints) enclosedPoints += currentPoint
+            else return enclosedPoints
         }
     }
 
