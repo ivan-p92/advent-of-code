@@ -1,8 +1,17 @@
 package net.iplantevin.aoc.common
 
+import kotlin.math.abs
+
 typealias Grid<T> = List<List<T>>
 
-data class Point(val x: Int, val y: Int) {
+data class Point(val x: Long, val y: Long) {
+
+    val xInt
+        get() = x.toInt()
+
+    val yInt
+        get() = y.toInt()
+    constructor(x: Int, y: Int) : this(x.toLong(), y.toLong())
 
     fun adjacentPoints(): List<Point> {
         val result = mutableListOf<Point>()
@@ -19,6 +28,8 @@ data class Point(val x: Int, val y: Int) {
     }
 
     fun move(direction: Direction): Point = this + direction.delta
+
+    fun distance(other: Point): Long = abs(x - other.x) + abs(y - other.y)
 
     operator fun plus(other: Point): Point = Point(x + other.x, y + other.y)
 }

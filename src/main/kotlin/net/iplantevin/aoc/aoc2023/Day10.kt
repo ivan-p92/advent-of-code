@@ -35,7 +35,7 @@ object Day10 {
         while (true) {
             currentPoint = currentPoint.move(nextDirection)
             pipelinePoints += currentPoint
-            nextPipe = Pipe[grid[currentPoint.y][currentPoint.x]]
+            nextPipe = Pipe[grid[currentPoint.yInt][currentPoint.xInt]]
             nextDirection = nextPipe.transition(nextDirection)
 
             if (nextPipe == Pipe.START) return pipelinePoints
@@ -54,7 +54,7 @@ object Day10 {
         var nextPipe: Pipe
         while (true) {
             currentPoint = currentPoint.move(nextDirection)
-            nextPipe = Pipe[grid[currentPoint.y][currentPoint.x]]
+            nextPipe = Pipe[grid[currentPoint.yInt][currentPoint.xInt]]
             // A bending pipe will change directions, so we first check based on original direction
             enclosedPoints += currentPoint.adjacentPointsInDirection(grid, nextDirection, pipelinePoints)
             nextDirection = nextPipe.transition(nextDirection)
@@ -78,7 +78,7 @@ object Day10 {
         var currentPoint = this
         while (true) {
             currentPoint = currentPoint.move(inspectDirection)
-            currentPipe = grid[currentPoint.y][currentPoint.x]
+            currentPipe = grid[currentPoint.yInt][currentPoint.xInt]
             if (currentPipe == '.' || currentPoint !in pipelinePoints) enclosedPoints += currentPoint
             else return enclosedPoints
         }
