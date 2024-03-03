@@ -2,20 +2,24 @@ package net.iplantevin.aoc.aoc2023
 
 object Day12 {
 
-    // Todo: don't use bruteforce
+    private val stateCountCache = mutableMapOf<State, Long>()
+    private var cacheHits = 0
+
     fun problem12a(input: String): Long {
         return input.lines().map { line ->
             val (springs, rawGroups) = line.split(" ")
             val groups = rawGroups.split(",").map { it.toInt() }
             springs to groups
         }.sumOf { (springs, groups) ->
-            val totalArrangements = countArrangements(springs, groups, groups.sum())
-            println("$springs: $totalArrangements")
-            totalArrangements.toLong()
+            stateCountCache.clear()
+            val totalArrangements = arrangements(springs, groups)
+//            println("$springs: $totalArrangements arrangements, $cacheHits cache hits")
+            totalArrangements
+        }.also {
+            println("Total cache hits: $cacheHits")
         }
     }
 
-    // Does not perform, of course
     fun problem12b(input: String): Long {
         return input.lines().map { line ->
             val (springs, groups) = line.split(" ")
@@ -23,53 +27,67 @@ object Day12 {
             val unfoldedGroups = List(5) { groups }.joinToString(",")
             unfoldedSprings to unfoldedGroups.split(",").map { it.toInt() }
         }.sumOf { (springs, groups) ->
-            val totalArrangements = countArrangements(springs, groups, groups.sum())
-            println("$springs: $totalArrangements")
-            totalArrangements.toLong()
+            stateCountCache.clear()
+            val totalArrangements = arrangements(springs, groups)
+//            println("$springs: $totalArrangements arrangements, $cacheHits cache hits")
+            totalArrangements
+        }.also {
+            println("Total cache hits: $cacheHits")
         }
     }
 
-    private fun countArrangements(springs: String, groups: List<Int>, totalDamaged: Int): Int {
-        if (springs.count { it == '#' } > totalDamaged) {
-            return 0
-        } else if (!springs.contains('?')) {
-            val valid = isValidConfiguration(springs, groups, totalDamaged)
-//            println("check $springs --> $valid")
-            return if (valid) 1 else 0
-        } else {
-            val damaged = springs.replaceFirst('?', '#')
-            val operational = springs.replaceFirst('?', '.')
-            return countArrangements(damaged, groups, totalDamaged) +
-                    countArrangements(operational, groups, totalDamaged)
+    private fun arrangements(springs: String, groups: List<Int>, state: State = State()): Long {
+        if (stateCountCache.contains(state)) {
+            cacheHits++
+            return stateCountCache[state]!!
         }
-    }
 
-    private fun isValidConfiguration(springs: String, groups: List<Int>, totalDamaged: Int): Boolean {
-        if (springs.count { it == '#' } != totalDamaged) {
-            return false
-        }
-        var springIndex = 0
-        var groupIndex = 0
-        while (springIndex < springs.length) {
-            if (springs[springIndex] == '.') {
-                springIndex++
+        // Reached the end of the springs
+        if (state.position == springs.length) {
+            if (state.length != 0 && state.length != groups[state.group]) {
+                // Incomplete arrangement
+                return 0L
             } else {
-                if (groupIndex == groups.size) {
-                    return false
-                }
-                if (springIndex + groups[groupIndex] > springs.length) {
-                    return false
-                }
-                if (springs.substring(springIndex, springIndex + groups[groupIndex]).any { it != '#' }) {
-                    return false
-                }
-                springIndex += groups[groupIndex]
-                groupIndex++
-                if (springs.getOrElse(springIndex) { '.' } != '.') {
-                    return false
-                }
+                val finalGroup = if (state.length == groups.getOrNull(state.group)) state.group + 1 else state.group
+                return if (finalGroup == groups.size) 1 else 0
             }
         }
-        return groupIndex == groups.size
+
+        var arrangements = 0L
+        val spring = springs[state.position]
+
+        if (spring != '.' && state.group < groups.size && state.length < groups[state.group]) {
+            // A valid damaged spring
+            arrangements += arrangements(
+                springs,
+                groups,
+                State(
+                    position = state.position + 1,
+                    group = state.group,
+                    length = state.length + 1,
+                )
+            )
+        }
+
+        if (spring != '#' && (state.length == 0 || state.length == groups[state.group])) {
+            // A valid operational spring
+            arrangements += arrangements(
+                springs,
+                groups,
+                State(
+                    position = state.position + 1,
+                    group = if (state.length == groups.getOrNull(state.group)) state.group + 1 else state.group,
+                    length = 0,
+                )
+            )
+        }
+        stateCountCache[state] = arrangements
+        return arrangements
     }
+
+    private data class State(
+        val position: Int = 0,
+        val group: Int = 0,
+        val length: Int = 0,
+    )
 }
