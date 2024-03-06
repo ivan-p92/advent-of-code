@@ -8,6 +8,7 @@ import net.iplantevin.aoc.aoc2023.Day10.problem10b
 import net.iplantevin.aoc.aoc2023.Day11.problem11
 import net.iplantevin.aoc.aoc2023.Day12.problem12a
 import net.iplantevin.aoc.aoc2023.Day12.problem12b
+import net.iplantevin.aoc.aoc2023.Day13.problem13
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
 import net.iplantevin.aoc.aoc2023.Day3.problem3a
@@ -545,5 +546,56 @@ Distance:  940200"""
         ) shouldBe 525152
 
         timing { problem12b(input(23, 12)) shouldBe 17391848518844L }
+    }
+
+    @Test
+    fun part13a() {
+        problem13(
+            """
+                #.##..##.
+                ..#.##.#.
+                ##......#
+                ##......#
+                ..#.##.#.
+                ..##..##.
+                #.#.##.#.
+
+                #...##..#
+                #....#..#
+                ..##..###
+                #####.##.
+                #####.##.
+                ..##..###
+                #....#..#
+            """.trimIndent()
+        ) shouldBe 405
+
+        timing { problem13(input(23, 13)) shouldBe 37113 }
+    }
+
+    @Test
+    fun part13b() {
+        problem13(
+            """
+                #.##..##.
+                ..#.##.#.
+                ##......#
+                ##......#
+                ..#.##.#.
+                ..##..##.
+                #.#.##.#.
+
+                #...##..#
+                #....#..#
+                ..##..###
+                #####.##.
+                #####.##.
+                ..##..###
+                #....#..#
+            """.trimIndent(),
+            true
+        ) shouldBe 400
+
+        timing { problem13(input(23, 13), true) shouldBe 30449 }
     }
 }
