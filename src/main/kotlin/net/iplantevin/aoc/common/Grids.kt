@@ -4,6 +4,8 @@ import kotlin.math.abs
 
 typealias Grid<T> = List<List<T>>
 
+typealias MutableGrid<T> = MutableList<MutableList<T>>
+
 data class Point(val x: Long, val y: Long) {
 
     val xInt
@@ -42,5 +44,11 @@ enum class Direction(val delta: Point) {
 
     fun turnLeft(): Direction {
         return entries[(this.ordinal + 1) % entries.size]
+    }
+}
+
+fun <T> Grid<T>.printToString(): String {
+    return joinToString("\n") {
+        it.joinToString("")
     }
 }
