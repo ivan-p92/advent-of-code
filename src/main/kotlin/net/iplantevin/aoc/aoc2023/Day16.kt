@@ -12,8 +12,33 @@ object Day16 {
 
     fun problem16a(input: String): Int {
         val grid = initializeGrid(input)
+        return energizeGrid(grid, Point(0, 0) to EAST)
+    }
+
+    fun problem16b(input: String): Int {
+        val (width, height) = input.lines().let {
+            it.first().length to it.size
+        }
+        val grid = initializeGrid(input)
+        val startConfigurations = mutableListOf<Pair<Point, Direction>>()
+        for (y in 0..<height) {
+            startConfigurations += Point(0, y) to EAST
+            startConfigurations += Point(width - 1, y) to WEST
+        }
+        for (x in 0..<width) {
+            startConfigurations += Point(x, 0) to SOUTH
+            startConfigurations += Point(x, height - 1) to NORTH
+        }
+        return startConfigurations.maxOf { startConfiguration ->
+            grid.values.forEach { it.visitedDirections.clear() }
+            energizeGrid(grid, startConfiguration)
+        }
+    }
+
+    private fun energizeGrid(grid: Map<Point, Tile>, startConfiguration: Pair<Point, Direction>): Int {
         val queue = LinkedList<Pair<Point, Direction>>()
-        queue.push(Point(0, 0) to EAST)
+        queue.push(startConfiguration)
+
         while (queue.isNotEmpty()) {
             val (point, direction) = queue.pop()
             grid[point]?.let { tile ->
