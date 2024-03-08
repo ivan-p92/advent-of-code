@@ -63,7 +63,7 @@ object Day14 {
                 for (y in range) {
                     when (grid[y][x]) {
                         'O' -> {
-                            val newY = y + emptySpots * direction.delta.y.toInt()
+                            val newY = y + emptySpots * direction.delta.yInt
                             if (newY != y) {
                                 newGrid[newY][x] = 'O'
                                 newGrid[y][x] = '.'
@@ -82,7 +82,7 @@ object Day14 {
                 for (x in range) {
                     when (grid[y][x]) {
                         'O' -> {
-                            val newX = x + emptySpots * direction.delta.x.toInt()
+                            val newX = x + emptySpots * direction.delta.xInt
                             if (newX != x) {
                                 newGrid[y][newX] = 'O'
                                 newGrid[y][x] = '.'
