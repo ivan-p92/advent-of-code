@@ -19,6 +19,7 @@ import net.iplantevin.aoc.aoc2023.Day17.problem17a
 import net.iplantevin.aoc.aoc2023.Day17.problem17b
 import net.iplantevin.aoc.aoc2023.Day18.problem18a
 import net.iplantevin.aoc.aoc2023.Day18.problem18b
+import net.iplantevin.aoc.aoc2023.Day19.problem19a
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
 import net.iplantevin.aoc.aoc2023.Day3.problem3a
@@ -801,5 +802,32 @@ Distance:  940200"""
         ) shouldBe 952408144115
 
         timing { problem18b(input(23, 18)) shouldBe 148442153147147 }
+    }
+
+    @Test
+    fun part19a() {
+        problem19a(
+            """
+            px{a<2006:qkq,m>2090:A,rfg}
+            pv{a>1716:R,A}
+            lnx{m>1548:A,A}
+            rfg{s<537:gd,x>2440:R,A}
+            qs{s>3448:A,lnx}
+            qkq{x<1416:A,crn}
+            crn{x>2662:A,R}
+            in{s<1351:px,qqz}
+            qqz{s>2770:qs,m<1801:hdj,R}
+            gd{a>3333:R,R}
+            hdj{m>838:A,pv}
+
+            {x=787,m=2655,a=1222,s=2876}
+            {x=1679,m=44,a=2067,s=496}
+            {x=2036,m=264,a=79,s=2244}
+            {x=2461,m=1339,a=466,s=291}
+            {x=2127,m=1623,a=2188,s=1013}
+        """.trimIndent()
+        ) shouldBe 19114
+
+        timing { problem19a(input(23, 19)) shouldBe 367602 }
     }
 }
