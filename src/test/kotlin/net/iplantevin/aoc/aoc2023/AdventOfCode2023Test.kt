@@ -17,6 +17,8 @@ import net.iplantevin.aoc.aoc2023.Day16.problem16a
 import net.iplantevin.aoc.aoc2023.Day16.problem16b
 import net.iplantevin.aoc.aoc2023.Day17.problem17a
 import net.iplantevin.aoc.aoc2023.Day17.problem17b
+import net.iplantevin.aoc.aoc2023.Day18.problem18a
+import net.iplantevin.aoc.aoc2023.Day18.problem18b
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
 import net.iplantevin.aoc.aoc2023.Day3.problem3a
@@ -751,5 +753,53 @@ Distance:  940200"""
         ) shouldBe 71
 
         timing { problem17b(input(23, 17)) shouldBe 1215 }
+    }
+
+    @Test
+    fun part18a() {
+        problem18a(
+            """
+            R 6 (#70c710)
+            D 5 (#0dc571)
+            L 2 (#5713f0)
+            D 2 (#d2c081)
+            R 2 (#59c680)
+            D 2 (#411b91)
+            L 5 (#8ceee2)
+            U 2 (#caa173)
+            L 1 (#1b58a2)
+            U 2 (#caa171)
+            R 2 (#7807d2)
+            U 3 (#a77fa3)
+            L 2 (#015232)
+            U 2 (#7a21e3)
+        """.trimIndent()
+        ) shouldBe 62
+
+        timing { problem18a(input(23, 18)) shouldBe 48503 }
+    }
+
+    @Test
+    fun part18b() {
+        problem18b(
+            """
+            R 6 (#70c710)
+            D 5 (#0dc571)
+            L 2 (#5713f0)
+            D 2 (#d2c081)
+            R 2 (#59c680)
+            D 2 (#411b91)
+            L 5 (#8ceee2)
+            U 2 (#caa173)
+            L 1 (#1b58a2)
+            U 2 (#caa171)
+            R 2 (#7807d2)
+            U 3 (#a77fa3)
+            L 2 (#015232)
+            U 2 (#7a21e3)
+        """.trimIndent()
+        ) shouldBe 952408144115
+
+        timing { problem18b(input(23, 18)) shouldBe 148442153147147 }
     }
 }
