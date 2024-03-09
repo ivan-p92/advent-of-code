@@ -15,6 +15,8 @@ import net.iplantevin.aoc.aoc2023.Day15.problem15a
 import net.iplantevin.aoc.aoc2023.Day15.problem15b
 import net.iplantevin.aoc.aoc2023.Day16.problem16a
 import net.iplantevin.aoc.aoc2023.Day16.problem16b
+import net.iplantevin.aoc.aoc2023.Day17.problem17a
+import net.iplantevin.aoc.aoc2023.Day17.problem17b
 import net.iplantevin.aoc.aoc2023.Day2.problem2a
 import net.iplantevin.aoc.aoc2023.Day2.problem2b
 import net.iplantevin.aoc.aoc2023.Day3.problem3a
@@ -693,5 +695,61 @@ Distance:  940200"""
         """.trimIndent()) shouldBe 51
 
         timing { problem16b(input(23, 16)) shouldBe 8383 }
+    }
+
+    @Test
+    fun part17a() {
+        problem17a(
+            """
+            2413432311323
+            3215453535623
+            3255245654254
+            3446585845452
+            4546657867536
+            1438598798454
+            4457876987766
+            3637877979653
+            4654967986887
+            4564679986453
+            1224686865563
+            2546548887735
+            4322674655533
+        """.trimIndent()
+        ) shouldBe 102
+
+        timing { problem17a(input(23, 17)) shouldBe 1013 }
+    }
+
+    @Test
+    fun part17b() {
+        problem17b(
+            """
+            2413432311323
+            3215453535623
+            3255245654254
+            3446585845452
+            4546657867536
+            1438598798454
+            4457876987766
+            3637877979653
+            4654967986887
+            4564679986453
+            1224686865563
+            2546548887735
+            4322674655533
+        """.trimIndent()
+        ) shouldBe 94
+
+        problem17b(
+            """
+            111111111111
+            999999999991
+            999999999991
+            999999999991
+            999999999991
+        """.trimIndent()
+        ) shouldBe 71
+
+        timing { problem17b(input(23, 17)) shouldBe 1215 }
     }
 }

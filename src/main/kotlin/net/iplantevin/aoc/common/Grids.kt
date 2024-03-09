@@ -32,6 +32,8 @@ data class Point(val x: Long, val y: Long) {
     fun distance(other: Point): Long = abs(x - other.x) + abs(y - other.y)
 
     operator fun plus(other: Point): Point = Point(x + other.x, y + other.y)
+
+    operator fun times(factor: Int): Point = Point(x * factor, y * factor)
 }
 
 enum class Direction(val delta: Point) {
