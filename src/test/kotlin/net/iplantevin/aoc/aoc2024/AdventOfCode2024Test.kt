@@ -5,6 +5,8 @@ import net.iplantevin.aoc.aoc2024.Day1.problem1a
 import net.iplantevin.aoc.aoc2024.Day1.problem1b
 import net.iplantevin.aoc.aoc2024.Day2.problem2a
 import net.iplantevin.aoc.aoc2024.Day2.problem2b
+import net.iplantevin.aoc.aoc2024.Day3.problem3a
+import net.iplantevin.aoc.aoc2024.Day3.problem3b
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
@@ -74,5 +76,27 @@ class AdventOfCode2024Test {
         ) shouldBe 4
 
         timing { problem2b(input(24, 2)) shouldBe 692 }
+    }
+
+    @Test
+    fun part3a() {
+        problem3a(
+            """
+            xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))
+            """.trimIndent()
+        ) shouldBe 161
+
+        timing { problem3a(input(24, 3)) shouldBe 188741603 }
+    }
+
+    @Test
+    fun part3b() {
+        problem3b(
+            """
+            xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
+            """.trimIndent()
+        ) shouldBe 48
+
+        timing { problem3b(input(24, 3)) shouldBe 67269798 }
     }
 }
