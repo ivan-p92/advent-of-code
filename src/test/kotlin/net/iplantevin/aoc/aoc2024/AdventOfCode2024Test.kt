@@ -7,6 +7,8 @@ import net.iplantevin.aoc.aoc2024.Day2.problem2a
 import net.iplantevin.aoc.aoc2024.Day2.problem2b
 import net.iplantevin.aoc.aoc2024.Day3.problem3a
 import net.iplantevin.aoc.aoc2024.Day3.problem3b
+import net.iplantevin.aoc.aoc2024.Day4.problem4a
+import net.iplantevin.aoc.aoc2024.Day4.problem4b
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
@@ -98,5 +100,45 @@ class AdventOfCode2024Test {
         ) shouldBe 48
 
         timing { problem3b(input(24, 3)) shouldBe 67269798 }
+    }
+
+    @Test
+    fun part4a() {
+        problem4a(
+            """
+            MMMSXXMASM
+            MSAMXMSMSA
+            AMXSXMAAMM
+            MSAMASMSMX
+            XMASAMXAMM
+            XXAMMXXAMA
+            SMSMSASXSS
+            SAXAMASAAA
+            MAMMMXMMMM
+            MXMXAXMASX
+            """.trimIndent()
+        ) shouldBe 18
+
+        timing { problem4a(input(24, 4)) shouldBe 2464 }
+    }
+
+    @Test
+    fun part4b() {
+        problem4b(
+            """
+            .M.S......
+            ..A..MSMS.
+            .M.S.MAA..
+            ..A.ASMSM.
+            .M.S.M....
+            ..........
+            S.S.S.S.S.
+            .A.A.A.A..
+            M.M.M.M.M.
+            ..........
+            """.trimIndent()
+        ) shouldBe 9
+
+        timing { problem4b(input(24, 4)) shouldBe 1982 }
     }
 }
