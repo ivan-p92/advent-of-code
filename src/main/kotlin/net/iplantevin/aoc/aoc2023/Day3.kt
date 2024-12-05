@@ -9,7 +9,7 @@ object Day3 {
         val partNumbers = mutableSetOf<Number>()
 
         symbols.forEach { symbol ->
-            symbol.point.adjacentPoints().forEach { adjacentPoint ->
+            symbol.point.neighbours().forEach { adjacentPoint ->
                 val partNumber = numbersByPoint[adjacentPoint]
                 if (partNumber != null) partNumbers += partNumber
             }
@@ -22,7 +22,7 @@ object Day3 {
         var sumOfGearRatios = 0
         symbols.forEach { symbol ->
             if (symbol.value == '*') {
-                val adjacentParts = symbol.point.adjacentPoints().mapNotNullTo(mutableSetOf()) { numbersByPoint[it] }
+                val adjacentParts = symbol.point.neighbours().mapNotNullTo(mutableSetOf()) { numbersByPoint[it] }
                 if (adjacentParts.size == 2) {
                     sumOfGearRatios += adjacentParts.first().value * adjacentParts.last().value
                 }

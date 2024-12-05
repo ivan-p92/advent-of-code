@@ -11,6 +11,8 @@ import net.iplantevin.aoc.aoc2024.Day4.problem4a
 import net.iplantevin.aoc.aoc2024.Day4.problem4b
 import net.iplantevin.aoc.aoc2024.Day5.problem5a
 import net.iplantevin.aoc.aoc2024.Day5.problem5b
+import net.iplantevin.aoc.aoc2024.Day6.problem6a
+import net.iplantevin.aoc.aoc2024.Day6.problem6b
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
@@ -178,6 +180,7 @@ class AdventOfCode2024Test {
             97,13,75,29,47
             """.trimIndent()
         ) shouldBe 143
+
         timing { problem5a(input(24, 5)) shouldBe 6267 }
     }
 
@@ -217,5 +220,23 @@ class AdventOfCode2024Test {
         ) shouldBe 123
 
         timing { problem5b(input(24, 5)) shouldBe 5184 }
+    }
+
+    @Test
+    fun part6a() {
+        problem6a(
+            """""".trimIndent()
+        ) shouldBe 0
+        
+        timing { problem6a(input(24, 6)) shouldBe 0 }
+    }
+
+    @Test
+    fun part6b() {
+        problem6b(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { problem6b(input(24, 6)) shouldBe 0 }
     }
 }

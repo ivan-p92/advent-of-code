@@ -36,10 +36,7 @@ import net.iplantevin.aoc.aoc2023.Day8.problem8a
 import net.iplantevin.aoc.aoc2023.Day8.problem8b
 import net.iplantevin.aoc.aoc2023.Day9.problem9a
 import net.iplantevin.aoc.aoc2023.Day9.problem9b
-import net.iplantevin.aoc.common.Direction.EAST
-import net.iplantevin.aoc.common.Direction.NORTH
-import net.iplantevin.aoc.common.Direction.SOUTH
-import net.iplantevin.aoc.common.Direction.WEST
+import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
@@ -61,13 +58,15 @@ treb7uchet"""
 
     @Test
     fun part1b() {
-        problem1b("""two1nine
+        problem1b(
+            """two1nine
 eightwothree
 abcone2threexyz
 xtwone3four
 4nineeightseven2
 zoneight234
-7pqrstsixteen""") shouldBe 281
+7pqrstsixteen"""
+        ) shouldBe 281
 
         timing { problem1b(input(23, 1)) shouldBe 54100 }
     }
@@ -101,7 +100,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
 
     @Test
     fun part3a() {
-        Point(0, 1).adjacentPoints() shouldBe listOf(
+        Point(0, 1).neighbours() shouldBe listOf(
             Point(x = -1, y = 0),
             Point(x = 0, y = 0),
             Point(x = 1, y = 0),
@@ -666,7 +665,8 @@ Distance:  940200"""
 
     @Test
     fun part16a() {
-        problem16a("""
+        problem16a(
+            """
             .|...\....
             |.-.\.....
             .....|-...
@@ -677,14 +677,16 @@ Distance:  940200"""
             .-.-/..|..
             .|....-|.\
             ..//.|....
-        """.trimIndent()) shouldBe 46
+        """.trimIndent()
+        ) shouldBe 46
 
         timing { problem16a(input(23, 16)) shouldBe 8116 }
     }
 
     @Test
     fun part16b() {
-        problem16b("""
+        problem16b(
+            """
             .|...\....
             |.-.\.....
             .....|-...
@@ -695,7 +697,8 @@ Distance:  940200"""
             .-.-/..|..
             .|....-|.\
             ..//.|....
-        """.trimIndent()) shouldBe 51
+        """.trimIndent()
+        ) shouldBe 51
 
         timing { problem16b(input(23, 16)) shouldBe 8383 }
     }

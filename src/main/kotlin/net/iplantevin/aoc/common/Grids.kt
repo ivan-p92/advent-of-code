@@ -11,9 +11,10 @@ data class Point(val x: Long, val y: Long) {
 
     val yInt
         get() = y.toInt()
+
     constructor(x: Int, y: Int) : this(x.toLong(), y.toLong())
 
-    fun adjacentPoints(): List<Point> {
+    fun neighbours(): List<Point> {
         val result = mutableListOf<Point>()
         (-1..1).forEach { yOffset ->
             (-1..1).forEach { xOffset ->
