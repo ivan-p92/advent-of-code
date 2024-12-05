@@ -9,6 +9,8 @@ import net.iplantevin.aoc.aoc2024.Day3.problem3a
 import net.iplantevin.aoc.aoc2024.Day3.problem3b
 import net.iplantevin.aoc.aoc2024.Day4.problem4a
 import net.iplantevin.aoc.aoc2024.Day4.problem4b
+import net.iplantevin.aoc.aoc2024.Day5.problem5a
+import net.iplantevin.aoc.aoc2024.Day5.problem5b
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
@@ -140,5 +142,80 @@ class AdventOfCode2024Test {
         ) shouldBe 9
 
         timing { problem4b(input(24, 4)) shouldBe 1982 }
+    }
+
+    @Test
+    fun part5a() {
+        problem5a(
+            """
+            47|53
+            97|13
+            97|61
+            97|47
+            75|29
+            61|13
+            75|53
+            29|13
+            97|29
+            53|29
+            61|53
+            97|53
+            61|29
+            47|13
+            75|47
+            97|75
+            47|61
+            75|61
+            47|29
+            75|13
+            53|13
+
+            75,47,61,53,29
+            97,61,53,29,13
+            75,29,13
+            75,97,47,61,53
+            61,13,29
+            97,13,75,29,47
+            """.trimIndent()
+        ) shouldBe 143
+        timing { problem5a(input(24, 5)) shouldBe 6267 }
+    }
+
+    @Test
+    fun part5b() {
+        problem5b(
+            """
+            47|53
+            97|13
+            97|61
+            97|47
+            75|29
+            61|13
+            75|53
+            29|13
+            97|29
+            53|29
+            61|53
+            97|53
+            61|29
+            47|13
+            75|47
+            97|75
+            47|61
+            75|61
+            47|29
+            75|13
+            53|13
+
+            75,47,61,53,29
+            97,61,53,29,13
+            75,29,13
+            75,97,47,61,53
+            61,13,29
+            97,13,75,29,47
+            """.trimIndent()
+        ) shouldBe 123
+
+        timing { problem5b(input(24, 5)) shouldBe 5184 }
     }
 }
