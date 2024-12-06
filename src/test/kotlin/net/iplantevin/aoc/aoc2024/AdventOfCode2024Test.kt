@@ -225,18 +225,40 @@ class AdventOfCode2024Test {
     @Test
     fun part6a() {
         problem6a(
-            """""".trimIndent()
-        ) shouldBe 0
-        
-        timing { problem6a(input(24, 6)) shouldBe 0 }
+            """
+            ....#.....
+            .........#
+            ..........
+            ..#.......
+            .......#..
+            ..........
+            .#..^.....
+            ........#.
+            #.........
+            ......#...
+            """.trimIndent()
+        ) shouldBe 41
+
+        timing { problem6a(input(24, 6)) shouldBe 4580 }
     }
 
     @Test
     fun part6b() {
         problem6b(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            ....#.....
+            .........#
+            ..........
+            ..#.......
+            .......#..
+            ..........
+            .#..^.....
+            ........#.
+            #.........
+            ......#...
+            """.trimIndent()
+        ) shouldBe 6
 
-        timing { problem6b(input(24, 6)) shouldBe 0 }
+        timing { problem6b(input(24, 6)) shouldBe 1480 }
     }
 }
