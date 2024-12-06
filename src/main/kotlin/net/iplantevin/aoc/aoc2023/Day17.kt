@@ -1,9 +1,8 @@
 package net.iplantevin.aoc.aoc2023
 
-import net.iplantevin.aoc.common.Direction
+import net.iplantevin.aoc.common.*
 import net.iplantevin.aoc.common.Direction.EAST
 import net.iplantevin.aoc.common.Direction.SOUTH
-import net.iplantevin.aoc.common.Point
 import java.util.*
 
 object Day17 {
@@ -13,29 +12,28 @@ object Day17 {
     fun problem17b(input: String): Int = minimumHeatLoss(input, 4, 10)
 
     private fun minimumHeatLoss(input: String, minSteps: Int, maxSteps: Int): Int {
-        val (width, height) = input.lines().let { it.first().length to it.size }
-        val grid = initializeGrid(input)
+        val (width, height) = input.dimensions()
+        val grid = input.toMapGrid { char -> char.digitToInt() }
         val endPoint = Point(width - 1, height - 1)
         val queue = PriorityQueue<CrucibleState>()
-        val visited = mutableSetOf<Pair<Point, Direction>>()
+        val pastMoves = mutableSetOf<Move>()
 
         listOf(EAST, SOUTH).forEach {
             queue += CrucibleState(
                 heatLoss = 0,
-                point = Point(0, 0),
-                direction = it,
+                move = Move(Point(0, 0), it)
             )
         }
 
         while (queue.isNotEmpty()) {
             val state = queue.poll()
 
-            if (state.point == endPoint) {
+            if (state.move.position == endPoint) {
                 return state.heatLoss
             }
 
-            if (state.point to state.direction !in visited) {
-                visited += state.point to state.direction
+            if (state.move !in pastMoves) {
+                pastMoves += state.move
                 queue.addAll(nextPossibleStates(state, grid, minSteps, maxSteps))
             }
         }
@@ -44,24 +42,23 @@ object Day17 {
 
     private fun nextPossibleStates(
         state: CrucibleState,
-        grid: Map<Point, Int>,
+        grid: MapGrid<Int>,
         minSteps: Int,
         maxSteps: Int
     ): List<CrucibleState> {
         val newStates = mutableListOf<CrucibleState>()
-        val newDirections = listOf(state.direction.turnLeft(), state.direction.turnRight())
+        val newDirections = listOf(state.move.direction.turnLeft(), state.move.direction.turnRight())
 
         for (direction in newDirections) {
             var heatLoss = state.heatLoss
             for (steps in 1..maxSteps) {
-                val nextLocation = state.point + direction.delta * steps
-                if (nextLocation in grid) {
-                    heatLoss += grid[nextLocation]!!
+                val nextMove = Move(state.move.position, direction, steps).nextMove()
+                if (nextMove.position in grid) {
+                    heatLoss += grid[nextMove.position]!!
                     if (steps >= minSteps) {
                         newStates += CrucibleState(
                             heatLoss = heatLoss,
-                            point = nextLocation,
-                            direction = direction,
+                            move = nextMove.copy(stepSize = 1)
                         )
                     }
                 } else {
@@ -73,20 +70,9 @@ object Day17 {
         return newStates
     }
 
-    private fun initializeGrid(input: String): Map<Point, Int> {
-        val grid = mutableMapOf<Point, Int>()
-        input.lines().forEachIndexed { y: Int, line: String ->
-            line.forEachIndexed { x, char ->
-                grid[Point(x, y)] = char.digitToInt()
-            }
-        }
-        return grid
-    }
-
     data class CrucibleState(
         val heatLoss: Int,
-        val point: Point,
-        val direction: Direction,
+        val move: Move
     ) : Comparable<CrucibleState> {
         override fun compareTo(other: CrucibleState): Int = heatLoss.compareTo(other.heatLoss)
 

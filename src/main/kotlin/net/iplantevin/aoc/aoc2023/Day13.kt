@@ -1,6 +1,7 @@
 package net.iplantevin.aoc.aoc2023
 
-import net.iplantevin.aoc.common.Grid
+import net.iplantevin.aoc.common.ArrayGrid
+import net.iplantevin.aoc.common.toCharArrayGrid
 import kotlin.math.min
 
 object Day13 {
@@ -15,7 +16,7 @@ object Day13 {
 
     private class Pattern(rawPattern: String) {
 
-        val rows: Grid<Char> = rawPattern.lines().map { it.toList() }
+        val rows: ArrayGrid<Char> = rawPattern.toCharArrayGrid()
         val width = rows.first().size
         val height = rows.size
         var leftColumns = 0
@@ -23,7 +24,7 @@ object Day13 {
         var topRows = 0
             private set
 
-        val columns: Grid<Char> = (0 until width).map { x ->
+        val columns: ArrayGrid<Char> = (0 until width).map { x ->
             (0 until height).map { y ->
                 rows[y][x]
             }
@@ -34,7 +35,7 @@ object Day13 {
                 ?: hasReflection(rows, checkSmudges)?.let { topRows = it }
         }
 
-        private fun hasReflection(rowsOrColumns: Grid<Char>, checkSmudges: Boolean): Int? {
+        private fun hasReflection(rowsOrColumns: ArrayGrid<Char>, checkSmudges: Boolean): Int? {
             for (index in 0 until rowsOrColumns.size - 1) {
                 if (rowsOrColumns[index] == rowsOrColumns[index + 1]
                     || hasSmudge(rowsOrColumns[index], rowsOrColumns[index + 1], checkSmudges)
@@ -48,7 +49,7 @@ object Day13 {
         }
 
         private fun isPerfectReflection(
-            rowsOrColumns: Grid<Char>,
+            rowsOrColumns: ArrayGrid<Char>,
             lineIndex: Int,
             checkSmudges: Boolean
         ): Boolean {

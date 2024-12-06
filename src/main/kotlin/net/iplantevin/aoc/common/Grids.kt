@@ -2,7 +2,9 @@ package net.iplantevin.aoc.common
 
 import kotlin.math.abs
 
-typealias Grid<T> = List<List<T>>
+typealias ArrayGrid<T> = List<List<T>>
+
+typealias MapGrid<T> = Map<Point, T>
 
 data class Point(val x: Long, val y: Long) {
 
@@ -52,8 +54,42 @@ enum class Direction(val delta: Point) {
     }
 }
 
-fun <T> Grid<T>.printToString(): String {
+data class Move(val position: Point, val direction: Direction, val stepSize: Int = 1) {
+
+    fun nextMove(): Move = copy(position = (direction.delta * stepSize) + position)
+
+    fun turnLeft(): Move = copy(direction = direction.turnLeft())
+
+    fun turnRight(): Move = copy(direction = direction.turnRight())
+}
+
+fun <T> ArrayGrid<T>.printToString(): String {
     return joinToString("\n") {
         it.joinToString("")
     }
 }
+
+fun String.toCharArrayGrid(): ArrayGrid<Char> = lines().map { it.toList() }
+
+fun <T> String.toMapGrid(transform: (char: Char) -> T): MapGrid<T> {
+    val grid = mutableMapOf<Point, T>()
+    lines().forEachIndexed { y: Int, line: String ->
+        line.forEachIndexed { x, char ->
+            grid[Point(x, y)] = transform(char)
+        }
+    }
+    return grid
+}
+
+fun <T> String.toMapGrid(transform: (Point, Char) -> T): MapGrid<T> {
+    val grid = mutableMapOf<Point, T>()
+    lines().forEachIndexed { y: Int, line: String ->
+        line.forEachIndexed { x, char ->
+            val point = Point(x, y)
+            grid[point] = transform(point, char)
+        }
+    }
+    return grid
+}
+
+fun String.dimensions(): Pair<Int, Int> = lines().let { it.first().length to it.size }

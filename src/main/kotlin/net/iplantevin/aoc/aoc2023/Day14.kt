@@ -1,12 +1,10 @@
 package net.iplantevin.aoc.aoc2023
 
+import net.iplantevin.aoc.common.ArrayGrid
 import net.iplantevin.aoc.common.Direction
-import net.iplantevin.aoc.common.Direction.EAST
-import net.iplantevin.aoc.common.Direction.NORTH
-import net.iplantevin.aoc.common.Direction.SOUTH
-import net.iplantevin.aoc.common.Direction.WEST
-import net.iplantevin.aoc.common.Grid
+import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.printToString
+import net.iplantevin.aoc.common.toCharArrayGrid
 
 object Day14 {
 
@@ -27,8 +25,8 @@ object Day14 {
     }
 
     fun problem14b(input: String): Int {
-        var grid: Grid<Char> = input.lines().map { it.toList() }
-        val stateHistory = LinkedHashSet<Grid<Char>>()
+        var grid = input.toCharArrayGrid()
+        val stateHistory = LinkedHashSet<ArrayGrid<Char>>()
         for (cycle in 1..1_000_000_000) {
             grid = tilt(grid, NORTH)
 //            println("After north:\n${grid.printToString()}")
@@ -54,7 +52,7 @@ object Day14 {
     }
 
     // Could have created a rotation function and applied a simpler tilt function on it.
-    private fun tilt(grid: Grid<Char>, direction: Direction): MutableList<MutableList<Char>> {
+    private fun tilt(grid: ArrayGrid<Char>, direction: Direction): MutableList<MutableList<Char>> {
         val newGrid = MutableList(grid.size) { y -> MutableList(grid.first().size) { x -> grid[y][x] } }
         if (direction == NORTH || direction == SOUTH) {
             for (x in 0 until grid.first().size) {
@@ -98,7 +96,7 @@ object Day14 {
         return newGrid
     }
 
-    private fun loadOnNorth(grid: Grid<Char>): Int = grid.mapIndexed { y, chars ->
+    private fun loadOnNorth(grid: ArrayGrid<Char>): Int = grid.mapIndexed { y, chars ->
         chars.count { it == 'O' } * (grid.size - y)
     }.sum()
 }

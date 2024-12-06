@@ -1,5 +1,6 @@
 package net.iplantevin.aoc.aoc2023
 
+import net.iplantevin.aoc.common.MapGrid
 import net.iplantevin.aoc.common.Point
 
 object Day3 {
@@ -31,7 +32,7 @@ object Day3 {
         return sumOfGearRatios
     }
 
-    private fun loadSchematic(schematic: String): Pair<Map<Point, Number>, List<Symbol>> {
+    private fun loadSchematic(schematic: String): Pair<MapGrid<Number>, List<Symbol>> {
         var currentNumber: Number? = null
         val numbersByPoint = mutableMapOf<Point, Number>()
         val symbols = mutableListOf<Symbol>()

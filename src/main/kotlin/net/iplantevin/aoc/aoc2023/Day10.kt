@@ -1,33 +1,31 @@
 package net.iplantevin.aoc.aoc2023
 
+import net.iplantevin.aoc.common.ArrayGrid
 import net.iplantevin.aoc.common.Direction
-import net.iplantevin.aoc.common.Direction.EAST
-import net.iplantevin.aoc.common.Direction.NORTH
-import net.iplantevin.aoc.common.Direction.SOUTH
-import net.iplantevin.aoc.common.Direction.WEST
-import net.iplantevin.aoc.common.Grid
+import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.Point
+import net.iplantevin.aoc.common.toCharArrayGrid
 
 object Day10 {
 
     // The startDirection should result in a counter-clockwise walk along the pipeline
     fun problem10a(input: String, startDirection: Direction): Int {
         val startPoint = findStartPoint(input)
-        val grid = input.lines().map { it.toList() }
+        val grid = input.toCharArrayGrid()
         val pipelinePoints = walkPipeline(grid, startPoint, startDirection)
         return pipelinePoints.size / 2
     }
 
     fun problem10b(input: String, startDirection: Direction): Int {
         val startPoint = findStartPoint(input)
-        val grid = input.lines().map { it.toList() }
+        val grid = input.toCharArrayGrid()
         val pipelinePoints = walkPipeline(grid, startPoint, startDirection)
         val enclosedPoints = findEnclosedPoints(grid, startPoint, startDirection, pipelinePoints)
 //        printEnclosedPoints(grid, enclosedPoints)
         return enclosedPoints.size
     }
 
-    private fun walkPipeline(grid: Grid<Char>, startPoint: Point, startDirection: Direction): Set<Point> {
+    private fun walkPipeline(grid: ArrayGrid<Char>, startPoint: Point, startDirection: Direction): Set<Point> {
         val pipelinePoints = mutableSetOf(startPoint)
         var nextDirection = startDirection
         var currentPoint = startPoint
@@ -43,7 +41,7 @@ object Day10 {
     }
 
     private fun findEnclosedPoints(
-        grid: Grid<Char>,
+        grid: ArrayGrid<Char>,
         startPoint: Point,
         startDirection: Direction,
         pipelinePoints: Set<Point>,
@@ -66,7 +64,7 @@ object Day10 {
     }
 
     private fun Point.adjacentPointsInDirection(
-        grid: Grid<Char>,
+        grid: ArrayGrid<Char>,
         direction: Direction,
         pipelinePoints: Set<Point>
     ): List<Point> {
@@ -84,7 +82,7 @@ object Day10 {
         }
     }
 
-    private fun printEnclosedPoints(grid: Grid<Char>, enclosedPoints: Set<Point>) {
+    private fun printEnclosedPoints(grid: ArrayGrid<Char>, enclosedPoints: Set<Point>) {
         // Prints a representation of the grid with asterisks for all enclosed points
         grid.mapIndexed { y, row ->
             row.mapIndexed { x, c ->

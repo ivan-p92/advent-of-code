@@ -1,33 +1,27 @@
 package net.iplantevin.aoc.aoc2023
 
-import net.iplantevin.aoc.common.Direction
-import net.iplantevin.aoc.common.Direction.EAST
-import net.iplantevin.aoc.common.Direction.NORTH
-import net.iplantevin.aoc.common.Direction.SOUTH
-import net.iplantevin.aoc.common.Direction.WEST
-import net.iplantevin.aoc.common.Point
+import net.iplantevin.aoc.common.*
+import net.iplantevin.aoc.common.Direction.*
 import java.util.*
 
 object Day16 {
 
     fun problem16a(input: String): Int {
-        val grid = initializeGrid(input)
-        return energizeGrid(grid, Point(0, 0) to EAST)
+        val grid = input.toMapGrid { char -> Tile(Tile.Type[char]) }
+        return energizeGrid(grid, Move(Point(0, 0), EAST))
     }
 
     fun problem16b(input: String): Int {
-        val (width, height) = input.lines().let {
-            it.first().length to it.size
-        }
-        val grid = initializeGrid(input)
-        val startConfigurations = mutableListOf<Pair<Point, Direction>>()
+        val (width, height) = input.dimensions()
+        val grid = input.toMapGrid { char -> Tile(Tile.Type[char]) }
+        val startConfigurations = mutableListOf<Move>()
         for (y in 0..<height) {
-            startConfigurations += Point(0, y) to EAST
-            startConfigurations += Point(width - 1, y) to WEST
+            startConfigurations += Move(Point(0, y), EAST)
+            startConfigurations += Move(Point(width - 1, y), WEST)
         }
         for (x in 0..<width) {
-            startConfigurations += Point(x, 0) to SOUTH
-            startConfigurations += Point(x, height - 1) to NORTH
+            startConfigurations += Move(Point(x, 0), SOUTH)
+            startConfigurations += Move(Point(x, height - 1), NORTH)
         }
         return startConfigurations.maxOf { startConfiguration ->
             grid.values.forEach { it.visitedDirections.clear() }
@@ -35,34 +29,24 @@ object Day16 {
         }
     }
 
-    private fun energizeGrid(grid: Map<Point, Tile>, startConfiguration: Pair<Point, Direction>): Int {
-        val queue = LinkedList<Pair<Point, Direction>>()
-        queue.push(startConfiguration)
+    private fun energizeGrid(grid: MapGrid<Tile>, startMove: Move): Int {
+        val queue = LinkedList<Move>()
+        queue.push(startMove)
 
         while (queue.isNotEmpty()) {
-            val (point, direction) = queue.pop()
-            grid[point]?.let { tile ->
-                if (direction !in tile.visitedDirections) {
-                    tile.visitedDirections += direction
-                    val (firstDirection, secondDirection) = tile.type.transition(direction)
-                    queue.push(point.move(firstDirection) to firstDirection)
+            val move = queue.pop()
+            grid[move.position]?.let { tile ->
+                if (move.direction !in tile.visitedDirections) {
+                    tile.visitedDirections += move.direction
+                    val (firstDirection, secondDirection) = tile.type.transition(move.direction)
+                    queue.push(Move(move.position.move(firstDirection), firstDirection))
                     if (secondDirection != null) {
-                        queue.push(point.move(secondDirection) to secondDirection)
+                        queue.push(Move(move.position.move(secondDirection), secondDirection))
                     }
                 }
             }
         }
         return grid.values.count { it.visitedDirections.isNotEmpty() }
-    }
-
-    private fun initializeGrid(input: String): Map<Point, Tile> {
-        val grid = mutableMapOf<Point, Tile>()
-        input.lines().forEachIndexed { y: Int, line: String ->
-            line.forEachIndexed { x, char ->
-                grid[Point(x, y)] = Tile(Tile.Type[char])
-            }
-        }
-        return grid
     }
 
     private data class Tile(val type: Type, val visitedDirections: MutableSet<Direction> = mutableSetOf()) {

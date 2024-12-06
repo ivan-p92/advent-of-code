@@ -1,7 +1,10 @@
 package net.iplantevin.aoc.aoc2024
 
-import net.iplantevin.aoc.common.Direction
+import net.iplantevin.aoc.common.Direction.NORTH
+import net.iplantevin.aoc.common.MapGrid
+import net.iplantevin.aoc.common.Move
 import net.iplantevin.aoc.common.Point
+import net.iplantevin.aoc.common.toMapGrid
 
 object Day6 {
 
@@ -22,16 +25,16 @@ object Day6 {
     }
 
     private fun walkAround(
-        grid: Map<Point, Char>,
+        grid: MapGrid<Char>,
         start: Point
-    ): Pair<Int, Set<Pair<Point, Direction>>> {
+    ): Pair<Int, Set<Move>> {
         val visitedPositions = mutableSetOf<Point>()
-        val visitedPositionsWithDirection = mutableSetOf<Pair<Point, Direction>>()
+        val visitedPositionsWithDirection = mutableSetOf<Move>()
         var currentPosition = start
-        var direction = Direction.NORTH
+        var direction = NORTH
         do {
             visitedPositions += currentPosition
-            visitedPositionsWithDirection += currentPosition to direction
+            visitedPositionsWithDirection += Move(currentPosition, direction)
             val nextPosition = currentPosition + direction.delta
             if (grid[nextPosition] == '#') {
                 direction = direction.turnRight()
@@ -43,40 +46,36 @@ object Day6 {
     }
 
     private fun countObstructionsThatCauseLoops(
-        grid: Map<Point, Char>,
+        grid: MapGrid<Char>,
         obstructions: MutableSet<Point>,
         start: Point
     ): Int {
         var loopObstructions = 0
         for (obstruction in obstructions) {
-            val visitedPositions = mutableSetOf<Pair<Point, Direction>>()
-            var currentPosition = start
-            var direction = Direction.NORTH
+            val pastMoves = mutableSetOf<Move>()
+            var currentMove = Move(start, NORTH)
             do {
-                visitedPositions += currentPosition to direction
-                val nextPosition = currentPosition + direction.delta
-                if (grid[nextPosition] == '#' || nextPosition == obstruction) {
-                    direction = direction.turnRight()
+                pastMoves += currentMove
+                val nextPosition = currentMove.nextMove().position
+                currentMove = if (grid[nextPosition] == '#' || nextPosition == obstruction) {
+                    currentMove.turnRight()
                 } else {
-                    currentPosition = nextPosition
+                    currentMove.nextMove()
                 }
-                if (currentPosition to direction in visitedPositions) {
+                if (currentMove in pastMoves) {
                     loopObstructions++
                     break
                 }
-            } while (currentPosition in grid)
+            } while (currentMove.position in grid)
         }
         return loopObstructions
     }
 
-    private fun initializeGrid(input: String): Pair<Map<Point, Char>, Point> {
-        val grid = mutableMapOf<Point, Char>()
+    private fun initializeGrid(input: String): Pair<MapGrid<Char>, Point> {
         var startPoint = Point(0, 0)
-        input.lines().forEachIndexed { y: Int, line: String ->
-            line.forEachIndexed { x, char ->
-                if (char == '^') startPoint = Point(x, y)
-                grid[Point(x, y)] = char
-            }
+        val grid = input.toMapGrid { point, char ->
+            if (char == '^') startPoint = point
+            char
         }
         return grid to startPoint
     }

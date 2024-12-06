@@ -1,7 +1,8 @@
 package net.iplantevin.aoc.aoc2024
 
-import net.iplantevin.aoc.common.Grid
+import net.iplantevin.aoc.common.ArrayGrid
 import net.iplantevin.aoc.common.Point
+import net.iplantevin.aoc.common.toCharArrayGrid
 
 object Day4 {
     private val steps = listOf(
@@ -23,7 +24,7 @@ object Day4 {
     )
 
     fun problem4a(input: String): Int {
-        val wordGrid = parse(input)
+        val wordGrid = input.toCharArrayGrid()
         var matches = 0
 
         wordGrid.forEachIndexed { y, line ->
@@ -37,7 +38,7 @@ object Day4 {
     }
 
     fun problem4b(input: String): Int {
-        val wordGrid = parse(input)
+        val wordGrid = input.toCharArrayGrid()
         var matches = 0
 
         wordGrid.forEachIndexed { y, line ->
@@ -50,7 +51,7 @@ object Day4 {
         return matches
     }
 
-    private fun countXmas(wordGrid: Grid<Char>, point: Point): Int {
+    private fun countXmas(wordGrid: ArrayGrid<Char>, point: Point): Int {
         var matches = 0
         steps.forEach { step ->
             var word = ""
@@ -63,7 +64,7 @@ object Day4 {
         return matches
     }
 
-    private fun isXmas(wordGrid: Grid<Char>, point: Point): Boolean {
+    private fun isXmas(wordGrid: ArrayGrid<Char>, point: Point): Boolean {
         var diagonals = ""
         diagonalSteps.forEach { step ->
             val nextLetter = step + point
@@ -73,9 +74,5 @@ object Day4 {
             "MSMS", "MSSM", "SMSM", "SMMS" -> true
             else -> false
         }
-    }
-
-    private fun parse(input: String): Grid<Char> {
-        return input.lines().map { it.toList() }
     }
 }
