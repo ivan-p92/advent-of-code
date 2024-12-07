@@ -4,7 +4,6 @@ import io.kotest.matchers.shouldBe
 import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.AdventOfCodeTest
-import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
 
 class AdventOfCode2023Test : AdventOfCodeTest(2023) {

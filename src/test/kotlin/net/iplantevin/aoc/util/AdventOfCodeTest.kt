@@ -6,7 +6,7 @@ import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse.BodyHandlers
 
-abstract class AdventOfCodeTest(private val year: Int) {
+abstract class AdventOfCodeTest(private val year: Int, private val warmupIterations: Int = 0) {
 
     fun input(day: Int): String {
         val directory = "src/test/resources/inputs/$year"
@@ -18,6 +18,15 @@ abstract class AdventOfCodeTest(private val year: Int) {
         }
 
         return file.readText()
+    }
+
+    fun timing(warmupIterations: Int = this.warmupIterations, f: () -> Unit) {
+        repeat(warmupIterations) { f() }
+
+        val start = System.nanoTime()
+        f()
+        val end = System.nanoTime()
+        println("Took ${(end - start) / 1.0e6} ms")
     }
 
     private fun downloadInputFile(day: Int, file: File) {
