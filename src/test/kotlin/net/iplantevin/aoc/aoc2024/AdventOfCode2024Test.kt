@@ -13,6 +13,8 @@ import net.iplantevin.aoc.aoc2024.Day5.problem5a
 import net.iplantevin.aoc.aoc2024.Day5.problem5b
 import net.iplantevin.aoc.aoc2024.Day6.problem6a
 import net.iplantevin.aoc.aoc2024.Day6.problem6b
+import net.iplantevin.aoc.aoc2024.Day7.problem7a
+import net.iplantevin.aoc.aoc2024.Day7.problem7b
 import net.iplantevin.aoc.util.input
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
@@ -260,5 +262,43 @@ class AdventOfCode2024Test {
         ) shouldBe 6
 
         timing { problem6b(input(24, 6)) shouldBe 1480 }
+    }
+
+    @Test
+    fun part7a() {
+        problem7a(
+            """
+            190: 10 19
+            3267: 81 40 27
+            83: 17 5
+            156: 15 6
+            7290: 6 8 6 15
+            161011: 16 10 13
+            192: 17 8 14
+            21037: 9 7 18 13
+            292: 11 6 16 20
+            """.trimIndent()
+        ) shouldBe 3749L
+
+        timing { problem7a(input(24, 7)) shouldBe 2314935962622L }
+    }
+
+    @Test
+    fun part7b() {
+        problem7b(
+            """
+            190: 10 19
+            3267: 81 40 27
+            83: 17 5
+            156: 15 6
+            7290: 6 8 6 15
+            161011: 16 10 13
+            192: 17 8 14
+            21037: 9 7 18 13
+            292: 11 6 16 20
+            """.trimIndent()
+        ) shouldBe 11387L
+
+        timing { problem7b(input(24, 7)) shouldBe 401477450831495L }
     }
 }
