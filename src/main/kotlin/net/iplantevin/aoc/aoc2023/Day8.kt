@@ -8,7 +8,7 @@ object Day8 {
 
     private val nodeRegex = """(\w\w\w) = \((\w\w\w), (\w\w\w)\)""".toRegex()
 
-    fun problem8a(input: String): Long {
+    fun part1(input: String): Long {
         val rightLeftSequence = input.lines().first().toList()
         val nodes = input.lines().drop(2).parseNodes()
         var currentNode = "AAA"
@@ -26,7 +26,7 @@ object Day8 {
         }
     }
 
-    fun problem8b(input: String): Long {
+    fun part2(input: String): Long {
         val rightLeftSequence = input.lines().first().toList()
         val nodes = input.lines().drop(2).parseNodes()
         val startNodes = nodes.keys.filter { it.last() == 'A' }

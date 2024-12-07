@@ -4,8 +4,8 @@ import net.iplantevin.aoc.common.Point
 
 object Day11 {
 
-    fun problem11(universe: String, expansionFactor: Int): Long {
-        val (galaxies, emptyRows, emptyColumns) = inspect(universe)
+    fun part1(universe: String, expansionFactor: Int): Long {
+        val (galaxies, emptyRows, emptyColumns) = part2(universe)
         val expandedGalaxies = expand(expansionFactor, galaxies, emptyRows, emptyColumns)
         val cartesianProduct = mutableSetOf<Pair<Point, Point>>()
         expandedGalaxies.map { galaxy ->
@@ -18,7 +18,7 @@ object Day11 {
         return cartesianProduct.sumOf { (g1, g2) -> g1.distance(g2) }
     }
 
-    private fun inspect(universe: String): Triple<List<Point>, List<Int>, List<Int>> {
+    private fun part2(universe: String): Triple<List<Point>, List<Int>, List<Int>> {
         val galaxies = mutableListOf<Point>()
         val rows = universe.lines()
         val emptyRows = mutableListOf<Int>()

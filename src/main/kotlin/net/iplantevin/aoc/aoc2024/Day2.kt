@@ -4,9 +4,9 @@ import kotlin.math.abs
 
 object Day2 {
 
-    fun problem2a(input: String): Int = parse(input).count { reportIsSafe(it) }
+    fun part1(input: String): Int = parse(input).count { reportIsSafe(it) }
 
-    fun problem2b(input: String): Int = parse(input).count { reportIsSafe(it, lenient = true) }
+    fun part2(input: String): Int = parse(input).count { reportIsSafe(it, lenient = true) }
 
     private fun parse(input: String) = input.lineSequence().map { it.split(" ").map(String::toInt) }
 

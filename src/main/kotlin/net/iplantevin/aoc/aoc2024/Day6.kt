@@ -8,13 +8,13 @@ import net.iplantevin.aoc.common.toMapGrid
 
 object Day6 {
 
-    fun problem6a(input: String): Int {
+    fun part1(input: String): Int {
         val (grid, start) = initializeGrid(input)
         val (totalVisitedPositions, _) = walkAround(grid, start)
         return totalVisitedPositions
     }
 
-    fun problem6b(input: String): Int {
+    fun part2(input: String): Int {
         val (grid, start) = initializeGrid(input)
         val (_, defaultPositions) = walkAround(grid, start)
         val obstructions = defaultPositions.mapTo(mutableSetOf()) { (position, direction) ->

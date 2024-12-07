@@ -6,7 +6,7 @@ import kotlin.math.min
 
 object Day5 {
 
-    fun problem5a(input: String): Long {
+    fun part1(input: String): Long {
         val almanac = loadAlmanac(input)
         return almanac.seeds.minOf { seed ->
             almanac.mappings.fold(seed) { sourceNumber, mappings ->
@@ -20,7 +20,7 @@ object Day5 {
     // Wew.. this one was error-prone, and took (too) long with a bruteforce approach.
     // The solution is to map each range to one or more other ranges, then picking the lowest
     // start value of the final ranges.
-    fun problem5b(input: String): Long {
+    fun part2(input: String): Long {
         val almanac = loadAlmanac(input)
         val seedRanges = almanac.seeds.windowed(size = 2, step = 2).map { (start, length) ->
             LongRange(start, start + length - 1)

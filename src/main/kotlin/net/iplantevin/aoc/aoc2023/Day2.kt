@@ -8,14 +8,14 @@ object Day2 {
     private val greenRegex = """.* (\d+) green.*""".toRegex()
     private val blueRegex = """.* (\d+) blue.*""".toRegex()
 
-    fun problem2a(games: String, red: Int, green: Int, blue: Int): Int {
+    fun part1(games: String, red: Int, green: Int, blue: Int): Int {
         return games.lines()
             .map { it.toGame() }
             .filter { it.matches(red, green, blue) }
             .sumOf { it.id }
     }
 
-    fun problem2b(games: String): Int {
+    fun part2(games: String): Int {
         return games.lines().sumOf { it.toGame().power() }
     }
 

@@ -2,11 +2,11 @@ package net.iplantevin.aoc.aoc2023
 
 object Day9 {
 
-    fun problem9a(input: String): Long {
+    fun part1(input: String): Long {
         return input.parseSequences().sumOf { extrapolateForwards(it) }
     }
 
-    fun problem9b(input: String): Long {
+    fun part2(input: String): Long {
         return input.parseSequences().sumOf { extrapolateBackwards(it) }
     }
 

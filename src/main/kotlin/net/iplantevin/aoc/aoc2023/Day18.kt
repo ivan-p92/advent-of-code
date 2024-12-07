@@ -1,22 +1,19 @@
 package net.iplantevin.aoc.aoc2023
 
 import net.iplantevin.aoc.common.Direction
-import net.iplantevin.aoc.common.Direction.EAST
-import net.iplantevin.aoc.common.Direction.NORTH
-import net.iplantevin.aoc.common.Direction.SOUTH
-import net.iplantevin.aoc.common.Direction.WEST
+import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.Point
 import kotlin.math.abs
 
 object Day18 {
 
-    fun problem18a(input: String): Long {
+    fun part1(input: String): Long {
         val instructions = parseInstructions(input)
         val trench = trenchVertices(instructions)
         return calculateArea(trench)
     }
 
-    fun problem18b(input: String): Long {
+    fun part2(input: String): Long {
         val instructions = parseInstructions(input)
         val trench = trenchVertices(fixInstructions(instructions))
         return calculateArea(trench)

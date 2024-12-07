@@ -8,7 +8,7 @@ import net.iplantevin.aoc.common.toCharArrayGrid
 
 object Day14 {
 
-    fun problem14a(input: String): Int {
+    fun part1(input: String): Int {
         val lines = input.lines()
         var load = 0
         for (x in 0 until lines.first().length) {
@@ -24,7 +24,7 @@ object Day14 {
         return load
     }
 
-    fun problem14b(input: String): Int {
+    fun part2(input: String): Int {
         var grid = input.toCharArrayGrid()
         val stateHistory = LinkedHashSet<ArrayGrid<Char>>()
         for (cycle in 1..1_000_000_000) {

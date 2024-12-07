@@ -1,17 +1,17 @@
 package net.iplantevin.aoc.aoc2023
 
-import java.util.LinkedList
+import java.util.*
 import kotlin.math.pow
 
 object Day4 {
     private val cardRegex = """Card\s+(\d+):(.*)\|(.*)""".toRegex()
 
-    fun problem4a(input: String): Int {
+    fun part1(input: String): Int {
         val cards = input.lines().map { it.toCard() }
         return cards.sumOf { it.points }
     }
 
-    fun problem4b(input: String): Int {
+    fun part2(input: String): Int {
         val cards = input.lines().map { it.toCard() }
         val queue = LinkedList(cards)
         var totalScratchCards = cards.size

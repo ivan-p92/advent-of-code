@@ -9,14 +9,14 @@ import net.iplantevin.aoc.common.toCharArrayGrid
 object Day10 {
 
     // The startDirection should result in a counter-clockwise walk along the pipeline
-    fun problem10a(input: String, startDirection: Direction): Int {
+    fun part1(input: String, startDirection: Direction): Int {
         val startPoint = findStartPoint(input)
         val grid = input.toCharArrayGrid()
         val pipelinePoints = walkPipeline(grid, startPoint, startDirection)
         return pipelinePoints.size / 2
     }
 
-    fun problem10b(input: String, startDirection: Direction): Int {
+    fun part2(input: String, startDirection: Direction): Int {
         val startPoint = findStartPoint(input)
         val grid = input.toCharArrayGrid()
         val pipelinePoints = walkPipeline(grid, startPoint, startDirection)

@@ -5,7 +5,7 @@ import net.iplantevin.aoc.common.Point
 
 object Day3 {
 
-    fun problem3a(schematic: String): Int {
+    fun part1(schematic: String): Int {
         val (numbersByPoint, symbols) = loadSchematic(schematic)
         val partNumbers = mutableSetOf<Number>()
 
@@ -18,7 +18,7 @@ object Day3 {
         return partNumbers.sumOf { it.value }
     }
 
-    fun problem3b(schematic: String): Int {
+    fun part2(schematic: String): Int {
         val (numbersByPoint, symbols) = loadSchematic(schematic)
         var sumOfGearRatios = 0
         symbols.forEach { symbol ->

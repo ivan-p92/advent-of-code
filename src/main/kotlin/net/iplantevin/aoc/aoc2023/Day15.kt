@@ -1,15 +1,12 @@
 package net.iplantevin.aoc.aoc2023
 
-import java.util.*
-import kotlin.collections.LinkedHashMap
-
 object Day15 {
 
-    fun problem15a(initSequence: String): Int {
+    fun part1(initSequence: String): Int {
         return initSequence.split(",").sumOf { hash(it) }
     }
 
-    fun problem15b(initSequence: String): Int {
+    fun part2(initSequence: String): Int {
         val boxes = mutableMapOf<Int, LinkedHashMap<String, Int>>()
         repeat(256) { boxes[it] = LinkedHashMap() }
         initSequence.split(",").forEach {

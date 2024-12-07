@@ -2,13 +2,13 @@ package net.iplantevin.aoc.aoc2023
 
 object Day1 {
 
-    fun problem1a(input: String): Int {
+    fun part1(input: String): Int {
         return input.lines().sumOf { line ->
             (line.first { it.isDigit() }.toString() + line.last { it.isDigit() }).toInt()
         }
     }
 
-    fun problem1b(input: String): Int {
+    fun part2(input: String): Int {
         return input.lines().sumOf { parseLine(it) }
     }
 
@@ -32,6 +32,7 @@ object Day1 {
                 match != null && firstDigit != null -> {
                     lastDigit = match
                 }
+
                 match != null -> {
                     firstDigit = match
                 }

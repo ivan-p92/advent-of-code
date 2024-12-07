@@ -2,11 +2,11 @@ package net.iplantevin.aoc.aoc2024
 
 object Day3 {
 
-    fun problem3a(input: String): Int {
+    fun part1(input: String): Int {
         return extractMultiplications(input).fold(0) { sum, (a, b) -> sum + a * b }
     }
 
-    fun problem3b(input: String): Int {
+    fun part2(input: String): Int {
         return extractEnabledMultiplications(input).fold(0) { sum, (a, b) -> sum + a * b }
     }
 

@@ -1,41 +1,6 @@
 package net.iplantevin.aoc.aoc2023
 
 import io.kotest.matchers.shouldBe
-import net.iplantevin.aoc.aoc2023.Day1.problem1a
-import net.iplantevin.aoc.aoc2023.Day1.problem1b
-import net.iplantevin.aoc.aoc2023.Day10.problem10a
-import net.iplantevin.aoc.aoc2023.Day10.problem10b
-import net.iplantevin.aoc.aoc2023.Day11.problem11
-import net.iplantevin.aoc.aoc2023.Day12.problem12a
-import net.iplantevin.aoc.aoc2023.Day12.problem12b
-import net.iplantevin.aoc.aoc2023.Day13.problem13
-import net.iplantevin.aoc.aoc2023.Day14.problem14a
-import net.iplantevin.aoc.aoc2023.Day14.problem14b
-import net.iplantevin.aoc.aoc2023.Day15.problem15a
-import net.iplantevin.aoc.aoc2023.Day15.problem15b
-import net.iplantevin.aoc.aoc2023.Day16.problem16a
-import net.iplantevin.aoc.aoc2023.Day16.problem16b
-import net.iplantevin.aoc.aoc2023.Day17.problem17a
-import net.iplantevin.aoc.aoc2023.Day17.problem17b
-import net.iplantevin.aoc.aoc2023.Day18.problem18a
-import net.iplantevin.aoc.aoc2023.Day18.problem18b
-import net.iplantevin.aoc.aoc2023.Day19.problem19a
-import net.iplantevin.aoc.aoc2023.Day2.problem2a
-import net.iplantevin.aoc.aoc2023.Day2.problem2b
-import net.iplantevin.aoc.aoc2023.Day3.problem3a
-import net.iplantevin.aoc.aoc2023.Day3.problem3b
-import net.iplantevin.aoc.aoc2023.Day4.problem4a
-import net.iplantevin.aoc.aoc2023.Day4.problem4b
-import net.iplantevin.aoc.aoc2023.Day5.problem5a
-import net.iplantevin.aoc.aoc2023.Day5.problem5b
-import net.iplantevin.aoc.aoc2023.Day6.problem6a
-import net.iplantevin.aoc.aoc2023.Day6.problem6b
-import net.iplantevin.aoc.aoc2023.Day7.problem7a
-import net.iplantevin.aoc.aoc2023.Day7.problem7b
-import net.iplantevin.aoc.aoc2023.Day8.problem8a
-import net.iplantevin.aoc.aoc2023.Day8.problem8b
-import net.iplantevin.aoc.aoc2023.Day9.problem9a
-import net.iplantevin.aoc.aoc2023.Day9.problem9b
 import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.input
@@ -45,20 +10,20 @@ import org.junit.jupiter.api.Test
 class AdventOfCode2023Test {
 
     @Test
-    fun part1a() {
-        problem1a(
+    fun day1Part1() {
+        Day1.part1(
             """1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet"""
         ) shouldBe 142
 
-        timing { problem1a(input(23, 1)) shouldBe 54877 }
+        timing { Day1.part1(input(23, 1)) shouldBe 54877 }
     }
 
     @Test
-    fun part1b() {
-        problem1b(
+    fun day1Part2() {
+        Day1.part2(
             """two1nine
 eightwothree
 abcone2threexyz
@@ -68,12 +33,12 @@ zoneight234
 7pqrstsixteen"""
         ) shouldBe 281
 
-        timing { problem1b(input(23, 1)) shouldBe 54100 }
+        timing { Day1.part2(input(23, 1)) shouldBe 54100 }
     }
 
     @Test
-    fun part2a() {
-        problem2a(
+    fun day2Part1() {
+        Day2.part1(
             """Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
 Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
@@ -82,12 +47,12 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green""",
             12, 13, 14
         ) shouldBe 8
 
-        timing { problem2a(input(23, 2), 12, 13, 14) shouldBe 2795 }
+        timing { Day2.part1(input(23, 2), 12, 13, 14) shouldBe 2795 }
     }
 
     @Test
-    fun part2b() {
-        problem2b(
+    fun day2Part2() {
+        Day2.part2(
             """Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
 Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
@@ -95,11 +60,11 @@ Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
         ) shouldBe 2286
 
-        timing { problem2b(input(23, 2)) shouldBe 75561 }
+        timing { Day2.part2(input(23, 2)) shouldBe 75561 }
     }
 
     @Test
-    fun part3a() {
+    fun day3Part1() {
         Point(0, 1).neighbours() shouldBe listOf(
             Point(x = -1, y = 0),
             Point(x = 0, y = 0),
@@ -110,7 +75,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
             Point(x = 0, y = 2),
             Point(x = 1, y = 2)
         )
-        problem3a(
+        Day3.part1(
             """467..114..
 ...*......
 ..35..633.
@@ -123,12 +88,12 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
 .664.598.."""
         ) shouldBe 4361
 
-        timing { problem3a(input(23, 3)) shouldBe 535351 }
+        timing { Day3.part1(input(23, 3)) shouldBe 535351 }
     }
 
     @Test
-    fun part3b() {
-        problem3b(
+    fun day3Part2() {
+        Day3.part2(
             """467..114..
 ...*......
 ..35..633.
@@ -141,12 +106,12 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
 .664.598.."""
         ) shouldBe 467835
 
-        timing { problem3b(input(23, 3)) shouldBe 87287096 }
+        timing { Day3.part2(input(23, 3)) shouldBe 87287096 }
     }
 
     @Test
-    fun part4a() {
-        problem4a(
+    fun day4Part1() {
+        Day4.part1(
             """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
 Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
@@ -155,12 +120,12 @@ Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
         ) shouldBe 13
 
-        timing { problem4a(input(23, 4)) shouldBe 25183 }
+        timing { Day4.part1(input(23, 4)) shouldBe 25183 }
     }
 
     @Test
-    fun part4b() {
-        problem4b(
+    fun day4Part2() {
+        Day4.part2(
             """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
 Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
@@ -169,12 +134,12 @@ Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
         ) shouldBe 30
 
-        timing { problem4b(input(23, 4)) shouldBe 5667240 }
+        timing { Day4.part2(input(23, 4)) shouldBe 5667240 }
     }
 
     @Test
-    fun part5a() {
-        problem5a(
+    fun day5Part1() {
+        Day5.part1(
             """seeds: 79 14 55 13
 
 seed-to-soil map:
@@ -210,12 +175,12 @@ humidity-to-location map:
 56 93 4"""
         ) shouldBe 35
 
-        timing { problem5a(input(23, 5)) shouldBe 107430936L }
+        timing { Day5.part1(input(23, 5)) shouldBe 107430936L }
     }
 
     @Test
-    fun part5b() {
-        problem5b(
+    fun day5Part2() {
+        Day5.part2(
             """seeds: 79 14 55 13
 
 seed-to-soil map:
@@ -251,316 +216,316 @@ humidity-to-location map:
 56 93 4"""
         ) shouldBe 46
 
-        timing { problem5b(input(23, 5)) shouldBe 23738616L }
+        timing { Day5.part2(input(23, 5)) shouldBe 23738616L }
     }
 
     @Test
-    fun part6a() {
+    fun day6Part1() {
         val finalInput = """
             Time:        41     77     70     96
             Distance:   249   1362   1127   1011
         """.trimIndent()
 
-        problem6a(
+        Day6.part1(
             """Time:      7  15   30
-Distance:  9  40  200"""
+    Distance:  9  40  200"""
         ) shouldBe 288
 
-        timing { problem6a(finalInput) shouldBe 771628 }
+        timing { Day6.part1(finalInput) shouldBe 771628 }
     }
 
     @Test
-    fun part6b() {
+    fun day6Part2() {
         val finalInput = """
             Time:        41777096
             Distance:   249136211271011
         """.trimIndent()
 
-        problem6b(
+        Day6.part2(
             """Time:      71530
-Distance:  940200"""
+    Distance:  940200"""
         ) shouldBe 71503
 
-        timing { problem6b(finalInput) shouldBe 27363861 }
+        timing { Day6.part2(finalInput) shouldBe 27363861 }
     }
 
     @Test
-    fun part7a() {
-        problem7a(
+    fun day7Part1() {
+        Day7.part1(
             """
-                32T3K 765
-                T55J5 684
-                KK677 28
-                KTJJT 220
-                QQQJA 483
-            """.trimIndent()
+                    32T3K 765
+                    T55J5 684
+                    KK677 28
+                    KTJJT 220
+                    QQQJA 483
+                """.trimIndent()
         ) shouldBe 6440
 
-        timing { problem7a(input(23, 7)) shouldBe 248569531L }
+        timing { Day7.part1(input(23, 7)) shouldBe 248569531L }
     }
 
     @Test
-    fun part7b() {
-        problem7b(
+    fun day7Part2() {
+        Day7.part2(
             """
-                32T3K 765
-                T55J5 684
-                KK677 28
-                KTJJT 220
-                QQQJA 483
-            """.trimIndent()
+                    32T3K 765
+                    T55J5 684
+                    KK677 28
+                    KTJJT 220
+                    QQQJA 483
+                """.trimIndent()
         ) shouldBe 5905
 
-        timing { problem7b(input(23, 7)) shouldBe 250382098L }
+        timing { Day7.part2(input(23, 7)) shouldBe 250382098L }
     }
 
     @Test
-    fun part8a() {
-        problem8a(
+    fun day8Part1() {
+        Day8.part1(
             """
-                RL
-
-                AAA = (BBB, CCC)
-                BBB = (DDD, EEE)
-                CCC = (ZZZ, GGG)
-                DDD = (DDD, DDD)
-                EEE = (EEE, EEE)
-                GGG = (GGG, GGG)
-                ZZZ = (ZZZ, ZZZ)
-            """.trimIndent()
+                    RL
+    
+                    AAA = (BBB, CCC)
+                    BBB = (DDD, EEE)
+                    CCC = (ZZZ, GGG)
+                    DDD = (DDD, DDD)
+                    EEE = (EEE, EEE)
+                    GGG = (GGG, GGG)
+                    ZZZ = (ZZZ, ZZZ)
+                """.trimIndent()
         ) shouldBe 2
 
-        problem8a(
+        Day8.part1(
             """
-                LLR
-
-                AAA = (BBB, BBB)
-                BBB = (AAA, ZZZ)
-                ZZZ = (ZZZ, ZZZ)
-            """.trimIndent()
+                    LLR
+    
+                    AAA = (BBB, BBB)
+                    BBB = (AAA, ZZZ)
+                    ZZZ = (ZZZ, ZZZ)
+                """.trimIndent()
         ) shouldBe 6
 
-        timing { problem8a(input(23, 8)) shouldBe 20221L }
+        timing { Day8.part1(input(23, 8)) shouldBe 20221L }
     }
 
     @Test
-    fun part8b() {
-        problem8b(
+    fun day8Part2() {
+        Day8.part2(
             """
-                LR
-
-                11A = (11B, XXX)
-                11B = (XXX, 11Z)
-                11Z = (11B, XXX)
-                22A = (22B, XXX)
-                22B = (22C, 22C)
-                22C = (22Z, 22Z)
-                22Z = (22B, 22B)
-                XXX = (XXX, XXX)
-            """.trimIndent()
+                    LR
+    
+                    11A = (11B, XXX)
+                    11B = (XXX, 11Z)
+                    11Z = (11B, XXX)
+                    22A = (22B, XXX)
+                    22B = (22C, 22C)
+                    22C = (22Z, 22Z)
+                    22Z = (22B, 22B)
+                    XXX = (XXX, XXX)
+                """.trimIndent()
         ) shouldBe 6
 
-        timing { problem8b(input(23, 8)) shouldBe 14616363770447L }
+        timing { Day8.part2(input(23, 8)) shouldBe 14616363770447L }
     }
 
     @Test
-    fun part9a() {
-        problem9a(
+    fun day9Part1() {
+        Day9.part1(
             """
-            0 3 6 9 12 15
-            1 3 6 10 15 21
-            10 13 16 21 30 45
-        """.trimIndent()
+                0 3 6 9 12 15
+                1 3 6 10 15 21
+                10 13 16 21 30 45
+            """.trimIndent()
         ) shouldBe 114
 
-        timing { problem9a(input(23, 9)) shouldBe 1987402313L }
+        timing { Day9.part1(input(23, 9)) shouldBe 1987402313L }
     }
 
     @Test
-    fun part9b() {
-        problem9b(
+    fun day9Part2() {
+        Day9.part2(
             """
-            0 3 6 9 12 15
-            1 3 6 10 15 21
-            10 13 16 21 30 45
-        """.trimIndent()
+                0 3 6 9 12 15
+                1 3 6 10 15 21
+                10 13 16 21 30 45
+            """.trimIndent()
         ) shouldBe 2
 
-        timing { problem9b(input(23, 9)) shouldBe 900L }
+        timing { Day9.part2(input(23, 9)) shouldBe 900L }
     }
 
     @Test
-    fun part10a() {
-        problem10a(
+    fun day10Part1() {
+        Day10.part1(
             """
-                -L|F7
-                7S-7|
-                L|7||
-                -L-J|
-                L|-JF
-            """.trimIndent(),
+                    -L|F7
+                    7S-7|
+                    L|7||
+                    -L-J|
+                    L|-JF
+                """.trimIndent(),
             SOUTH
         ) shouldBe 4
 
-        problem10a(
+        Day10.part1(
             """
-                7-F7-
-                .FJ|7
-                SJLL7
-                |F--J
-                LJ.LJ
-            """.trimIndent(),
+                    7-F7-
+                    .FJ|7
+                    SJLL7
+                    |F--J
+                    LJ.LJ
+                """.trimIndent(),
             SOUTH
         ) shouldBe 8
 
-        timing { problem10a(input(23, 10), SOUTH) shouldBe 7086 }
+        timing { Day10.part1(input(23, 10), SOUTH) shouldBe 7086 }
     }
 
     @Test
-    fun part10b() {
-        problem10b(
+    fun day10Part2() {
+        Day10.part2(
             """
-                ...........
-                .S-------7.
-                .|F-----7|.
-                .||.....||.
-                .||.....||.
-                .|L-7.F-J|.
-                .|..|.|..|.
-                .L--J.L--J.
-                ...........
-            """.trimIndent(),
+                    ...........
+                    .S-------7.
+                    .|F-----7|.
+                    .||.....||.
+                    .||.....||.
+                    .|L-7.F-J|.
+                    .|..|.|..|.
+                    .L--J.L--J.
+                    ...........
+                """.trimIndent(),
             SOUTH
         ) shouldBe 4
 
-        problem10b(
+        Day10.part2(
             """
-                .F----7F7F7F7F-7....
-                .|F--7||||||||FJ....
-                .||.FJ||||||||L7....
-                FJL7L7LJLJ||LJ.L-7..
-                L--J.L7...LJS7F-7L7.
-                ....F-J..F7FJ|L7L7L7
-                ....L7.F7||L7|.L7L7|
-                .....|FJLJ|FJ|F7|.LJ
-                ....FJL-7.||.||||...
-                ....L---J.LJ.LJLJ...
-            """.trimIndent(),
+                    .F----7F7F7F7F-7....
+                    .|F--7||||||||FJ....
+                    .||.FJ||||||||L7....
+                    FJL7L7LJLJ||LJ.L-7..
+                    L--J.L7...LJS7F-7L7.
+                    ....F-J..F7FJ|L7L7L7
+                    ....L7.F7||L7|.L7L7|
+                    .....|FJLJ|FJ|F7|.LJ
+                    ....FJL-7.||.||||...
+                    ....L---J.LJ.LJLJ...
+                """.trimIndent(),
             EAST
         ) shouldBe 8
 
-        problem10b(
+        Day10.part2(
             """
-                FF7FSF7F7F7F7F7F---7
-                L|LJ||||||||||||F--J
-                FL-7LJLJ||||||LJL-77
-                F--JF--7||LJLJ7F7FJ-
-                L---JF-JLJ.||-FJLJJ7
-                |F|F-JF---7F7-L7L|7|
-                |FFJF7L7F-JF7|JL---7
-                7-L-JL7||F7|L7F-7F7|
-                L.L7LFJ|||||FJL7||LJ
-                L7JLJL-JLJLJL--JLJ.L
-            """.trimIndent(),
+                    FF7FSF7F7F7F7F7F---7
+                    L|LJ||||||||||||F--J
+                    FL-7LJLJ||||||LJL-77
+                    F--JF--7||LJLJ7F7FJ-
+                    L---JF-JLJ.||-FJLJJ7
+                    |F|F-JF---7F7-L7L|7|
+                    |FFJF7L7F-JF7|JL---7
+                    7-L-JL7||F7|L7F-7F7|
+                    L.L7LFJ|||||FJL7||LJ
+                    L7JLJL-JLJLJL--JLJ.L
+                """.trimIndent(),
             WEST
         ) shouldBe 10
 
-        timing { problem10b(input(23, 10), NORTH) shouldBe 317 }
+        timing { Day10.part2(input(23, 10), NORTH) shouldBe 317 }
     }
 
     @Test
-    fun part11a() {
-        problem11(
+    fun day11Part1() {
+        Day11.part1(
             """
-                ...#......
-                .......#..
-                #.........
-                ..........
-                ......#...
-                .#........
-                .........#
-                ..........
-                .......#..
-                #...#.....
-            """.trimIndent(),
+                    ...#......
+                    .......#..
+                    #.........
+                    ..........
+                    ......#...
+                    .#........
+                    .........#
+                    ..........
+                    .......#..
+                    #...#.....
+                """.trimIndent(),
             1
         ) shouldBe 374
 
-        timing { problem11(input(23, 11), 1) shouldBe 10033566 }
+        timing { Day11.part1(input(23, 11), 1) shouldBe 10033566 }
     }
 
     @Test
-    fun part11b() {
-        problem11(
+    fun day11Part2() {
+        Day11.part1(
             """
-                ...#......
-                .......#..
-                #.........
-                ..........
-                ......#...
-                .#........
-                .........#
-                ..........
-                .......#..
-                #...#.....
-            """.trimIndent(),
+                    ...#......
+                    .......#..
+                    #.........
+                    ..........
+                    ......#...
+                    .#........
+                    .........#
+                    ..........
+                    .......#..
+                    #...#.....
+                """.trimIndent(),
             9
         ) shouldBe 1030
 
-        problem11(
+        Day11.part1(
             """
-                ...#......
-                .......#..
-                #.........
-                ..........
-                ......#...
-                .#........
-                .........#
-                ..........
-                .......#..
-                #...#.....
-            """.trimIndent(),
+                    ...#......
+                    .......#..
+                    #.........
+                    ..........
+                    ......#...
+                    .#........
+                    .........#
+                    ..........
+                    .......#..
+                    #...#.....
+                """.trimIndent(),
             99
         ) shouldBe 8410
 
-        timing { problem11(input(23, 11), 999_999) shouldBe 560822911938L }
+        timing { Day11.part1(input(23, 11), 999_999) shouldBe 560822911938L }
     }
 
     @Test
-    fun part12a() {
-        problem12a(
+    fun day12Part1() {
+        Day12.part1(
             """
-                ???.### 1,1,3
-                .??..??...?##. 1,1,3
-                ?#?#?#?#?#?#?#? 1,3,1,6
-                ????.#...#... 4,1,1
-                ????.######..#####. 1,6,5
-                ?###???????? 3,2,1
-            """.trimIndent()
+                    ???.### 1,1,3
+                    .??..??...?##. 1,1,3
+                    ?#?#?#?#?#?#?#? 1,3,1,6
+                    ????.#...#... 4,1,1
+                    ????.######..#####. 1,6,5
+                    ?###???????? 3,2,1
+                """.trimIndent()
         ) shouldBe 21
 
-        timing { problem12a(input(23, 12)) shouldBe 7047 }
+        timing { Day12.part1(input(23, 12)) shouldBe 7047 }
     }
 
     @Test
-    fun part12b() {
-        problem12b(
+    fun day12Part2() {
+        Day12.part2(
             """
-                ???.### 1,1,3
-                .??..??...?##. 1,1,3
-                ?#?#?#?#?#?#?#? 1,3,1,6
-                ????.#...#... 4,1,1
-                ????.######..#####. 1,6,5
-                ?###???????? 3,2,1
-            """.trimIndent()
+                    ???.### 1,1,3
+                    .??..??...?##. 1,1,3
+                    ?#?#?#?#?#?#?#? 1,3,1,6
+                    ????.#...#... 4,1,1
+                    ????.######..#####. 1,6,5
+                    ?###???????? 3,2,1
+                """.trimIndent()
         ) shouldBe 525152
 
-        timing { problem12b(input(23, 12)) shouldBe 17391848518844L }
+        timing { Day12.part2(input(23, 12)) shouldBe 17391848518844L }
     }
 
     @Test
-    fun part13a() {
-        problem13(
+    fun day13Part1() {
+        Day13.solve(
             """
                 #.##..##.
                 ..#.##.#.
@@ -580,12 +545,12 @@ Distance:  940200"""
             """.trimIndent()
         ) shouldBe 405
 
-        timing { problem13(input(23, 13)) shouldBe 37113 }
+        timing { Day13.solve(input(23, 13)) shouldBe 37113 }
     }
 
     @Test
-    fun part13b() {
-        problem13(
+    fun day13Part2() {
+        Day13.solve(
             """
                 #.##..##.
                 ..#.##.#.
@@ -606,231 +571,231 @@ Distance:  940200"""
             true
         ) shouldBe 400
 
-        timing { problem13(input(23, 13), true) shouldBe 30449 }
+        timing { Day13.solve(input(23, 13), true) shouldBe 30449 }
     }
 
     @Test
-    fun part14a() {
-        problem14a(
+    fun day14Part1() {
+        Day14.part1(
             """
-                O....#....
-                O.OO#....#
-                .....##...
-                OO.#O....O
-                .O.....O#.
-                O.#..O.#.#
-                ..O..#O..O
-                .......O..
-                #....###..
-                #OO..#....
-            """.trimIndent()
+                    O....#....
+                    O.OO#....#
+                    .....##...
+                    OO.#O....O
+                    .O.....O#.
+                    O.#..O.#.#
+                    ..O..#O..O
+                    .......O..
+                    #....###..
+                    #OO..#....
+                """.trimIndent()
         ) shouldBe 136
 
-        timing { problem14a(input(23, 14)) shouldBe 110565 }
+        timing { Day14.part1(input(23, 14)) shouldBe 110565 }
     }
 
     @Test
-    fun part14b() {
-        problem14b(
+    fun day14Part2() {
+        Day14.part2(
             """
-                O....#....
-                O.OO#....#
-                .....##...
-                OO.#O....O
-                .O.....O#.
-                O.#..O.#.#
-                ..O..#O..O
-                .......O..
-                #....###..
-                #OO..#....
-            """.trimIndent()
+                    O....#....
+                    O.OO#....#
+                    .....##...
+                    OO.#O....O
+                    .O.....O#.
+                    O.#..O.#.#
+                    ..O..#O..O
+                    .......O..
+                    #....###..
+                    #OO..#....
+                """.trimIndent()
         ) shouldBe 64
 
-        timing { problem14b(input(23, 14)) shouldBe 89845 }
+        timing { Day14.part2(input(23, 14)) shouldBe 89845 }
     }
 
     @Test
-    fun part15a() {
-        problem15a("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 1320
+    fun day15Part1() {
+        Day15.part1("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 1320
 
-        timing { problem15a(input(23, 15)) shouldBe 514639 }
+        timing { Day15.part1(input(23, 15)) shouldBe 514639 }
     }
 
     @Test
-    fun part15b() {
-        problem15b("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 145
+    fun day15Part2() {
+        Day15.part2("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 145
 
-        timing { problem15b(input(23, 15)) shouldBe 279470 }
+        timing { Day15.part2(input(23, 15)) shouldBe 279470 }
     }
 
     @Test
-    fun part16a() {
-        problem16a(
+    fun day16Part1() {
+        Day16.part1(
             """
-            .|...\....
-            |.-.\.....
-            .....|-...
-            ........|.
-            ..........
-            .........\
-            ..../.\\..
-            .-.-/..|..
-            .|....-|.\
-            ..//.|....
-        """.trimIndent()
+                .|...\....
+                |.-.\.....
+                .....|-...
+                ........|.
+                ..........
+                .........\
+                ..../.\\..
+                .-.-/..|..
+                .|....-|.\
+                ..//.|....
+            """.trimIndent()
         ) shouldBe 46
 
-        timing { problem16a(input(23, 16)) shouldBe 8116 }
+        timing { Day16.part1(input(23, 16)) shouldBe 8116 }
     }
 
     @Test
-    fun part16b() {
-        problem16b(
+    fun day16Part2() {
+        Day16.part2(
             """
-            .|...\....
-            |.-.\.....
-            .....|-...
-            ........|.
-            ..........
-            .........\
-            ..../.\\..
-            .-.-/..|..
-            .|....-|.\
-            ..//.|....
-        """.trimIndent()
+                .|...\....
+                |.-.\.....
+                .....|-...
+                ........|.
+                ..........
+                .........\
+                ..../.\\..
+                .-.-/..|..
+                .|....-|.\
+                ..//.|....
+            """.trimIndent()
         ) shouldBe 51
 
-        timing { problem16b(input(23, 16)) shouldBe 8383 }
+        timing { Day16.part2(input(23, 16)) shouldBe 8383 }
     }
 
     @Test
-    fun part17a() {
-        problem17a(
+    fun day17Part1() {
+        Day17.part1(
             """
-            2413432311323
-            3215453535623
-            3255245654254
-            3446585845452
-            4546657867536
-            1438598798454
-            4457876987766
-            3637877979653
-            4654967986887
-            4564679986453
-            1224686865563
-            2546548887735
-            4322674655533
-        """.trimIndent()
+                2413432311323
+                3215453535623
+                3255245654254
+                3446585845452
+                4546657867536
+                1438598798454
+                4457876987766
+                3637877979653
+                4654967986887
+                4564679986453
+                1224686865563
+                2546548887735
+                4322674655533
+            """.trimIndent()
         ) shouldBe 102
 
-        timing { problem17a(input(23, 17)) shouldBe 1013 }
+        timing { Day17.part1(input(23, 17)) shouldBe 1013 }
     }
 
     @Test
-    fun part17b() {
-        problem17b(
+    fun day17Part2() {
+        Day17.part2(
             """
-            2413432311323
-            3215453535623
-            3255245654254
-            3446585845452
-            4546657867536
-            1438598798454
-            4457876987766
-            3637877979653
-            4654967986887
-            4564679986453
-            1224686865563
-            2546548887735
-            4322674655533
-        """.trimIndent()
+                2413432311323
+                3215453535623
+                3255245654254
+                3446585845452
+                4546657867536
+                1438598798454
+                4457876987766
+                3637877979653
+                4654967986887
+                4564679986453
+                1224686865563
+                2546548887735
+                4322674655533
+            """.trimIndent()
         ) shouldBe 94
 
-        problem17b(
+        Day17.part2(
             """
-            111111111111
-            999999999991
-            999999999991
-            999999999991
-            999999999991
-        """.trimIndent()
+                111111111111
+                999999999991
+                999999999991
+                999999999991
+                999999999991
+            """.trimIndent()
         ) shouldBe 71
 
-        timing { problem17b(input(23, 17)) shouldBe 1215 }
+        timing { Day17.part2(input(23, 17)) shouldBe 1215 }
     }
 
     @Test
-    fun part18a() {
-        problem18a(
+    fun day18Part1() {
+        Day18.part1(
             """
-            R 6 (#70c710)
-            D 5 (#0dc571)
-            L 2 (#5713f0)
-            D 2 (#d2c081)
-            R 2 (#59c680)
-            D 2 (#411b91)
-            L 5 (#8ceee2)
-            U 2 (#caa173)
-            L 1 (#1b58a2)
-            U 2 (#caa171)
-            R 2 (#7807d2)
-            U 3 (#a77fa3)
-            L 2 (#015232)
-            U 2 (#7a21e3)
-        """.trimIndent()
+                R 6 (#70c710)
+                D 5 (#0dc571)
+                L 2 (#5713f0)
+                D 2 (#d2c081)
+                R 2 (#59c680)
+                D 2 (#411b91)
+                L 5 (#8ceee2)
+                U 2 (#caa173)
+                L 1 (#1b58a2)
+                U 2 (#caa171)
+                R 2 (#7807d2)
+                U 3 (#a77fa3)
+                L 2 (#015232)
+                U 2 (#7a21e3)
+            """.trimIndent()
         ) shouldBe 62
 
-        timing { problem18a(input(23, 18)) shouldBe 48503 }
+        timing { Day18.part1(input(23, 18)) shouldBe 48503 }
     }
 
     @Test
-    fun part18b() {
-        problem18b(
+    fun day18Part2() {
+        Day18.part2(
             """
-            R 6 (#70c710)
-            D 5 (#0dc571)
-            L 2 (#5713f0)
-            D 2 (#d2c081)
-            R 2 (#59c680)
-            D 2 (#411b91)
-            L 5 (#8ceee2)
-            U 2 (#caa173)
-            L 1 (#1b58a2)
-            U 2 (#caa171)
-            R 2 (#7807d2)
-            U 3 (#a77fa3)
-            L 2 (#015232)
-            U 2 (#7a21e3)
-        """.trimIndent()
+                R 6 (#70c710)
+                D 5 (#0dc571)
+                L 2 (#5713f0)
+                D 2 (#d2c081)
+                R 2 (#59c680)
+                D 2 (#411b91)
+                L 5 (#8ceee2)
+                U 2 (#caa173)
+                L 1 (#1b58a2)
+                U 2 (#caa171)
+                R 2 (#7807d2)
+                U 3 (#a77fa3)
+                L 2 (#015232)
+                U 2 (#7a21e3)
+            """.trimIndent()
         ) shouldBe 952408144115
 
-        timing { problem18b(input(23, 18)) shouldBe 148442153147147 }
+        timing { Day18.part2(input(23, 18)) shouldBe 148442153147147 }
     }
 
     @Test
-    fun part19a() {
-        problem19a(
+    fun day19Part1() {
+        Day19.part1(
             """
-            px{a<2006:qkq,m>2090:A,rfg}
-            pv{a>1716:R,A}
-            lnx{m>1548:A,A}
-            rfg{s<537:gd,x>2440:R,A}
-            qs{s>3448:A,lnx}
-            qkq{x<1416:A,crn}
-            crn{x>2662:A,R}
-            in{s<1351:px,qqz}
-            qqz{s>2770:qs,m<1801:hdj,R}
-            gd{a>3333:R,R}
-            hdj{m>838:A,pv}
-
-            {x=787,m=2655,a=1222,s=2876}
-            {x=1679,m=44,a=2067,s=496}
-            {x=2036,m=264,a=79,s=2244}
-            {x=2461,m=1339,a=466,s=291}
-            {x=2127,m=1623,a=2188,s=1013}
-        """.trimIndent()
+                px{a<2006:qkq,m>2090:A,rfg}
+                pv{a>1716:R,A}
+                lnx{m>1548:A,A}
+                rfg{s<537:gd,x>2440:R,A}
+                qs{s>3448:A,lnx}
+                qkq{x<1416:A,crn}
+                crn{x>2662:A,R}
+                in{s<1351:px,qqz}
+                qqz{s>2770:qs,m<1801:hdj,R}
+                gd{a>3333:R,R}
+                hdj{m>838:A,pv}
+    
+                {x=787,m=2655,a=1222,s=2876}
+                {x=1679,m=44,a=2067,s=496}
+                {x=2036,m=264,a=79,s=2244}
+                {x=2461,m=1339,a=466,s=291}
+                {x=2127,m=1623,a=2188,s=1013}
+            """.trimIndent()
         ) shouldBe 19114
 
-        timing { problem19a(input(23, 19)) shouldBe 367602 }
+        timing { Day19.part1(input(23, 19)) shouldBe 367602 }
     }
 }

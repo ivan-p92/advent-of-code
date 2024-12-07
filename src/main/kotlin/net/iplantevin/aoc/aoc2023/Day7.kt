@@ -3,11 +3,11 @@ package net.iplantevin.aoc.aoc2023
 object Day7 {
     private val handRegex = """(\w\w\w\w\w) (\d+)""".toRegex()
 
-    fun problem7a(input: String): Long {
+    fun part1(input: String): Long {
         return input.parseAndSortHands().totalWinnings()
     }
 
-    fun problem7b(input: String): Long {
+    fun part2(input: String): Long {
         // We simply replace Jack cards by Joker cards by using their (arbitrarily chosen) label X
         return input.replace("J", "X").parseAndSortHands().totalWinnings()
     }

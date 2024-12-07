@@ -6,12 +6,12 @@ import java.util.*
 
 object Day16 {
 
-    fun problem16a(input: String): Int {
+    fun part1(input: String): Int {
         val grid = input.toMapGrid { char -> Tile(Tile.Type[char]) }
         return energizeGrid(grid, Move(Point(0, 0), EAST))
     }
 
-    fun problem16b(input: String): Int {
+    fun part2(input: String): Int {
         val (width, height) = input.dimensions()
         val grid = input.toMapGrid { char -> Tile(Tile.Type[char]) }
         val startConfigurations = mutableListOf<Move>()

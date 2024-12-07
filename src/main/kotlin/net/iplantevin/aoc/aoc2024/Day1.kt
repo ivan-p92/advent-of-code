@@ -4,7 +4,7 @@ import kotlin.math.abs
 
 object Day1 {
 
-    fun problem1a(input: String): Long {
+    fun part1(input: String): Long {
         val (leftList, rightList) = parseLists(input)
         val leftSorted = leftList.sorted()
         val rightSorted = rightList.sorted()
@@ -13,7 +13,7 @@ object Day1 {
         }
     }
 
-    fun problem1b(input: String): Long {
+    fun part2(input: String): Long {
         val (leftList, rightList) = parseLists(input)
         val counts = rightList.groupingBy { it }.eachCount()
         return leftList.fold(0) { total: Long, number: Long ->

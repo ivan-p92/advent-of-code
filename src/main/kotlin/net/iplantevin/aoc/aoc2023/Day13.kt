@@ -6,7 +6,7 @@ import kotlin.math.min
 
 object Day13 {
 
-    fun problem13(input: String, checkSmudges: Boolean = false): Int {
+    fun solve(input: String, checkSmudges: Boolean = false): Int {
         val patterns = input.split("""\n\n""".toRegex()).map { Pattern(it).apply { findReflection(checkSmudges) } }
         val (leftColumns, topRows) = patterns.fold(0 to 0) { acc, pattern ->
             acc.first + pattern.leftColumns to acc.second + pattern.topRows

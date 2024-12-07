@@ -2,7 +2,7 @@ package net.iplantevin.aoc.aoc2023
 
 object Day19 {
 
-    fun problem19a(input: String): Long {
+    fun part1(input: String): Long {
         val (workflowsInput, partsInput) = input.split("\n\n")
         val workflows = parseWorkflows(workflowsInput)
         val parts = parseParts(partsInput)

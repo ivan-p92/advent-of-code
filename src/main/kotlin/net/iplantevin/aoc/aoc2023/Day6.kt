@@ -2,12 +2,12 @@ package net.iplantevin.aoc.aoc2023
 
 object Day6 {
 
-    fun problem6a(input: String): Int {
+    fun part1(input: String): Int {
         val races = input.parseRaces()
         return races.map { it.waysToWin() }.reduce(Int::times)
     }
 
-    fun problem6b(input: String): Int {
+    fun part2(input: String): Int {
         // This is relatively slow, it could be optimized to find the first and last time at which
         // the record is broken, but with just ~50ms of runtime this way, it doesn't really matter.
         val race = input.parseRaces().first()

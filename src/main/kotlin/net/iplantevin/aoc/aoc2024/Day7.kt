@@ -4,12 +4,12 @@ import java.util.*
 
 object Day7 {
 
-    fun problem7a(input: String): Long {
+    fun part1(input: String): Long {
         val operators = listOf<(Long, Long) -> Long>(Long::plus, Long::times)
         return sumOfComputableEquations(input, operators)
     }
 
-    fun problem7b(input: String): Long {
+    fun part2(input: String): Long {
         val operators = listOf<(Long, Long) -> Long>(Long::plus, Long::times, { a, b -> "$a$b".toLong() })
         return sumOfComputableEquations(input, operators)
     }

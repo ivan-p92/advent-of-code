@@ -4,7 +4,7 @@ private typealias Rules = Map<Int, List<Int>>
 
 object Day5 {
 
-    fun problem5a(input: String): Int {
+    fun part1(input: String): Int {
         val (rules, updates) = parseRulesAndUpdates(input)
         var sumOfMiddlePages = 0
         updates.forEach { update ->
@@ -15,7 +15,7 @@ object Day5 {
         return sumOfMiddlePages
     }
 
-    fun problem5b(input: String): Int {
+    fun part2(input: String): Int {
         val (rules, updates) = parseRulesAndUpdates(input)
         var sumOfMiddlePages = 0
         updates.forEach { update ->

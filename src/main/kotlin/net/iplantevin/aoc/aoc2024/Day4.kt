@@ -23,7 +23,7 @@ object Day4 {
         Point(-1, 1),
     )
 
-    fun problem4a(input: String): Int {
+    fun part1(input: String): Int {
         val wordGrid = input.toCharArrayGrid()
         var matches = 0
 
@@ -37,7 +37,7 @@ object Day4 {
         return matches
     }
 
-    fun problem4b(input: String): Int {
+    fun part2(input: String): Int {
         val wordGrid = input.toCharArrayGrid()
         var matches = 0
 

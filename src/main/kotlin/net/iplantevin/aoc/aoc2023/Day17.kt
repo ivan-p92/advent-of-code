@@ -7,9 +7,9 @@ import java.util.*
 
 object Day17 {
 
-    fun problem17a(input: String): Int = minimumHeatLoss(input, 1, 3)
+    fun part1(input: String): Int = minimumHeatLoss(input, 1, 3)
 
-    fun problem17b(input: String): Int = minimumHeatLoss(input, 4, 10)
+    fun part2(input: String): Int = minimumHeatLoss(input, 4, 10)
 
     private fun minimumHeatLoss(input: String, minSteps: Int, maxSteps: Int): Int {
         val (width, height) = input.dimensions()

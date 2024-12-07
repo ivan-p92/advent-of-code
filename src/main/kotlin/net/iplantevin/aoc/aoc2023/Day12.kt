@@ -5,7 +5,7 @@ object Day12 {
     private val stateCountCache = mutableMapOf<State, Long>()
     private var cacheHits = 0
 
-    fun problem12a(input: String): Long {
+    fun part1(input: String): Long {
         return input.lines().map { line ->
             val (springs, rawGroups) = line.split(" ")
             val groups = rawGroups.split(",").map { it.toInt() }
@@ -20,7 +20,7 @@ object Day12 {
         }
     }
 
-    fun problem12b(input: String): Long {
+    fun part2(input: String): Long {
         return input.lines().map { line ->
             val (springs, groups) = line.split(" ")
             val unfoldedSprings = List(5) { springs }.joinToString("?")
