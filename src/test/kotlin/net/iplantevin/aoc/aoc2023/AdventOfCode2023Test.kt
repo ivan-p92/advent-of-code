@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 class AdventOfCode2023Test : AdventOfCodeTest(2023) {
 
     @Test
-    fun day1Part1() {
+    fun `day 1 - part 1`() {
         Day1.part1(
             """1abc2
 pqr3stu8vwx
@@ -21,7 +21,7 @@ treb7uchet"""
     }
 
     @Test
-    fun day1Part2() {
+    fun `day 1 - part 2`() {
         Day1.part2(
             """two1nine
 eightwothree
@@ -36,7 +36,7 @@ zoneight234
     }
 
     @Test
-    fun day2Part1() {
+    fun `day 2 - part 1`() {
         Day2.part1(
             """Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
@@ -50,7 +50,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green""",
     }
 
     @Test
-    fun day2Part2() {
+    fun `day 2 - part 2`() {
         Day2.part2(
             """Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
@@ -63,7 +63,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
     }
 
     @Test
-    fun day3Part1() {
+    fun `day 3 - part 1`() {
         Point(0, 1).neighbours() shouldBe listOf(
             Point(x = -1, y = 0),
             Point(x = 0, y = 0),
@@ -91,7 +91,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
     }
 
     @Test
-    fun day3Part2() {
+    fun `day 3 - part 2`() {
         Day3.part2(
             """467..114..
 ...*......
@@ -109,7 +109,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
     }
 
     @Test
-    fun day4Part1() {
+    fun `day 4 - part 1`() {
         Day4.part1(
             """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
@@ -123,7 +123,7 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
     }
 
     @Test
-    fun day4Part2() {
+    fun `day 4 - part 2`() {
         Day4.part2(
             """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
@@ -137,7 +137,7 @@ Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
     }
 
     @Test
-    fun day5Part1() {
+    fun `day 5 - part 1`() {
         Day5.part1(
             """seeds: 79 14 55 13
 
@@ -178,7 +178,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day5Part2() {
+    fun `day 5 - part 2`() {
         Day5.part2(
             """seeds: 79 14 55 13
 
@@ -219,7 +219,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day6Part1() {
+    fun `day 6 - part 1`() {
         val finalInput = """
             Time:        41     77     70     96
             Distance:   249   1362   1127   1011
@@ -234,7 +234,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day6Part2() {
+    fun `day 6 - part 2`() {
         val finalInput = """
             Time:        41777096
             Distance:   249136211271011
@@ -249,7 +249,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day7Part1() {
+    fun `day 7 - part 1`() {
         Day7.part1(
             """
                     32T3K 765
@@ -264,7 +264,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day7Part2() {
+    fun `day 7 - part 2`() {
         Day7.part2(
             """
                     32T3K 765
@@ -279,7 +279,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day8Part1() {
+    fun `day 8 - part 1`() {
         Day8.part1(
             """
                     RL
@@ -308,7 +308,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day8Part2() {
+    fun `day 8 - part 2`() {
         Day8.part2(
             """
                     LR
@@ -328,7 +328,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day9Part1() {
+    fun `day 9 - part 1`() {
         Day9.part1(
             """
                 0 3 6 9 12 15
@@ -341,7 +341,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day9Part2() {
+    fun `day 9 - part 2`() {
         Day9.part2(
             """
                 0 3 6 9 12 15
@@ -354,7 +354,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day10Part1() {
+    fun `day 10 - part 1`() {
         Day10.part1(
             """
                     -L|F7
@@ -381,7 +381,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day10Part2() {
+    fun `day 10 - part 2`() {
         Day10.part2(
             """
                     ...........
@@ -433,7 +433,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day11Part1() {
+    fun `day 11 - part 1`() {
         Day11.part1(
             """
                     ...#......
@@ -454,7 +454,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day11Part2() {
+    fun `day 11 - part 2`() {
         Day11.part1(
             """
                     ...#......
@@ -491,7 +491,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day12Part1() {
+    fun `day 12 - part 1`() {
         Day12.part1(
             """
                     ???.### 1,1,3
@@ -507,7 +507,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day12Part2() {
+    fun `day 12 - part 2`() {
         Day12.part2(
             """
                     ???.### 1,1,3
@@ -523,7 +523,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day13Part1() {
+    fun `day 13 - part 1`() {
         Day13.solve(
             """
                 #.##..##.
@@ -548,7 +548,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day13Part2() {
+    fun `day 13 - part 2`() {
         Day13.solve(
             """
                 #.##..##.
@@ -574,7 +574,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day14Part1() {
+    fun `day 14 - part 1`() {
         Day14.part1(
             """
                     O....#....
@@ -594,7 +594,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day14Part2() {
+    fun `day 14 - part 2`() {
         Day14.part2(
             """
                     O....#....
@@ -614,21 +614,21 @@ humidity-to-location map:
     }
 
     @Test
-    fun day15Part1() {
+    fun `day 15 - part 1`() {
         Day15.part1("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 1320
 
         timing { Day15.part1(input(15)) shouldBe 514639 }
     }
 
     @Test
-    fun day15Part2() {
+    fun `day 15 - part 2`() {
         Day15.part2("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 145
 
         timing { Day15.part2(input(15)) shouldBe 279470 }
     }
 
     @Test
-    fun day16Part1() {
+    fun `day 16 - part 1`() {
         Day16.part1(
             """
                 .|...\....
@@ -648,7 +648,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day16Part2() {
+    fun `day 16 - part 2`() {
         Day16.part2(
             """
                 .|...\....
@@ -668,7 +668,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day17Part1() {
+    fun `day 17 - part 1`() {
         Day17.part1(
             """
                 2413432311323
@@ -691,7 +691,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day17Part2() {
+    fun `day 17 - part 2`() {
         Day17.part2(
             """
                 2413432311323
@@ -724,7 +724,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day18Part1() {
+    fun `day 18 - part 1`() {
         Day18.part1(
             """
                 R 6 (#70c710)
@@ -748,7 +748,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day18Part2() {
+    fun `day 18 - part 2`() {
         Day18.part2(
             """
                 R 6 (#70c710)
@@ -772,7 +772,7 @@ humidity-to-location map:
     }
 
     @Test
-    fun day19Part1() {
+    fun `day 19 - part 1`() {
         Day19.part1(
             """
                 px{a<2006:qkq,m>2090:A,rfg}

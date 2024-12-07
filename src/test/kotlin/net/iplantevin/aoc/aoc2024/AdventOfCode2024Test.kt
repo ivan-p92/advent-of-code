@@ -2,14 +2,13 @@ package net.iplantevin.aoc.aoc2024
 
 import io.kotest.matchers.shouldBe
 import net.iplantevin.aoc.util.AdventOfCodeTest
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 
 class AdventOfCode2024Test : AdventOfCodeTest(2024) {
 
     @Test
-    fun day1Part1() {
+    fun `day 1 - part 1`() {
         Day1.part1(
             """
             3   4
@@ -25,7 +24,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day1Part2() {
+    fun `day 1 - part 2`() {
         Day1.part2(
             """
             3   4
@@ -41,7 +40,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day2Part1() {
+    fun `day 2 - part 1`() {
         Day2.part1(
             """
                 7 6 4 2 1
@@ -57,7 +56,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day2Part2() {
+    fun `day 2 - part 2`() {
         Day2.part2(
             """
                 7 6 4 2 1
@@ -73,7 +72,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day3Part1() {
+    fun `day 3 - part 1`() {
         Day3.part1(
             """
                 xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))
@@ -84,7 +83,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day3Part2() {
+    fun `day 3 - part 2`() {
         Day3.part2(
             """
                 xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
@@ -95,7 +94,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day4Part1() {
+    fun `day 4 - part 1`() {
         Day4.part1(
             """
                 MMMSXXMASM
@@ -115,7 +114,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day4Part2() {
+    fun `day 4 - part 2`() {
         Day4.part2(
             """
             .M.S......
@@ -135,7 +134,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day5Part1() {
+    fun `day 5 - part 1`() {
         Day5.part1(
             """
                 47|53
@@ -173,7 +172,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day5Part2() {
+    fun `day 5 - part 2`() {
         Day5.part2(
             """
                 47|53
@@ -211,7 +210,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day6Part1() {
+    fun `day 6 - part 1`() {
         Day6.part1(
             """
                 ....#.....
@@ -231,7 +230,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day6Part2() {
+    fun `day 6 - part 2`() {
         Day6.part2(
             """
             ....#.....
@@ -251,7 +250,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day7Part1() {
+    fun `day 7 - part 1`() {
         Day7.part1(
             """
                 190: 10 19
@@ -270,7 +269,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     }
 
     @Test
-    fun day7Part2() {
+    fun `day 7 - part 2`() {
         Day7.part2(
             """
             190: 10 19
@@ -288,9 +287,8 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day7.part2(input(7)) shouldBe 401477450831495L }
     }
 
-    @Disabled
     @Test
-    fun day8Part1() {
+    fun `day 8 - part 1`() {
         Day8.part1(
             """""".trimIndent()
         ) shouldBe 0
@@ -298,9 +296,8 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day8.part1(input(7)) shouldBe 0 }
     }
 
-    @Disabled
     @Test
-    fun day8Part2() {
+    fun `day 8 - part 2`() {
         Day8.part2(
             """""".trimIndent()
         ) shouldBe 9
