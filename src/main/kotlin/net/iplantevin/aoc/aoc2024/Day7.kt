@@ -1,5 +1,6 @@
 package net.iplantevin.aoc.aoc2024
 
+import net.iplantevin.aoc.common.mapParallel
 import java.util.*
 
 object Day7 {
@@ -17,14 +18,9 @@ object Day7 {
     private fun sumOfComputableEquations(
         input: String,
         operators: List<(Long, Long) -> Long>
-    ): Long {
-        val equations = parseEquations(input)
-        var sum = 0L
-        equations.forEach { equation ->
-            if (equation.doesCompute(operators)) sum += equation.result
-        }
-        return sum
-    }
+    ): Long = parseEquations(input).mapParallel { equation ->
+        if (equation.doesCompute(operators)) equation.result else 0
+    }.sum()
 
     private fun Equation.doesCompute(operators: List<(Long, Long) -> Long>): Boolean {
         val queue = LinkedList<State>()

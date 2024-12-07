@@ -1,10 +1,7 @@
 package net.iplantevin.aoc.aoc2024
 
+import net.iplantevin.aoc.common.*
 import net.iplantevin.aoc.common.Direction.NORTH
-import net.iplantevin.aoc.common.MapGrid
-import net.iplantevin.aoc.common.Move
-import net.iplantevin.aoc.common.Point
-import net.iplantevin.aoc.common.toMapGrid
 
 object Day6 {
 
@@ -50,8 +47,7 @@ object Day6 {
         obstructions: MutableSet<Point>,
         start: Point
     ): Int {
-        var loopObstructions = 0
-        for (obstruction in obstructions) {
+        return obstructions.mapParallel { obstruction ->
             val pastMoves = mutableSetOf<Move>()
             var currentMove = Move(start, NORTH)
             do {
@@ -63,12 +59,11 @@ object Day6 {
                     currentMove.nextMove()
                 }
                 if (currentMove in pastMoves) {
-                    loopObstructions++
-                    break
+                    return@mapParallel 1
                 }
             } while (currentMove.position in grid)
-        }
-        return loopObstructions
+            return@mapParallel 0
+        }.sum()
     }
 
     private fun initializeGrid(input: String): Pair<MapGrid<Char>, Point> {
