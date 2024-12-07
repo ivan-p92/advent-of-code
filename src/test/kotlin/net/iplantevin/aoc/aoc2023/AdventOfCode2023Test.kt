@@ -3,11 +3,11 @@ package net.iplantevin.aoc.aoc2023
 import io.kotest.matchers.shouldBe
 import net.iplantevin.aoc.common.Direction.*
 import net.iplantevin.aoc.common.Point
-import net.iplantevin.aoc.util.input
+import net.iplantevin.aoc.util.AdventOfCodeTest
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
 
-class AdventOfCode2023Test {
+class AdventOfCode2023Test : AdventOfCodeTest(2023) {
 
     @Test
     fun day1Part1() {
@@ -18,7 +18,7 @@ a1b2c3d4e5f
 treb7uchet"""
         ) shouldBe 142
 
-        timing { Day1.part1(input(23, 1)) shouldBe 54877 }
+        timing { Day1.part1(input(1)) shouldBe 54877 }
     }
 
     @Test
@@ -33,7 +33,7 @@ zoneight234
 7pqrstsixteen"""
         ) shouldBe 281
 
-        timing { Day1.part2(input(23, 1)) shouldBe 54100 }
+        timing { Day1.part2(input(1)) shouldBe 54100 }
     }
 
     @Test
@@ -47,7 +47,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green""",
             12, 13, 14
         ) shouldBe 8
 
-        timing { Day2.part1(input(23, 2), 12, 13, 14) shouldBe 2795 }
+        timing { Day2.part1(input(2), 12, 13, 14) shouldBe 2795 }
     }
 
     @Test
@@ -60,7 +60,7 @@ Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
         ) shouldBe 2286
 
-        timing { Day2.part2(input(23, 2)) shouldBe 75561 }
+        timing { Day2.part2(input(2)) shouldBe 75561 }
     }
 
     @Test
@@ -88,7 +88,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
 .664.598.."""
         ) shouldBe 4361
 
-        timing { Day3.part1(input(23, 3)) shouldBe 535351 }
+        timing { Day3.part1(input(3)) shouldBe 535351 }
     }
 
     @Test
@@ -106,7 +106,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
 .664.598.."""
         ) shouldBe 467835
 
-        timing { Day3.part2(input(23, 3)) shouldBe 87287096 }
+        timing { Day3.part2(input(3)) shouldBe 87287096 }
     }
 
     @Test
@@ -120,7 +120,7 @@ Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
         ) shouldBe 13
 
-        timing { Day4.part1(input(23, 4)) shouldBe 25183 }
+        timing { Day4.part1(input(4)) shouldBe 25183 }
     }
 
     @Test
@@ -134,7 +134,7 @@ Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
         ) shouldBe 30
 
-        timing { Day4.part2(input(23, 4)) shouldBe 5667240 }
+        timing { Day4.part2(input(4)) shouldBe 5667240 }
     }
 
     @Test
@@ -175,7 +175,7 @@ humidity-to-location map:
 56 93 4"""
         ) shouldBe 35
 
-        timing { Day5.part1(input(23, 5)) shouldBe 107430936L }
+        timing { Day5.part1(input(5)) shouldBe 107430936L }
     }
 
     @Test
@@ -216,7 +216,7 @@ humidity-to-location map:
 56 93 4"""
         ) shouldBe 46
 
-        timing { Day5.part2(input(23, 5)) shouldBe 23738616L }
+        timing { Day5.part2(input(5)) shouldBe 23738616L }
     }
 
     @Test
@@ -261,7 +261,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 6440
 
-        timing { Day7.part1(input(23, 7)) shouldBe 248569531L }
+        timing { Day7.part1(input(7)) shouldBe 248569531L }
     }
 
     @Test
@@ -276,7 +276,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 5905
 
-        timing { Day7.part2(input(23, 7)) shouldBe 250382098L }
+        timing { Day7.part2(input(7)) shouldBe 250382098L }
     }
 
     @Test
@@ -305,7 +305,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 6
 
-        timing { Day8.part1(input(23, 8)) shouldBe 20221L }
+        timing { Day8.part1(input(8)) shouldBe 20221L }
     }
 
     @Test
@@ -325,7 +325,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 6
 
-        timing { Day8.part2(input(23, 8)) shouldBe 14616363770447L }
+        timing { Day8.part2(input(8)) shouldBe 14616363770447L }
     }
 
     @Test
@@ -338,7 +338,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 114
 
-        timing { Day9.part1(input(23, 9)) shouldBe 1987402313L }
+        timing { Day9.part1(input(9)) shouldBe 1987402313L }
     }
 
     @Test
@@ -351,7 +351,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 2
 
-        timing { Day9.part2(input(23, 9)) shouldBe 900L }
+        timing { Day9.part2(input(9)) shouldBe 900L }
     }
 
     @Test
@@ -378,7 +378,7 @@ humidity-to-location map:
             SOUTH
         ) shouldBe 8
 
-        timing { Day10.part1(input(23, 10), SOUTH) shouldBe 7086 }
+        timing { Day10.part1(input(10), SOUTH) shouldBe 7086 }
     }
 
     @Test
@@ -430,7 +430,7 @@ humidity-to-location map:
             WEST
         ) shouldBe 10
 
-        timing { Day10.part2(input(23, 10), NORTH) shouldBe 317 }
+        timing { Day10.part2(input(10), NORTH) shouldBe 317 }
     }
 
     @Test
@@ -451,7 +451,7 @@ humidity-to-location map:
             1
         ) shouldBe 374
 
-        timing { Day11.part1(input(23, 11), 1) shouldBe 10033566 }
+        timing { Day11.part1(input(11), 1) shouldBe 10033566 }
     }
 
     @Test
@@ -488,7 +488,7 @@ humidity-to-location map:
             99
         ) shouldBe 8410
 
-        timing { Day11.part1(input(23, 11), 999_999) shouldBe 560822911938L }
+        timing { Day11.part1(input(11), 999_999) shouldBe 560822911938L }
     }
 
     @Test
@@ -504,7 +504,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 21
 
-        timing { Day12.part1(input(23, 12)) shouldBe 7047 }
+        timing { Day12.part1(input(12)) shouldBe 7047 }
     }
 
     @Test
@@ -520,7 +520,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 525152
 
-        timing { Day12.part2(input(23, 12)) shouldBe 17391848518844L }
+        timing { Day12.part2(input(12)) shouldBe 17391848518844L }
     }
 
     @Test
@@ -545,7 +545,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 405
 
-        timing { Day13.solve(input(23, 13)) shouldBe 37113 }
+        timing { Day13.solve(input(13)) shouldBe 37113 }
     }
 
     @Test
@@ -571,7 +571,7 @@ humidity-to-location map:
             true
         ) shouldBe 400
 
-        timing { Day13.solve(input(23, 13), true) shouldBe 30449 }
+        timing { Day13.solve(input(13), true) shouldBe 30449 }
     }
 
     @Test
@@ -591,7 +591,7 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 136
 
-        timing { Day14.part1(input(23, 14)) shouldBe 110565 }
+        timing { Day14.part1(input(14)) shouldBe 110565 }
     }
 
     @Test
@@ -611,21 +611,21 @@ humidity-to-location map:
                 """.trimIndent()
         ) shouldBe 64
 
-        timing { Day14.part2(input(23, 14)) shouldBe 89845 }
+        timing { Day14.part2(input(14)) shouldBe 89845 }
     }
 
     @Test
     fun day15Part1() {
         Day15.part1("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 1320
 
-        timing { Day15.part1(input(23, 15)) shouldBe 514639 }
+        timing { Day15.part1(input(15)) shouldBe 514639 }
     }
 
     @Test
     fun day15Part2() {
         Day15.part2("rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7") shouldBe 145
 
-        timing { Day15.part2(input(23, 15)) shouldBe 279470 }
+        timing { Day15.part2(input(15)) shouldBe 279470 }
     }
 
     @Test
@@ -645,7 +645,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 46
 
-        timing { Day16.part1(input(23, 16)) shouldBe 8116 }
+        timing { Day16.part1(input(16)) shouldBe 8116 }
     }
 
     @Test
@@ -665,7 +665,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 51
 
-        timing { Day16.part2(input(23, 16)) shouldBe 8383 }
+        timing { Day16.part2(input(16)) shouldBe 8383 }
     }
 
     @Test
@@ -688,7 +688,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 102
 
-        timing { Day17.part1(input(23, 17)) shouldBe 1013 }
+        timing { Day17.part1(input(17)) shouldBe 1013 }
     }
 
     @Test
@@ -721,7 +721,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 71
 
-        timing { Day17.part2(input(23, 17)) shouldBe 1215 }
+        timing { Day17.part2(input(17)) shouldBe 1215 }
     }
 
     @Test
@@ -745,7 +745,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 62
 
-        timing { Day18.part1(input(23, 18)) shouldBe 48503 }
+        timing { Day18.part1(input(18)) shouldBe 48503 }
     }
 
     @Test
@@ -769,7 +769,7 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 952408144115
 
-        timing { Day18.part2(input(23, 18)) shouldBe 148442153147147 }
+        timing { Day18.part2(input(18)) shouldBe 148442153147147 }
     }
 
     @Test
@@ -796,6 +796,6 @@ humidity-to-location map:
             """.trimIndent()
         ) shouldBe 19114
 
-        timing { Day19.part1(input(23, 19)) shouldBe 367602 }
+        timing { Day19.part1(input(19)) shouldBe 367602 }
     }
 }

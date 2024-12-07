@@ -1,12 +1,12 @@
 package net.iplantevin.aoc.aoc2024
 
 import io.kotest.matchers.shouldBe
-import net.iplantevin.aoc.util.input
+import net.iplantevin.aoc.util.AdventOfCodeTest
 import net.iplantevin.aoc.util.timing
 import org.junit.jupiter.api.Test
 
 
-class AdventOfCode2024Test {
+class AdventOfCode2024Test : AdventOfCodeTest(2024) {
 
     @Test
     fun day1Part1() {
@@ -21,7 +21,7 @@ class AdventOfCode2024Test {
         """.trimIndent()
         ) shouldBe 11L
 
-        timing { Day1.part1(input(24, 1)) shouldBe 2086478L }
+        timing { Day1.part1(input(1)) shouldBe 2086478L }
     }
 
     @Test
@@ -37,7 +37,7 @@ class AdventOfCode2024Test {
         """.trimIndent()
         ) shouldBe 31L
 
-        timing { Day1.part2(input(24, 1)) shouldBe 24941624L }
+        timing { Day1.part2(input(1)) shouldBe 24941624L }
     }
 
     @Test
@@ -53,7 +53,7 @@ class AdventOfCode2024Test {
             """.trimIndent()
         ) shouldBe 2
 
-        timing { Day2.part1(input(24, 2)) shouldBe 663 }
+        timing { Day2.part1(input(2)) shouldBe 663 }
     }
 
     @Test
@@ -69,7 +69,7 @@ class AdventOfCode2024Test {
             """.trimIndent()
         ) shouldBe 4
 
-        timing { Day2.part2(input(24, 2)) shouldBe 692 }
+        timing { Day2.part2(input(2)) shouldBe 692 }
     }
 
     @Test
@@ -80,7 +80,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 161
 
-        timing { Day3.part1(input(24, 3)) shouldBe 188741603 }
+        timing { Day3.part1(input(3)) shouldBe 188741603 }
     }
 
     @Test
@@ -91,7 +91,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 48
 
-        timing { Day3.part2(input(24, 3)) shouldBe 67269798 }
+        timing { Day3.part2(input(3)) shouldBe 67269798 }
     }
 
     @Test
@@ -111,7 +111,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 18
 
-        timing { Day4.part1(input(24, 4)) shouldBe 2464 }
+        timing { Day4.part1(input(4)) shouldBe 2464 }
     }
 
     @Test
@@ -131,7 +131,7 @@ class AdventOfCode2024Test {
             """.trimIndent()
         ) shouldBe 9
 
-        timing { Day4.part2(input(24, 4)) shouldBe 1982 }
+        timing { Day4.part2(input(4)) shouldBe 1982 }
     }
 
     @Test
@@ -169,7 +169,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 143
 
-        timing { Day5.part1(input(24, 5)) shouldBe 6267 }
+        timing { Day5.part1(input(5)) shouldBe 6267 }
     }
 
     @Test
@@ -207,7 +207,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 123
 
-        timing { Day5.part2(input(24, 5)) shouldBe 5184 }
+        timing { Day5.part2(input(5)) shouldBe 5184 }
     }
 
     @Test
@@ -227,7 +227,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 41
 
-        timing { Day6.part1(input(24, 6)) shouldBe 4580 }
+        timing { Day6.part1(input(6)) shouldBe 4580 }
     }
 
     @Test
@@ -247,7 +247,7 @@ class AdventOfCode2024Test {
             """.trimIndent()
         ) shouldBe 6
 
-        timing { Day6.part2(input(24, 6)) shouldBe 1480 }
+        timing { Day6.part2(input(6)) shouldBe 1480 }
     }
 
     @Test
@@ -266,7 +266,7 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 3749L
 
-        timing { Day7.part1(input(24, 7)) shouldBe 2314935962622L }
+        timing { Day7.part1(input(7)) shouldBe 2314935962622L }
     }
 
     @Test
@@ -285,6 +285,6 @@ class AdventOfCode2024Test {
                 """.trimIndent()
         ) shouldBe 11387L
 
-        timing { Day7.part2(input(24, 7)) shouldBe 401477450831495L }
+        timing { Day7.part2(input(7)) shouldBe 401477450831495L }
     }
 }
