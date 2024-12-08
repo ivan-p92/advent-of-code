@@ -20,7 +20,7 @@ object Day8 {
     }
 
     private fun detectAntinodes(antennae: List<Point>, grid: MapGrid<Char>, equidistant: Boolean): List<Point> {
-        val pairs = antennae.distinctPairs(antennae)
+        val pairs = antennae.distinctPairs()
         val antinodes = mutableListOf<Point>()
         if (!equidistant && antennae.size >= 2) antinodes += antennae
 
