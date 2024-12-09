@@ -364,18 +364,18 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     @Test
     fun `day 9 - part 1`() {
         Day9.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """2333133121414131402""".trimIndent()
+        ) shouldBe 1928
 
-        timing { Day9.part1(input(9)) shouldBe 0 }
+        timing { Day9.part1(input(9)) shouldBe 6331212425418 }
     }
 
     @Test
     fun `day 9 - part 2`() {
         Day9.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """2333133121414131402""".trimIndent()
+        ) shouldBe 2858
 
-        timing { Day9.part2(input(9)) shouldBe 0 }
+        timing { Day9.part2(input(9)) shouldBe 6363268339304 }
     }
 }

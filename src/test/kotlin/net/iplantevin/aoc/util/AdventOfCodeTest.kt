@@ -20,13 +20,16 @@ abstract class AdventOfCodeTest(private val year: Int, private val warmupIterati
         return file.readText()
     }
 
-    fun timing(warmupIterations: Int = this.warmupIterations, f: () -> Unit) {
+    fun timing(warmupIterations: Int = this.warmupIterations, averageOverIterations: Boolean = false, f: () -> Unit) {
+        var start = if (averageOverIterations) System.nanoTime() else null
         repeat(warmupIterations) { f() }
 
-        val start = System.nanoTime()
+        start = start ?: System.nanoTime()
         f()
         val end = System.nanoTime()
-        println("Took ${(end - start) / 1.0e6} ms")
+        val duration =
+            if (averageOverIterations) (end.toDouble() - start) / (warmupIterations + 1) else (end.toDouble() - start)
+        println("Took ${duration / 1e6} ms")
     }
 
     private fun downloadInputFile(day: Int, file: File) {
