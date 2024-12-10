@@ -378,4 +378,111 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
 
         timing { Day9.part2(input(9)) shouldBe 6363268339304 }
     }
+
+    @Test
+    fun `day 10 - part 1`() {
+        Day10.part1(
+            """
+            ...0...
+            ...1...
+            ...2...
+            6543456
+            7.....7
+            8.....8
+            9.....9
+            """.trimIndent()
+        ) shouldBe 2
+
+        Day10.part1(
+            """
+            ..90..9
+            ...1.98
+            ...2..7
+            6543456
+            765.987
+            876....
+            987....
+            """.trimIndent()
+        ) shouldBe 4
+
+        Day10.part1(
+            """
+            10..9..
+            2...8..
+            3...7..
+            4567654
+            ...8..3
+            ...9..2
+            .....01
+            """.trimIndent()
+        ) shouldBe 3
+
+        Day10.part1(
+            """
+            89010123
+            78121874
+            87430965
+            96549874
+            45678903
+            32019012
+            01329801
+            10456732
+            """.trimIndent()
+        ) shouldBe 36
+
+        timing { Day10.part1(input(10)) shouldBe 638 }
+    }
+
+    @Test
+    fun `day 10 - part 2`() {
+        Day10.part2(
+            """
+            .....0.
+            ..4321.
+            ..5..2.
+            ..6543.
+            ..7..4.
+            ..8765.
+            ..9....
+            """.trimIndent()
+        ) shouldBe 3
+
+        Day10.part2(
+            """
+            ..90..9
+            ...1.98
+            ...2..7
+            6543456
+            765.987
+            876....
+            987....
+            """.trimIndent()
+        ) shouldBe 13
+
+        Day10.part2(
+            """
+            012345
+            123456
+            234567
+            345678
+            4.6789
+            56789.
+            """.trimIndent()
+        ) shouldBe 227
+
+        Day10.part2(
+            """
+            89010123
+            78121874
+            87430965
+            96549874
+            45678903
+            32019012
+            01329801
+            10456732
+            """.trimIndent()
+        ) shouldBe 81
+
+        timing { Day10.part2(input(10)) shouldBe 1289 }
+    }
 }
