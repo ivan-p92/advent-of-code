@@ -485,4 +485,15 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
 
         timing { Day10.part2(input(10)) shouldBe 1289 }
     }
+
+    @Test
+    fun `day 11`() {
+        Day11.solve(
+            """125 17""".trimIndent(),
+            6
+        ) shouldBe 22
+
+        timing { Day11.solve(input(11), 25) shouldBe 184927 }
+        timing { Day11.solve(input(11), 75) shouldBe 220357186726677 }
+    }
 }
