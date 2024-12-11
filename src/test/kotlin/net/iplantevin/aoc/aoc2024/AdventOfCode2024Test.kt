@@ -496,4 +496,22 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day11.solve(input(11), 25) shouldBe 184927 }
         timing { Day11.solve(input(11), 75) shouldBe 220357186726677 }
     }
+
+    @Test
+    fun `day 12 - part 1`() {
+        Day12.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day12.part1(input(12)) shouldBe 0 }
+    }
+
+    @Test
+    fun `day 12 - part 2`() {
+        Day12.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day12.part2(input(12)) shouldBe 0 }
+    }
 }

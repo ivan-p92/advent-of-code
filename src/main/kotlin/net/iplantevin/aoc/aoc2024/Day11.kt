@@ -4,15 +4,14 @@ object Day11 {
 
     fun solve(input: String, blinks: Int): Long {
         val stones = input.split(" ").map { it.toLong() }
-        val blinkStoneCountCache = mutableMapOf<Int, MutableMap<Long, Long>>()
+        val blinkStoneCountCache = mutableMapOf<CacheKey, Long>()
         return stones.sumOf { stone -> countStonesAfterBlinks(stone, blinks, blinkStoneCountCache) }
     }
 
-    private fun countStonesAfterBlinks(stone: Long, blinks: Int, cache: MutableMap<Int, MutableMap<Long, Long>>): Long {
-        return if (blinks == 0) {
-            1
-        } else {
-            cache.getOrPut(blinks) { mutableMapOf() }.getOrPut(stone) {
+    private fun countStonesAfterBlinks(stone: Long, blinks: Int, cache: MutableMap<CacheKey, Long>): Long {
+        return when (blinks) {
+            0 -> 1
+            else -> cache.getOrPut(CacheKey(stone, blinks)) {
                 when {
                     stone == 0L -> {
                         countStonesAfterBlinks(1L, blinks - 1, cache)
@@ -33,4 +32,6 @@ object Day11 {
             }
         }
     }
+
+    private data class CacheKey(val stone: Long, val blinks: Int)
 }
