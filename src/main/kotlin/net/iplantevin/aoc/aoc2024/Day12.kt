@@ -1,6 +1,9 @@
 package net.iplantevin.aoc.aoc2024
 
-import net.iplantevin.aoc.common.*
+import net.iplantevin.aoc.common.Direction
+import net.iplantevin.aoc.common.MapGrid
+import net.iplantevin.aoc.common.Point
+import net.iplantevin.aoc.common.toMapGrid
 
 object Day12 {
 
@@ -58,27 +61,20 @@ object Day12 {
         }
 
     private fun countSides(region: Region, plots: MapGrid<Char>): Int {
-        var sides = 0
+        val fences = mutableSetOf<Fence>()
+
         Direction.entries.forEach { fenceDirection ->
-            val plotsWithFenceInDirection = region.plots.filterTo(mutableSetOf()) { plot ->
-                plots[plot.move(fenceDirection)] != region.plant
-            }
-            while (plotsWithFenceInDirection.isNotEmpty()) {
-                sides++
-                val start = plotsWithFenceInDirection.removeFirst()
-                // "Walk along the fence" in both directions, left and right relative to the fence direction,
-                // removing all plots along the way, until a plot is encountered that is not in the region.
-                listOf(fenceDirection.turnLeft(), fenceDirection.turnRight()).forEach { moveDirection ->
-                    var current = start
-                    while (current.move(moveDirection) in plotsWithFenceInDirection) {
-                        current = current.move(moveDirection)
-                        plotsWithFenceInDirection -= current
-                    }
+            region.plots.forEach { plot ->
+                if (plots[plot.move(fenceDirection)] != region.plant) {
+                    fences += Fence(plot, fenceDirection)
                 }
             }
         }
-        return sides
+        return fences.count { (plot, direction) ->
+            Fence(plot.move(direction.turnRight()), direction) !in fences
+        }
     }
 
     private data class Region(val plots: List<Point>, val plant: Char)
+    private data class Fence(val plot: Point, val direction: Direction)
 }
