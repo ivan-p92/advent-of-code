@@ -11,3 +11,5 @@ fun <T> List<T>.distinctPairs(): Sequence<Pair<T, T>> = sequence {
         for (j in i + 1..<size)
             yield(get(i) to get(j))
 }
+
+fun <T> MutableSet<T>.removeFirst(): T = first().also { remove(it) }

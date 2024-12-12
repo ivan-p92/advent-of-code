@@ -500,18 +500,111 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     @Test
     fun `day 12 - part 1`() {
         Day12.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            AAAA
+            BBCD
+            BBCC
+            EEEC
+            """.trimIndent()
+        ) shouldBe 140
 
-        timing { Day12.part1(input(12)) shouldBe 0 }
+        Day12.part1(
+            """
+            OOOOO
+            OXOXO
+            OOOOO
+            OXOXO
+            OOOOO
+            """.trimIndent()
+        ) shouldBe 772
+
+        Day12.part1(
+            """
+            RRRRIICCFF
+            RRRRIICCCF
+            VVRRRCCFFF
+            VVRCCCJFFF
+            VVVVCJJCFE
+            VVIVCCJJEE
+            VVIIICJJEE
+            MIIIIIJJEE
+            MIIISIJEEE
+            MMMISSJEEE
+            """.trimIndent()
+        ) shouldBe 1930
+
+        timing { Day12.part1(input(12)) shouldBe 1471452L }
     }
 
     @Test
     fun `day 12 - part 2`() {
         Day12.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            AAAA
+            BBCD
+            BBCC
+            EEEC
+            """.trimIndent()
+        ) shouldBe 80
 
-        timing { Day12.part2(input(12)) shouldBe 0 }
+        Day12.part2(
+            """
+            OOOOO
+            OXOXO
+            OOOOO
+            OXOXO
+            OOOOO
+            """.trimIndent()
+        ) shouldBe 436
+
+        Day12.part2(
+            """
+            EEEEE
+            EXXXX
+            EEEEE
+            EXXXX
+            EEEEE
+            """.trimIndent()
+        ) shouldBe 236
+
+        Day12.part2(
+            """
+            AAAAAA
+            AAABBA
+            AAABBA
+            ABBAAA
+            ABBAAA
+            AAAAAA
+            """.trimIndent()
+        ) shouldBe 368
+
+        Day12.part2(
+            """
+            RRRRIICCFF
+            RRRRIICCCF
+            VVRRRCCFFF
+            VVRCCCJFFF
+            VVVVCJJCFE
+            VVIVCCJJEE
+            VVIIICJJEE
+            MIIIIIJJEE
+            MIIISIJEEE
+            MMMISSJEEE
+            """.trimIndent()
+        ) shouldBe 1206
+
+        Day12.part2(
+            """
+            AAAAAAAA
+            AACBBDDA
+            AACBBAAA
+            ABBAAAAA
+            ABBADDDA
+            AAAADADA
+            AAAAAAAA
+            """.trimIndent()
+        ) shouldBe 946
+
+        timing(100, true) { Day12.part2(input(12)) shouldBe 863366 }
     }
 }
