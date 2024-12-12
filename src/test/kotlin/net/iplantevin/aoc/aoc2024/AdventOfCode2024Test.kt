@@ -2,6 +2,7 @@ package net.iplantevin.aoc.aoc2024
 
 import io.kotest.matchers.shouldBe
 import net.iplantevin.aoc.util.AdventOfCodeTest
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 
@@ -605,6 +606,264 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
             """.trimIndent()
         ) shouldBe 946
 
-        timing(100, true) { Day12.part2(input(12)) shouldBe 863366 }
+        timing { Day12.part2(input(12)) shouldBe 863366 }
+    }
+
+    @Test
+    fun `day 13 - part 1`() {
+        Day13.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day13.part1(input(13)) shouldBe 0 }
+    }
+
+    @Test
+    fun `day 13 - part 2`() {
+        Day13.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day13.part2(input(13)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 14 - part 1`() {
+        Day14.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day14.part1(input(14)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 14 - part 2`() {
+        Day14.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day14.part2(input(14)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 15 - part 1`() {
+        Day15.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day15.part1(input(15)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 15 - part 2`() {
+        Day15.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day15.part2(input(15)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 16 - part 1`() {
+        Day16.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day16.part1(input(16)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 16 - part 2`() {
+        Day16.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day16.part2(input(16)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 17 - part 1`() {
+        Day17.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day17.part1(input(17)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 17 - part 2`() {
+        Day17.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day17.part2(input(17)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 18 - part 1`() {
+        Day18.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day18.part1(input(18)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 18 - part 2`() {
+        Day18.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day18.part2(input(18)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 19 - part 1`() {
+        Day19.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day19.part1(input(19)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 19 - part 2`() {
+        Day19.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day19.part2(input(19)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 20 - part 1`() {
+        Day20.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day20.part1(input(20)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 20 - part 2`() {
+        Day20.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day20.part2(input(20)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 21 - part 1`() {
+        Day21.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day21.part1(input(21)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 21 - part 2`() {
+        Day21.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day21.part2(input(21)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 22 - part 1`() {
+        Day22.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day22.part1(input(22)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 22 - part 2`() {
+        Day22.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day22.part2(input(22)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 23 - part 1`() {
+        Day23.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day23.part1(input(23)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 23 - part 2`() {
+        Day23.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day23.part2(input(23)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 24 - part 1`() {
+        Day24.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day24.part1(input(24)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 24 - part 2`() {
+        Day24.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day24.part2(input(24)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 25 - part 1`() {
+        Day25.part1(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day25.part1(input(25)) shouldBe 0 }
+    }
+
+    @Disabled
+    @Test
+    fun `day 25 - part 2`() {
+        Day25.part2(
+            """""".trimIndent()
+        ) shouldBe 0
+
+        timing { Day25.part2(input(25)) shouldBe 0 }
     }
 }
