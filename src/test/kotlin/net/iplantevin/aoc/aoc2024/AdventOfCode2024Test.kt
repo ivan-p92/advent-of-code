@@ -612,19 +612,51 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     @Test
     fun `day 13 - part 1`() {
         Day13.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            Button A: X+94, Y+34
+            Button B: X+22, Y+67
+            Prize: X=8400, Y=5400
 
-        timing { Day13.part1(input(13)) shouldBe 0 }
+            Button A: X+26, Y+66
+            Button B: X+67, Y+21
+            Prize: X=12748, Y=12176
+
+            Button A: X+17, Y+86
+            Button B: X+84, Y+37
+            Prize: X=7870, Y=6450
+
+            Button A: X+69, Y+23
+            Button B: X+27, Y+71
+            Prize: X=18641, Y=10279
+            """.trimIndent()
+        ) shouldBe listOf(280, null, 200, null)
+
+        timing { Day13.part1(input(13)).sumOf { it ?: 0 } shouldBe 28059 }
     }
 
     @Test
     fun `day 13 - part 2`() {
         Day13.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            Button A: X+94, Y+34
+            Button B: X+22, Y+67
+            Prize: X=8400, Y=5400
 
-        timing { Day13.part2(input(13)) shouldBe 0 }
+            Button A: X+26, Y+66
+            Button B: X+67, Y+21
+            Prize: X=12748, Y=12176
+
+            Button A: X+17, Y+86
+            Button B: X+84, Y+37
+            Prize: X=7870, Y=6450
+
+            Button A: X+69, Y+23
+            Button B: X+27, Y+71
+            Prize: X=18641, Y=10279
+            """.trimIndent()
+        ) shouldBe listOf(null, 459236326669, null, 416082282239)
+
+        timing { Day13.part2(input(13)).sumOf { it ?: 0 } shouldBe 102255878088512 }
     }
 
     @Disabled
