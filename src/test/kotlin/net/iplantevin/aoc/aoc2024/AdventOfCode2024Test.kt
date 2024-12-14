@@ -659,24 +659,32 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day13.part2(input(13)).sumOf { it ?: 0 } shouldBe 102255878088512 }
     }
 
-    @Disabled
     @Test
     fun `day 14 - part 1`() {
         Day14.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            p=0,4 v=3,-3
+            p=6,3 v=-1,-3
+            p=10,3 v=-1,2
+            p=2,0 v=2,-1
+            p=0,0 v=1,3
+            p=3,0 v=-2,-2
+            p=7,6 v=-1,-3
+            p=3,0 v=-1,-2
+            p=9,3 v=2,3
+            p=7,3 v=-1,2
+            p=2,4 v=2,-3
+            p=9,5 v=-3,-3
+            """.trimIndent(),
+            11, 7
+        ) shouldBe 12
 
-        timing { Day14.part1(input(14)) shouldBe 0 }
+        timing { Day14.part1(input(14), 101, 103) shouldBe 228457125 }
     }
 
-    @Disabled
     @Test
     fun `day 14 - part 2`() {
-        Day14.part2(
-            """""".trimIndent()
-        ) shouldBe 0
-
-        timing { Day14.part2(input(14)) shouldBe 0 }
+        timing { Day14.part2(input(14)) shouldBe 6493 }
     }
 
     @Disabled

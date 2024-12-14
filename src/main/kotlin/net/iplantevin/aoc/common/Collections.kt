@@ -13,3 +13,5 @@ fun <T> List<T>.distinctPairs(): Sequence<Pair<T, T>> = sequence {
 }
 
 fun <T> MutableSet<T>.removeFirst(): T = first().also { remove(it) }
+
+fun <T> List<T>.println(): List<T> = onEach { println(it) }
