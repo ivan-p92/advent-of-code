@@ -25,8 +25,7 @@ object Day15 {
             when (map[nextPosition]) {
                 '.' -> robot = nextPosition
                 'O' -> {
-                    val freeSpot = firstFreeSpotInDirection(map, nextPosition, direction)
-                    if (freeSpot != null) {
+                    firstFreeSpotInDirection(map, nextPosition, direction)?.let { freeSpot ->
                         robot = nextPosition
                         map[freeSpot] = 'O'
                         map[nextPosition] = '.'
