@@ -687,24 +687,95 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day14.part2(input(14)) shouldBe 6493 }
     }
 
-    @Disabled
     @Test
     fun `day 15 - part 1`() {
         Day15.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            ########
+            #..O.O.#
+            ##@.O..#
+            #...O..#
+            #.#.O..#
+            #...O..#
+            #......#
+            ########
 
-        timing { Day15.part1(input(15)) shouldBe 0 }
+            <^^>>>vv<v>>v<<
+            """.trimIndent()
+        ) shouldBe 2028
+
+        Day15.part1(
+            """
+            ##########
+            #..O..O.O#
+            #......O.#
+            #.OO..O.O#
+            #..O@..O.#
+            #O#..O...#
+            #O..O..O.#
+            #.OO.O.OO#
+            #....O...#
+            ##########
+
+            <vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^
+            vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v
+            ><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<
+            <<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^
+            ^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><
+            ^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^
+            >^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^
+            <><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>
+            ^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>
+            v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^
+            """.trimIndent()
+        ) shouldBe 10092
+
+        timing { Day15.part1(input(15)) shouldBe 1429911L }
     }
 
-    @Disabled
     @Test
     fun `day 15 - part 2`() {
         Day15.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            #######
+            #...#.#
+            #.....#
+            #..OO@#
+            #..O..#
+            #.....#
+            #######
 
-        timing { Day15.part2(input(15)) shouldBe 0 }
+            <vv<<^^<<^^
+            """.trimIndent()
+        )
+
+        Day15.part2(
+            """
+            ##########
+            #..O..O.O#
+            #......O.#
+            #.OO..O.O#
+            #..O@..O.#
+            #O#..O...#
+            #O..O..O.#
+            #.OO.O.OO#
+            #....O...#
+            ##########
+
+            <vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^
+            vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v
+            ><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<
+            <<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^
+            ^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><
+            ^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^
+            >^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^
+            <><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>
+            ^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>
+            v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^
+            """.trimIndent()
+        ) shouldBe 9021
+
+        timing { Day15.part2(input(15)) shouldBe 1453087 }
     }
 
     @Disabled

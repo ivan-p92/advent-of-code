@@ -4,7 +4,7 @@ import kotlin.math.abs
 
 typealias ArrayGrid<T> = List<List<T>>
 
-typealias MapGrid<T> = Map<Point, T>
+typealias MapGrid<T> = MutableMap<Point, T>
 
 data class Point(val x: Long, val y: Long) {
 
@@ -55,6 +55,20 @@ enum class Direction(val delta: Point) {
 
     fun turnRight(): Direction {
         return entries[(entries.size + (this.ordinal - 1)) % entries.size]
+    }
+
+    fun isHorizontal(): Boolean = this == WEST || this == EAST
+
+    fun isVertical(): Boolean = this == SOUTH || this == NORTH
+
+    companion object {
+        fun ofArrow(char: Char): Direction? = when (char) {
+            '^' -> NORTH
+            '>' -> EAST
+            '<' -> WEST
+            'v' -> SOUTH
+            else -> null
+        }
     }
 }
 
