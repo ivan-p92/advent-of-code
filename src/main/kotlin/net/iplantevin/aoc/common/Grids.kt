@@ -91,12 +91,12 @@ fun String.toCharArrayGrid(): ArrayGrid<Char> = lines().map { it.toList() }
 
 fun <T> String.toMapGrid(transform: (char: Char) -> T): MapGrid<T> = toMapGrid { _, char -> transform(char) }
 
-fun <T> String.toMapGrid(transform: (Point, Char) -> T): MapGrid<T> {
+fun <T> String.toMapGrid(transform: (Point, Char) -> T?): MapGrid<T> {
     val grid = mutableMapOf<Point, T>()
     lines().forEachIndexed { y: Int, line: String ->
         line.forEachIndexed { x, char ->
             val point = Point(x, y)
-            grid[point] = transform(point, char)
+            transform(point, char)?.let { grid[point] = it }
         }
     }
     return grid
