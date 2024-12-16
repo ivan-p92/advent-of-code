@@ -5,55 +5,43 @@ import net.iplantevin.aoc.common.Move
 import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.common.toMapGrid
 import java.util.*
-import kotlin.math.min
 
 object Day16 {
 
-    fun part1(input: String): Long {
-        val maze = parseMaze(input)
-        val queue = PriorityQueue<State>()
-        val initialState = State(Move(maze.start, EAST), 0, moves = emptyList())
-        val consideredMoves = mutableSetOf(initialState.move)
-        queue += initialState
-        while (queue.isNotEmpty()) {
-            val state = queue.poll()
-            if (state.move.position == maze.end) {
-                return state.cost
-            }
-            findNextStates(state, maze).forEach { nextState ->
-                if (nextState.move !in consideredMoves) {
-                    consideredMoves += nextState.move
-                    queue += nextState
-                }
-            }
-        }
-        return 0
-    }
+    fun part1(input: String): Int = solve(input).let { (endState, _) -> endState.cost }
 
-    fun part2(input: String): Int {
+    fun part2(input: String): Int = solve(input).let { (endState, bestMoves) ->
+        findAllPointsOnBestPaths(endState.move, bestMoves)
+    }.size
+
+    private fun solve(input: String): Pair<State, Map<Move, Set<Move>>> {
         val maze = parseMaze(input)
         val queue = PriorityQueue<State>()
         val initialState = State(Move(maze.start, EAST), 0, moves = emptyList())
-        val consideredMoves = mutableMapOf(initialState.move to 0L)
-        val paths = mutableListOf<Pair<Set<Point>, Long>>()
-        var lowestCost = Long.MAX_VALUE
+        val moveCosts = mutableMapOf(initialState.move to 0)
+        // Maps from a move to the set of previous moves that all lie on a path with the lowest cost.
+        val bestMoves = mutableMapOf<Move, MutableSet<Move>>()
         queue += initialState
-        while (queue.isNotEmpty()) {
+        var iterations = 0
+        var endState: State? = null
+
+        while (endState == null && queue.isNotEmpty()) {
+            iterations++
             val state = queue.poll()
             if (state.move.position == maze.end) {
-                paths += Pair(state.moves.mapTo(mutableSetOf()) { it.position }, state.cost)
-                lowestCost = min(lowestCost, state.cost)
+                endState = state
             }
             findNextStates(state, maze).forEach { nextState ->
-                if (nextState.move !in consideredMoves || consideredMoves[nextState.move]!! == nextState.cost) {
-                    consideredMoves += nextState.move to nextState.cost
+                if (nextState.cost < (moveCosts[nextState.move] ?: Int.MAX_VALUE)) {
+                    moveCosts[nextState.move] = nextState.cost
+                    bestMoves[nextState.move] = mutableSetOf(state.move)
                     queue += nextState
+                } else if (moveCosts[nextState.move] == nextState.cost) {
+                    bestMoves[nextState.move]!! += state.move
                 }
             }
         }
-        val positions = mutableSetOf<Point>()
-        paths.filter { (_, cost) -> cost == lowestCost }.forEach { (pos, _) -> positions += pos }
-        return positions.size
+        return endState!! to bestMoves
     }
 
     private fun findNextStates(state: State, maze: Maze): List<State> {
@@ -65,6 +53,15 @@ object Day16 {
             if (move.position !in maze.walls) {
                 State(move, state.cost + cost, state.moves + move)
             } else null
+        }
+    }
+
+    private fun findAllPointsOnBestPaths(current: Move, bestMoves: Map<Move, Set<Move>>): Set<Point> {
+        return buildSet {
+            add(current.position)
+            bestMoves[current].orEmpty().forEach { previous ->
+                addAll(findAllPointsOnBestPaths(previous, bestMoves))
+            }
         }
     }
 
@@ -86,7 +83,7 @@ object Day16 {
 
     private data class State(
         val move: Move,
-        val cost: Long,
+        val cost: Int,
         val moves: List<Move>
     ) : Comparable<State> {
 

@@ -798,7 +798,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
             #S..#.....#...#
             ###############
             """.trimIndent()
-        ) shouldBe 7036L
+        ) shouldBe 7036
 
         Day16.part1(
             """
@@ -820,9 +820,9 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
             #S#.............#
             #################
             """.trimIndent()
-        ) shouldBe 11048L
+        ) shouldBe 11048
 
-        timing { Day16.part1(input(16)) shouldBe 99460L }
+        timing { Day16.part1(input(16)) shouldBe 99460 }
     }
 
     @Test
