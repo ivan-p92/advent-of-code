@@ -919,7 +919,7 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
 
     @Test
     fun `day 17 - part 2`() {
-        timing { Day17.part2(input(17)) shouldBe 0 }
+        timing { Day17.part2(input(17)) shouldBe 37222273957364 }
     }
 
     @Disabled
