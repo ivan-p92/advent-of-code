@@ -872,22 +872,64 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day16.part2(input(16)) shouldBe 500 }
     }
 
-    @Disabled
     @Test
     fun `day 17 - part 1`() {
         Day17.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            Register A: 0
+            Register B: 0
+            Register C: 9
 
-        timing { Day17.part1(input(17)) shouldBe 0 }
+            Program: 2,6
+            """.trimIndent()
+        ) shouldBe ""
+
+        Day17.part1(
+            """
+            Register A: 10
+            Register B: 0
+            Register C: 0
+
+            Program: 5,0,5,1,5,4
+            """.trimIndent()
+        ) shouldBe "0,1,2"
+
+        Day17.part1(
+            """
+            Register A: 2024
+            Register B: 0
+            Register C: 0
+
+            Program: 0,1,5,4,3,0
+            """.trimIndent()
+        ) shouldBe "4,2,5,6,7,7,7,7,3,1,0"
+
+        Day17.part1(
+            """
+            Register A: 729
+            Register B: 0
+            Register C: 0
+
+            Program: 0,1,5,4,3,0
+            """.trimIndent()
+        ) shouldBe "4,6,3,5,6,3,5,2,1,0"
+
+        timing { Day17.part1(input(17)) shouldBe "7,1,5,2,4,0,7,6,1" }
     }
 
-    @Disabled
     @Test
     fun `day 17 - part 2`() {
-        Day17.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+        timing {
+            Day17.part2(
+                """
+            Register A: 66869
+            Register B: 0
+            Register C: 0
+
+            Program: 0,3,5,4,3,0
+            """.trimIndent()
+            ) shouldBe 117440
+        }
 
         timing { Day17.part2(input(17)) shouldBe 0 }
     }
