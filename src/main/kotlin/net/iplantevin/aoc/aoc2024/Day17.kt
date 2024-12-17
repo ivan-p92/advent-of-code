@@ -1,7 +1,5 @@
 package net.iplantevin.aoc.aoc2024
 
-import kotlin.math.pow
-
 object Day17 {
 
     fun part1(input: String): String = IntCode.forInput(input).execute()!!
@@ -27,14 +25,14 @@ object Day17 {
                 val operand = program[pointer + 1].toLong()
 
                 when (instruction) {
-                    0 -> a = (a / (2.toDouble().pow(combo(operand).toInt()))).toLong()
+                    0 -> a = a.shr(combo(operand).toInt())
                     1 -> b = b xor operand
                     2 -> b = combo(operand) % 8
                     3 -> if (a != 0L) pointer = operand.toInt() - 2
                     4 -> b = b xor c
                     5 -> output += (combo(operand) % 8).toInt()
-                    6 -> b = (a / (2.toDouble().pow(combo(operand).toInt()))).toLong()
-                    7 -> c = (a / (2.toDouble().pow(combo(operand).toInt()))).toLong()
+                    6 -> b = a.shr(combo(operand).toInt())
+                    7 -> c = a.shr(combo(operand).toInt())
                 }
                 if (copySelf && output.isNotEmpty() && (output.size > program.size || output.last() != program[output.size - 1])) {
                     return null

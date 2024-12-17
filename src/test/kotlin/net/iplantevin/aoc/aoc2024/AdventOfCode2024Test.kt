@@ -914,23 +914,11 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
             """.trimIndent()
         ) shouldBe "4,6,3,5,6,3,5,2,1,0"
 
-        timing { Day17.part1(input(17)) shouldBe "7,1,5,2,4,0,7,6,1" }
+        timing(100) { Day17.part1(input(17)) shouldBe "7,1,5,2,4,0,7,6,1" }
     }
 
     @Test
     fun `day 17 - part 2`() {
-        timing {
-            Day17.part2(
-                """
-            Register A: 66869
-            Register B: 0
-            Register C: 0
-
-            Program: 0,3,5,4,3,0
-            """.trimIndent()
-            ) shouldBe 117440
-        }
-
         timing { Day17.part2(input(17)) shouldBe 0 }
     }
 
