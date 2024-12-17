@@ -2,7 +2,7 @@ package net.iplantevin.aoc.aoc2024
 
 object Day17 {
 
-    fun part1(input: String): String = IntCode.forInput(input).execute()!!
+    fun part1(input: String): String = IntCode.forInput(input).execute()
 
     fun part2(input: String): Long = findValidStartValue(IntCode.forInput(input).program).first()
 
@@ -47,7 +47,7 @@ object Day17 {
             println("A: $a\nB: $b\nC: $c\n")
         }
 
-        fun execute(copySelf: Boolean = false): String? {
+        fun execute(): String {
             while (pointer < program.size - 1) {
                 val instruction = program[pointer]
                 val operand = program[pointer + 1].toLong()
@@ -62,13 +62,7 @@ object Day17 {
                     6 -> b = a shr combo(operand).toInt()
                     7 -> c = a shr combo(operand).toInt()
                 }
-                if (copySelf && output.isNotEmpty() && (output.size > program.size || output.last() != program[output.size - 1])) {
-                    return null
-                }
                 pointer += 2
-            }
-            if (copySelf && output != program) {
-                return null
             }
             return output.joinToString(",")
         }
