@@ -959,7 +959,6 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day18.part1(input(18), Point(70, 70), 1024) shouldBe 364 }
     }
 
-    @Disabled("Slow, should optimize")
     @Test
     fun `day 18 - part 2`() {
         Day18.part2(

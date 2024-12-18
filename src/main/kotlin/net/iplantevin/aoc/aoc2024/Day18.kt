@@ -19,7 +19,10 @@ object Day18 {
         var maxBytes = startBytes
         var endState = solve(endPoint, bytes, maxBytes)
         while (endState != null) {
-            maxBytes++
+            // We only need to find a new path when a byte "falls" that lies on the last found path.
+            while (bytes[maxBytes - 1] !in endState.path) {
+                maxBytes++
+            }
             endState = solve(endPoint, bytes, maxBytes)
         }
         return bytes[maxBytes - 1].let { "${it.x},${it.y}" }
