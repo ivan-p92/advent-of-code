@@ -1,6 +1,7 @@
 package net.iplantevin.aoc.aoc2024
 
 import io.kotest.matchers.shouldBe
+import net.iplantevin.aoc.common.Point
 import net.iplantevin.aoc.util.AdventOfCodeTest
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -922,24 +923,77 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day17.part2(input(17)) shouldBe 37222273957364 }
     }
 
-    @Disabled
     @Test
     fun `day 18 - part 1`() {
         Day18.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            5,4
+            4,2
+            4,5
+            3,0
+            2,1
+            6,3
+            2,4
+            1,5
+            0,6
+            3,3
+            2,6
+            5,1
+            1,2
+            5,5
+            2,5
+            6,5
+            1,4
+            0,4
+            6,4
+            1,1
+            6,1
+            1,0
+            0,5
+            1,6
+            2,0
+            """.trimIndent(),
+            Point(6, 6), 12
+        ) shouldBe 22
 
-        timing { Day18.part1(input(18)) shouldBe 0 }
+        timing { Day18.part1(input(18), Point(70, 70), 1024) shouldBe 364 }
     }
 
-    @Disabled
+    @Disabled("Slow, should optimize")
     @Test
     fun `day 18 - part 2`() {
         Day18.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            5,4
+            4,2
+            4,5
+            3,0
+            2,1
+            6,3
+            2,4
+            1,5
+            0,6
+            3,3
+            2,6
+            5,1
+            1,2
+            5,5
+            2,5
+            6,5
+            1,4
+            0,4
+            6,4
+            1,1
+            6,1
+            1,0
+            0,5
+            1,6
+            2,0
+            """.trimIndent(),
+            Point(6, 6), 12
+        ) shouldBe "6,1"
 
-        timing { Day18.part2(input(18)) shouldBe 0 }
+        timing { Day18.part2(input(18), Point(70, 70), 1024) shouldBe "52,28" }
     }
 
     @Disabled

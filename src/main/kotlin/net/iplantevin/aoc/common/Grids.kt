@@ -41,6 +41,8 @@ data class Point(val x: Long, val y: Long) {
     operator fun times(factor: Int): Point = Point(x * factor, y * factor)
 
     operator fun times(factor: Long): Point = Point(x * factor, y * factor)
+
+    operator fun contains(other: Point): Boolean = other.x >= 0 && other.y >= 0 && other.x <= x && other.y <= y
 }
 
 enum class Direction(val delta: Point) {
