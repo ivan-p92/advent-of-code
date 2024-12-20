@@ -30,6 +30,13 @@ data class Point(val x: Long, val y: Long) {
         return result
     }
 
+    fun adjacentPoints(): List<Point> = listOf(
+        Point(x + 1, y),
+        Point(x - 1, y),
+        Point(x, y + 1),
+        Point(x, y - 1)
+    )
+
     fun move(direction: Direction): Point = this + direction.delta
 
     fun distance(other: Point): Long = abs(x - other.x) + abs(y - other.y)

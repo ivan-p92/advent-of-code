@@ -995,7 +995,6 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day18.part2(input(18), Point(70, 70), 1024) shouldBe "52,28" }
     }
 
-    @Disabled
     @Test
     fun `day 19 - part 1`() {
         Day19.part1(
@@ -1005,7 +1004,6 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day19.part1(input(19)) shouldBe 0 }
     }
 
-    @Disabled
     @Test
     fun `day 19 - part 2`() {
         Day19.part2(
@@ -1015,24 +1013,35 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
         timing { Day19.part2(input(19)) shouldBe 0 }
     }
 
-    @Disabled
     @Test
     fun `day 20 - part 1`() {
-        Day20.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+        val input = """
+            ###############
+            #...#...#.....#
+            #.#.#.#.#.###.#
+            #S#...#.#.#...#
+            #######.#.#.###
+            #######.#.#...#
+            #######.#.###.#
+            ###..E#...#...#
+            ###.#######.###
+            #...###...#...#
+            #.#####.#.###.#
+            #.#...#.#.#...#
+            #.#.#.#.#.#.###
+            #...#...#...###
+            ###############
+            """.trimIndent()
+        Day20.part1(input, 8) shouldBe 14
+        Day20.part1(input, 12) shouldBe 8
+        Day20.part1(input, 38) shouldBe 3
 
-        timing { Day20.part1(input(20)) shouldBe 0 }
+        timing { Day20.part1(input(20)) shouldBe 1438 }
     }
 
-    @Disabled
     @Test
     fun `day 20 - part 2`() {
-        Day20.part2(
-            """""".trimIndent()
-        ) shouldBe 0
-
-        timing { Day20.part2(input(20)) shouldBe 0 }
+        timing { Day20.part2(input(20)) shouldBe 1026446 }
     }
 
     @Disabled
