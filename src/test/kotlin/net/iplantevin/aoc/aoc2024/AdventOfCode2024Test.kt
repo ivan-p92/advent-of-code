@@ -998,19 +998,41 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     @Test
     fun `day 19 - part 1`() {
         Day19.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            r, wr, b, g, bwu, rb, gb, br
 
-        timing { Day19.part1(input(19)) shouldBe 0 }
+            brwrr
+            bggr
+            gbbr
+            rrbgbr
+            ubwu
+            bwurrg
+            brgr
+            bbrgwb
+            """.trimIndent()
+        ) shouldBe 6
+
+        timing { Day19.part1(input(19)) shouldBe 300 }
     }
 
     @Test
     fun `day 19 - part 2`() {
         Day19.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            r, wr, b, g, bwu, rb, gb, br
 
-        timing { Day19.part2(input(19)) shouldBe 0 }
+            brwrr
+            bggr
+            gbbr
+            rrbgbr
+            ubwu
+            bwurrg
+            brgr
+            bbrgwb
+            """.trimIndent()
+        ) shouldBe 16
+
+        timing { Day19.part2(input(19)) shouldBe 624802218898092 }
     }
 
     @Test
