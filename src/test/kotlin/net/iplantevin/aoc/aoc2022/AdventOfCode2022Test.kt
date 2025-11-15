@@ -79,6 +79,7 @@ class AdventOfCode2022Test : AdventOfCodeTest(2022) {
 
         timing { Day2.part2(input(2)) shouldBe 11756 }
     }
+
     @Test
     fun `day 3 - part 1`() {
         Day3.part1(
@@ -109,5 +110,37 @@ class AdventOfCode2022Test : AdventOfCodeTest(2022) {
         ) shouldBe 70
 
         timing { Day3.part2(input(3)) shouldBe 2567 }
+    }
+
+    @Test
+    fun `day 4 - part 1`() {
+        Day4.part1(
+            """
+            2-4,6-8
+            2-3,4-5
+            5-7,7-9
+            2-8,3-7
+            6-6,4-6
+            2-6,4-8
+            """.trimIndent()
+        ) shouldBe 2
+
+        timing { Day4.part1(input(4)) shouldBe 588 }
+    }
+
+    @Test
+    fun `day 4 - part 2`() {
+        Day4.part2(
+            """
+            2-4,6-8
+            2-3,4-5
+            5-7,7-9
+            2-8,3-7
+            6-6,4-6
+            2-6,4-8
+            """.trimIndent()
+        ) shouldBe 4
+
+        timing { Day4.part2(input(4)) shouldBe 911 }
     }
 }
