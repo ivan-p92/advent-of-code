@@ -53,4 +53,30 @@ class AdventOfCode2022Test : AdventOfCodeTest(2022) {
 
         timing { Day1.part2(input(1)) shouldBe 207148 }
     }
+
+    @Test
+    fun `day 2 - part 1`() {
+        Day2.part1(
+            """
+            A Y
+            B X
+            C Z
+            """.trimIndent()
+        ) shouldBe 15
+
+        timing { Day2.part1(input(2)) shouldBe 12645 }
+    }
+
+    @Test
+    fun `day 2 - part 2`() {
+        Day2.part2(
+            """
+            A Y
+            B X
+            C Z
+            """.trimIndent()
+        ) shouldBe 12
+
+        timing { Day2.part2(input(2)) shouldBe 11756 }
+    }
 }
