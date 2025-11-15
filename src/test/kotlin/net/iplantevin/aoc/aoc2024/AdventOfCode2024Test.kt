@@ -1070,8 +1070,14 @@ class AdventOfCode2024Test : AdventOfCodeTest(2024) {
     @Test
     fun `day 21 - part 1`() {
         Day21.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+            029A
+            980A
+            179A
+            456A
+            379A
+            """.trimIndent()
+        ) shouldBe 126384
 
         timing { Day21.part1(input(21)) shouldBe 0 }
     }

@@ -52,11 +52,11 @@ data class Point(val x: Long, val y: Long) {
     operator fun contains(other: Point): Boolean = other.x >= 0 && other.y >= 0 && other.x <= x && other.y <= y
 }
 
-enum class Direction(val delta: Point) {
-    EAST(Point(1, 0)),
-    NORTH(Point(0, -1)),
-    WEST(Point(-1, 0)),
-    SOUTH(Point(0, 1));
+enum class Direction(val delta: Point, val arrow: Char) {
+    EAST(Point(1, 0), '>'),
+    NORTH(Point(0, -1), '^'),
+    WEST(Point(-1, 0), '<'),
+    SOUTH(Point(0, 1), 'v');
 
     fun turnLeft(): Direction {
         return entries[(this.ordinal + 1) % entries.size]
