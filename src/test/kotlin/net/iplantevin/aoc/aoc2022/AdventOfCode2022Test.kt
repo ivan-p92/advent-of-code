@@ -1,0 +1,56 @@
+package net.iplantevin.aoc.aoc2022
+
+import io.kotest.matchers.shouldBe
+import net.iplantevin.aoc.util.AdventOfCodeTest
+import org.junit.jupiter.api.Test
+
+class AdventOfCode2022Test : AdventOfCodeTest(2022) {
+
+    @Test
+    fun `day 1 - part 1`() {
+        Day1.part1(
+            """
+            1000
+            2000
+            3000
+
+            4000
+
+            5000
+            6000
+
+            7000
+            8000
+            9000
+
+            10000
+        """.trimIndent()
+        ) shouldBe 24000
+
+        timing { Day1.part1(input(1)) shouldBe 70720 }
+    }
+
+    @Test
+    fun `day 1 - part 2`() {
+        Day1.part2(
+            """
+            1000
+            2000
+            3000
+
+            4000
+
+            5000
+            6000
+
+            7000
+            8000
+            9000
+
+            10000
+        """.trimIndent()
+        ) shouldBe 45000
+
+        timing { Day1.part2(input(1)) shouldBe 207148 }
+    }
+}
