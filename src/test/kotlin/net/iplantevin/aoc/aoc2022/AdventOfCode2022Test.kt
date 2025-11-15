@@ -143,4 +143,42 @@ class AdventOfCode2022Test : AdventOfCodeTest(2022) {
 
         timing { Day4.part2(input(4)) shouldBe 911 }
     }
+
+    @Test
+    fun `day 5 - part 1`() {
+        Day5.part1(
+            """
+                [D]    
+            [N] [C]    
+            [Z] [M] [P]
+             1   2   3 
+            
+            move 1 from 2 to 1
+            move 3 from 1 to 3
+            move 2 from 2 to 1
+            move 1 from 1 to 2
+            """.trimIndent()
+        ) shouldBe "CMZ"
+
+        timing { Day5.part1(input(5)) shouldBe "SBPQRSCDF" }
+    }
+
+    @Test
+    fun `day 5 - part 2`() {
+        Day5.part2(
+            """
+                [D]    
+            [N] [C]    
+            [Z] [M] [P]
+             1   2   3 
+            
+            move 1 from 2 to 1
+            move 3 from 1 to 3
+            move 2 from 2 to 1
+            move 1 from 1 to 2
+            """.trimIndent()
+        ) shouldBe "MCD"
+
+        timing { Day5.part2(input(5)) shouldBe "RGLVRCQSB" }
+    }
 }
