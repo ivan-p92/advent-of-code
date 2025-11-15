@@ -79,4 +79,35 @@ class AdventOfCode2022Test : AdventOfCodeTest(2022) {
 
         timing { Day2.part2(input(2)) shouldBe 11756 }
     }
+    @Test
+    fun `day 3 - part 1`() {
+        Day3.part1(
+            """
+            vJrwpWtwJgWrhcsFMMfFFhFp
+            jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+            PmmdzqPrVvPwwTWBwg
+            wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+            ttgJtRGJQctTZtZT
+            CrZsJsPPZsGzwwsLwLmpwMDw
+            """.trimIndent()
+        ) shouldBe 157
+
+        timing { Day3.part1(input(3)) shouldBe 8072 }
+    }
+
+    @Test
+    fun `day 3 - part 2`() {
+        Day3.part2(
+            """
+            vJrwpWtwJgWrhcsFMMfFFhFp
+            jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+            PmmdzqPrVvPwwTWBwg
+            wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+            ttgJtRGJQctTZtZT
+            CrZsJsPPZsGzwwsLwLmpwMDw
+            """.trimIndent()
+        ) shouldBe 70
+
+        timing { Day3.part2(input(3)) shouldBe 2567 }
+    }
 }
