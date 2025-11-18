@@ -1,21 +1,15 @@
 package net.iplantevin.aoc.aoc2023
 
 import net.iplantevin.aoc.common.Point
+import net.iplantevin.aoc.common.distinctPairs
 
 object Day11 {
 
     fun part1(universe: String, expansionFactor: Int): Long {
         val (galaxies, emptyRows, emptyColumns) = part2(universe)
-        val expandedGalaxies = expand(expansionFactor, galaxies, emptyRows, emptyColumns)
-        val cartesianProduct = mutableSetOf<Pair<Point, Point>>()
-        expandedGalaxies.map { galaxy ->
-            expandedGalaxies.map { otherGalaxy ->
-                if (galaxy != otherGalaxy && Pair(otherGalaxy, galaxy) !in cartesianProduct) {
-                    cartesianProduct += Pair(galaxy, otherGalaxy)
-                }
-            }
-        }
-        return cartesianProduct.sumOf { (g1, g2) -> g1.distance(g2) }
+        return expand(expansionFactor, galaxies, emptyRows, emptyColumns)
+            .distinctPairs()
+            .sumOf { (g1, g2) -> g1.distance(g2) }
     }
 
     private fun part2(universe: String): Triple<List<Point>, List<Int>, List<Int>> {

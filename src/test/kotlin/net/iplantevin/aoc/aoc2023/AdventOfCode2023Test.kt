@@ -450,7 +450,7 @@ humidity-to-location map:
             1
         ) shouldBe 374
 
-        timing { Day11.part1(input(11), 1) shouldBe 10033566 }
+        timing(100, true) { Day11.part1(input(11), 1) shouldBe 10033566 }
     }
 
     @Test
