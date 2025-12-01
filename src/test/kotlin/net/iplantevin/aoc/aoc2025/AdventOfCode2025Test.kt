@@ -12,19 +12,41 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
     @Test
     fun `day 1 - part 1`() {
         Day1.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                L68
+                L30
+                R48
+                L5
+                R60
+                L55
+                L1
+                L99
+                R14
+                L82
+            """.trimIndent()
+        ) shouldBe 3
 
-        timing { Day1.part1(input(1)) shouldBe 0L }
+        timing { Day1.part1(input(1)) shouldBe 1102 }
     }
 
     @Test
     fun `day 1 - part 2`() {
         Day1.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                L68
+                L30
+                R48
+                L5
+                R60
+                L55
+                L1
+                L99
+                R14
+                L82
+            """.trimIndent()
+        ) shouldBe 6
 
-        timing { Day1.part2(input(1)) shouldBe 0L }
+        timing { Day1.part2(input(1)) shouldBe 6175 }
     }
 
     @Disabled
