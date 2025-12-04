@@ -95,24 +95,44 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
         timing { Day3.part2(input(3)) shouldBe 171975854269367 }
     }
 
-    @Disabled
     @Test
     fun `day 4 - part 1`() {
         Day4.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                ..@@.@@@@.
+                @@@.@.@.@@
+                @@@@@.@.@@
+                @.@@@@..@.
+                @@.@@@@.@@
+                .@@@@@@@.@
+                .@.@.@.@@@
+                @.@@@.@@@@
+                .@@@@@@@@.
+                @.@.@@@.@.
+            """.trimIndent()
+        ) shouldBe 13
 
-        timing { Day4.part1(input(4)) shouldBe 0 }
+        timing { Day4.part1(input(4)) shouldBe 1445 }
     }
 
-    @Disabled
     @Test
     fun `day 4 - part 2`() {
         Day4.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                ..@@.@@@@.
+                @@@.@.@.@@
+                @@@@@.@.@@
+                @.@@@@..@.
+                @@.@@@@.@@
+                .@@@@@@@.@
+                .@.@.@.@@@
+                @.@@@.@@@@
+                .@@@@@@@@.
+                @.@.@@@.@.
+            """.trimIndent()
+        ) shouldBe 43
 
-        timing { Day4.part2(input(4)) shouldBe 0 }
+        timing { Day4.part2(input(4)) shouldBe 8317 }
     }
 
     @Disabled
