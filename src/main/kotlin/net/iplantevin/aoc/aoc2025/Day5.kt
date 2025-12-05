@@ -5,34 +5,19 @@ import net.iplantevin.aoc.common.size
 
 object Day5 {
 
-    fun part1(input: String): Int {
-        val (idRanges, ingredientIds) = parse(input)
-        return ingredientIds.count { id -> idRanges.any { id in it } }
+    fun part1(input: String): Int = parse(input).let { (idRanges, ingredientIds) ->
+        ingredientIds.count { id -> idRanges.any { id in it } }
     }
 
-    fun part2(input: String): Long {
-        val (idRanges, _) = parse(input)
-        var mergedRanges = idRanges
-        while (true) {
+    fun part2(input: String): Long = parse(input).let { (idRanges, _) ->
+        idRanges.fold(emptyList<LongRange>()) { mergedRanges, nextRange ->
             val newMergedRanges = mutableListOf<LongRange>()
-            newMergedRanges += mergedRanges
-            loop@ for (firstRangeIndex in newMergedRanges.indices) {
-                for (otherRangeIndex in newMergedRanges.indices) {
-                    val firstRange = newMergedRanges[firstRangeIndex]
-                    val otherRange = newMergedRanges[otherRangeIndex]
-                    val mergedRange = firstRange.mergeWithOrNull(otherRange)
-
-                    if (firstRangeIndex != otherRangeIndex && mergedRange != null) {
-                        newMergedRanges[firstRangeIndex] = mergedRange
-                        newMergedRanges.removeAt(otherRangeIndex)
-                        break@loop
-                    }
-                }
+            var mergedRange = nextRange
+            mergedRanges.forEach { range ->
+                range.mergeWithOrNull(mergedRange)?.let { mergedRange = it } ?: newMergedRanges.add(range)
             }
-            if (newMergedRanges.size == mergedRanges.size) break
-            mergedRanges = newMergedRanges
-        }
-        return mergedRanges.sumOf { it.size() }
+            newMergedRanges.apply { add(mergedRange) }
+        }.sumOf { it.size() }
     }
 
     private fun parse(input: String): Pair<List<LongRange>, List<Long>> {
