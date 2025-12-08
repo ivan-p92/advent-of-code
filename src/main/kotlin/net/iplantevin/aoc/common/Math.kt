@@ -1,5 +1,7 @@
 package net.iplantevin.aoc.common
 
+import kotlin.math.pow
+
 fun gcd(a: Long, b: Long): Long {
     var num1 = a
     var num2 = b
@@ -12,3 +14,7 @@ fun gcd(a: Long, b: Long): Long {
 }
 
 fun lcm(a: Long, b: Long): Long = a * (b / gcd(a, b))
+
+fun Long.pow(n: Int): Long = toDouble().pow(n).toLong()
+
+fun Int.pow(n: Int): Int = toDouble().pow(n).toInt()

@@ -257,32 +257,65 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
         timing { Day7.part2(input(7)) shouldBe 135656430050438 }
     }
 
-    @Disabled
     @Test
     fun `day 8 - part 1`() {
         Day8.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                162,817,812
+                57,618,57
+                906,360,560
+                592,479,940
+                352,342,300
+                466,668,158
+                542,29,236
+                431,825,988
+                739,650,466
+                52,470,668
+                216,146,977
+                819,987,18
+                117,168,530
+                805,96,715
+                346,949,466
+                970,615,88
+                941,993,340
+                862,61,35
+                984,92,344
+                425,690,689
+            """.trimIndent(),
+            connections = 10
+        ) shouldBe 40
 
-        Day8.part1(
-            """""".trimIndent()
-        ) shouldBe 0
-
-        timing { Day8.part1(input(8)) shouldBe 0 }
+        timing { Day8.part1(input(8), connections = 1000) shouldBe 68112 }
     }
 
-    @Disabled
     @Test
     fun `day 8 - part 2`() {
         Day8.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                162,817,812
+                57,618,57
+                906,360,560
+                592,479,940
+                352,342,300
+                466,668,158
+                542,29,236
+                431,825,988
+                739,650,466
+                52,470,668
+                216,146,977
+                819,987,18
+                117,168,530
+                805,96,715
+                346,949,466
+                970,615,88
+                941,993,340
+                862,61,35
+                984,92,344
+                425,690,689
+            """.trimIndent()
+        ) shouldBe 25272
 
-        Day8.part2(
-            """""".trimIndent()
-        ) shouldBe 0
-
-        timing { Day8.part2(input(8)) shouldBe 0 }
+        timing { Day8.part2(input(8)) shouldBe 44543856 }
     }
 
     @Disabled
