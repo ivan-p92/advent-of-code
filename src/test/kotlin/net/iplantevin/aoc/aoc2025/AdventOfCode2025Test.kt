@@ -366,6 +366,7 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
         timing { Day10.part1(input(10)) shouldBe 415 }
     }
 
+    @Disabled
     @Test
     fun `day 10 - part 2`() {
         Day10.part2(
@@ -375,24 +376,47 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
         timing { Day10.part2(input(10)) shouldBe 0 }
     }
 
-    @Disabled
     @Test
     fun `day 11 - part 1`() {
         Day11.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                aaa: you hhh
+                you: bbb ccc
+                bbb: ddd eee
+                ccc: ddd eee fff
+                ddd: ggg
+                eee: out
+                fff: out
+                ggg: out
+                hhh: ccc fff iii
+                iii: out
+            """.trimIndent()
+        ) shouldBe 5
 
-        timing { Day11.part1(input(11)) shouldBe 0 }
+        timing { Day11.part1(input(11)) shouldBe 749 }
     }
 
-    @Disabled
     @Test
     fun `day 11 - part 2`() {
         Day11.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                svr: aaa bbb
+                aaa: fft
+                fft: ccc
+                bbb: tty
+                tty: ccc
+                ccc: ddd eee
+                ddd: hub
+                hub: fff
+                eee: dac
+                dac: fff
+                fff: ggg hhh
+                ggg: out
+                hhh: out
+            """.trimIndent()
+        ) shouldBe 2
 
-        timing { Day11.part2(input(11)) shouldBe 0 }
+        timing { Day11.part2(input(11)) shouldBe 420257875695750 }
     }
 
     @Disabled
