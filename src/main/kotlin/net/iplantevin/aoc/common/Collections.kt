@@ -16,6 +16,6 @@ fun <T> MutableSet<T>.removeFirst(): T = first().also { remove(it) }
 
 fun <T> List<T>.println(): List<T> = onEach { println(it) }
 
-fun Iterable<Int>.product(): Int = reduce { acc, n -> acc * n }
+fun Iterable<Int>.product(): Int = reduce(Int::times)
 
-fun Iterable<Long>.product(): Long = reduce { acc, n -> acc * n }
+fun Iterable<Long>.product(): Long = reduce(Long::times)

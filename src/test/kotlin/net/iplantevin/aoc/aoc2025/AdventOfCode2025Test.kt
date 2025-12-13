@@ -1,7 +1,6 @@
 package net.iplantevin.aoc.aoc2025
 
 import io.kotest.matchers.shouldBe
-
 import net.iplantevin.aoc.util.AdventOfCodeTest
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -318,27 +317,42 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
         timing { Day8.part2(input(8)) shouldBe 44543856 }
     }
 
-    @Disabled
     @Test
     fun `day 9 - part 1`() {
         Day9.part1(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                7,1
+                11,1
+                11,7
+                9,7
+                9,5
+                2,5
+                2,3
+                7,3
+            """.trimIndent()
+        ) shouldBe 50
 
-        timing { Day9.part1(input(9)) shouldBe 0 }
+        timing { Day9.part1(input(9)) shouldBe 4738108384 }
     }
 
-    @Disabled
     @Test
     fun `day 9 - part 2`() {
         Day9.part2(
-            """""".trimIndent()
-        ) shouldBe 0
+            """
+                7,1
+                11,1
+                11,7
+                9,7
+                9,5
+                2,5
+                2,3
+                7,3
+            """.trimIndent()
+        ) shouldBe 24
 
-        timing { Day9.part2(input(9)) shouldBe 0 }
+        timing { Day9.part2(input(9)) shouldBe 1513792010 }
     }
 
-    @Disabled
     @Test
     fun `day 10 - part 1`() {
         Day10.part1(
@@ -348,7 +362,6 @@ class AdventOfCode2025Test : AdventOfCodeTest(2025) {
         timing { Day10.part1(input(10)) shouldBe 0 }
     }
 
-    @Disabled
     @Test
     fun `day 10 - part 2`() {
         Day10.part2(
